@@ -4,3 +4,4 @@ title: Home
 ---
 
 # Hello World
+[About Me](/about/)

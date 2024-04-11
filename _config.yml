@@ -1,0 +1,9 @@
+title: Ryan M. Imrie
+description: My personal and professional website.
+baseurl: ""
+url: "https://ryanmimrie.github.io"
+twitter_username: ryanmimrie
+github_username:  ryanmimrie
+
+# Build settings
+theme: jekyll-theme-cayman

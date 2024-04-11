@@ -4,7 +4,7 @@ title: Ryan M. Imrie
 ---
 
 # Projects
-## MAVI (Models of Acute Virus Infection)
+## MAVIs (Models of Acute Virus Infection)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu tincidunt ligula. Fusce nisl odio, ornare a lacinia vel, convallis a metus. Ut neque urna, tristique sed tincidunt vestibulum, iaculis vitae nulla. Cras pulvinar, tortor et malesuada aliquam, sem lacus pretium orci, eget sollicitudin lectus velit in risus. Vestibulum accumsan neque vitae vehicula fringilla. Duis malesuada mattis ex. Fusce tincidunt ante ac ipsum pellentesque, vitae vehicula lacus tincidunt.
 

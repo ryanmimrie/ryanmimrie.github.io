@@ -3,5 +3,8 @@ layout: default
 title: Home
 ---
 
-# Hello World
+# About Me
 [About Me](/about/)
+
+# Projects
+## MAVI (Models of Acute Virus Infection)

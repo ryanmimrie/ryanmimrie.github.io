@@ -4,8 +4,8 @@ title: Within-Host MAVI
 permalink: /whmavi/
 ---
 
-# Within-Host MAVI
-## Quick Summary
+# Quick Summary
+## Description
 Within-Host Model of Acute Virus Infection (WH-MAVI) is an agent-based mathematical model of within-host virus dynamics during acute infection.
 It has been designed to be highly customisible, user-friendly, and reproducible without requiring any detailed understanding of mathematics or coding.
 ## How to run WH-MAVI

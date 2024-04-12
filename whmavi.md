@@ -45,7 +45,7 @@ parameterD: (value_for_model_1, value_for_model_2)
 Some behaviours to be aware of:
 <ul>
   <li>Each parameter should be specified on a separate line.</li>
-  <li>Parameter values can be split across multiple lines provided the line ends with a ",".</li>
+  <li>Parameter values can be split across multiple lines provided the line ends with ":" or ",".</li>
   <li>Syntax features can be combined in a hierarchal way:
     <ul>
       <li>"()" outside of "{}" outside of "[]"</li>

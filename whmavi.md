@@ -24,14 +24,14 @@ Running WH-MAVI is a two stage process:
 </div>
 
 ### Manually creating .mavi files
-An example of a .mavi text file can be seen below:
+The .mavi text file follows a simple structure that can be seen below:
 
 {% highlight yaml %}
-# This is a comment
-parameterA: value
-parameterB: [value1, value2]
-parameterC: {key: value}
-parameterD: (value3, value4)
+# Comment lines begin with a hashtag
+parameterA: fixed_value
+parameterB: [value_1, value_2]
+parameterC: {data_1, data_2}
+parameterD: (value_for_model_1, value_for_model_2)
 {% endhighlight %}
 
 

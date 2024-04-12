@@ -26,11 +26,14 @@ Running WH-MAVI is a two stage process:
 ### Manually creating .mavi files
 An example of a .mavi text file can be seen below:
 
-```yaml
-# This is a comment
-parameterA: value
-parameterB: [value1, value2]
-parameterC: {key: value}
-parameterD: (value3, value4)
+{% highlight yaml %}
+function sayHello(name) {
+  if (!name) {
+    console.log('Hello World');
+  } else {
+    console.log(`Hello ${name}`);
+  }  
+}  
+{% endhighlight %}
 
 

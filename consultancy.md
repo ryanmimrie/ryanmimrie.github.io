@@ -1,5 +1,5 @@
 ---
-layout: consultancy
+layout: default
 title: Consultancy
 permalink: /consultancy/
 ---

@@ -40,12 +40,6 @@ parameterC: {data_1}
 
 # Parameters to be used in different model iterations can be specified as:
 parameterD: (value_for_model_1, value_for_model_2)
-
-# Parameters to be estimated by the model can be specified as:
-parameterE: {}
-
-# This syntax can be expanded and combined hierarchally
-parameterE: ({[[value_1, value_2. value_3], [time_1, time_2, time_3]]}, {[[value_4, value_5. value_6], [time_1, time_2, time_3]]})
 {% endhighlight %}
 
 

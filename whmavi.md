@@ -16,12 +16,21 @@ Running WH-MAVI is a two stage process:
 </ol>
 
 ## Designing a WH-MAVI run
+.mavi text files can be created using the GUI-based design tool (either in a web browser or locally), or manually. 
 ### GUI-based Designer
-The design and creation of .mavi text files can be done through GUIs either in a web browser or locally.
 <div>
   <a href="/whmavi/" class="project-button">Web Designer</a>
   <a href="/whmavi/" class="project-button">Local Designer</a>
 </div>
 
 ### Manually creating .mavi files
-As .mavi files are simple and text-based, they can also be created manually. An example of the .mavi file format can be seen here:
+An example of a .mavi text file can be seen below:
+
+```yaml
+# This is a comment
+parameterA: value
+parameterB: [value1, value2]
+parameterC: {key: value}
+parameterD: (value3, value4)
+
+

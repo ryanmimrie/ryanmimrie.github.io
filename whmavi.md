@@ -30,19 +30,22 @@ The .mavi text file follows a simple structure that can be seen below:
 # Comment lines begin with a hashtag
 
 # Parameters with fixed values can be specified as:
-parameterA: fixed_value
+parameterA: value
 
 # Parameters with values that change over time can be specified as:
-parameterB: [value_1, value_2]
+parameterB: [[value_1, value_2], [time_1, time_2]]
 
 # Parameters with experimental data can be specified as:
-parameterC: {data_1, data_2}
+parameterC: {data_1}
 
 # Parameters to be used in different model iterations can be specified as:
 parameterD: (value_for_model_1, value_for_model_2)
 
 # Parameters to be estimated by the model can be specified as:
 parameterE: {}
+
+# This syntax can be expanded and combined hierarchally
+parameterE: ({[[value_1, value_2. value_3], [time_1, time_2, time_3]]}, {[[value_4, value_5. value_6], [time_1, time_2, time_3]]})
 {% endhighlight %}
 
 

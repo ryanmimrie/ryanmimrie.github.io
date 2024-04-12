@@ -57,7 +57,7 @@ Some behaviours to be aware of:
 An example of this more complex syntax can be seen below:
 
 {% highlight python %}
-# A parameter with different values to be used in two separate models.
+# A parameter with different values to be used in two different model iterations.
 # These values come from experimental data that changes over three timepoints:
 parameterE:  
 ({[[value_1, value_2, value_3], [time_1, time_2, time_3]]},

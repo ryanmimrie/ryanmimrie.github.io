@@ -11,6 +11,6 @@ It has been designed to be highly customisible, user-friendly, and reproducible 
 ## How to run WH-MAVI
 Running WH-MAVI is a two stage process:
 <ol>
-  <li>Designer: In this stage, the user provides information on the behaviours and parameters of the model they would like to run. These are stored in an output text file, which can be saved for running later, shared with other researchers, or published alongside findings for reproducibility. </li>
-  <li>Solver: In this stage, the model(s) specified in the output text file are solved by the WH-MAVI engine. If the specified models contain data, the solver will run many iterations of the model to find optimal parameter values to describe the data.</li>
+  <li><b>Designer:</b> In this stage, the user provides information on the behaviours and parameters of the model they would like to run. The user may also provide experimental data for the model to be fit to, and specify which parameters they would like the model to estimate values for during data fitting. All of this information is stored in a .mavi text file, which can be saved for running later, shared with other researchers, or published alongside findings for reproducibility. </li>
+  <li><b>Solver:</b> In this stage, the model(s) specified in the .mavi text file are solved by the WH-MAVI engine. When there is not any data for fitting, this process is straightforward and the engine will simply run every theoretical scenario specified by the user. If the .mavi file includes data for fitting, the engine will run many iterations of the model with different values for the parameters the user has asked to be estimated.</li>
 </ol>

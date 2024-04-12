@@ -6,5 +6,5 @@ title: Ryan M. Imrie
 # Projects
 ## MAVIs (Models of Acute Virus Infection)
 
-<div><button>Within-Host<br>MAVI</button></div>
+<div class="header-buttons"><button>Within-Host<br>MAVI</button></div>
 

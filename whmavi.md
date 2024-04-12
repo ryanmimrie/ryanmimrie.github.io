@@ -27,13 +27,11 @@ Running WH-MAVI is a two stage process:
 An example of a .mavi text file can be seen below:
 
 {% highlight yaml %}
-function sayHello(name) {
-  if (!name) {
-    console.log('Hello World');
-  } else {
-    console.log(`Hello ${name}`);
-  }  
-}  
+# This is a comment
+parameterA: value
+parameterB: [value1, value2]
+parameterC: {key: value}
+parameterD: (value3, value4)
 {% endhighlight %}
 
 

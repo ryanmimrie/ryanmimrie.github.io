@@ -42,4 +42,33 @@ parameterC: {data_1}
 parameterD: (value_for_model_1, value_for_model_2)
 {% endhighlight %}
 
+Some behaviours to be aware of:
+<ul>
+  <li>Each parameter should be specified on a separate line.</li>
+  <li>Parameter values can be split across multiple lines provided the line ends with a ",".</li>
+  <li>Syntax features can be combined in a hierarchal way:
+    <ul>
+      <li>"()" outside of "{}" outside of "[]"</li>
+    </ul>
+  </li>
+</ul>
 
+An example of this more complex syntax can be seen below:
+
+{% highlight yaml %}
+# A parameter with different values to be used in two separate models. These values come from experimental data that changes over three timepoints:
+parameterE: ({[[value_1, value_2, value_3], [time_1, time_2, time_3]]},
+{[[value_4, value_5, value_6], [time_1, time_2, time_3]]})
+
+# Parameters with fixed values can be specified as:
+parameterA: value
+
+# Parameters with values that change over time can be specified as:
+parameterB: [[value_1, value_2], [time_1, time_2]]
+
+# Parameters with experimental data can be specified as:
+parameterC: {data_1}
+
+# Parameters to be used in different model iterations can be specified as:
+parameterD: (value_for_model_1, value_for_model_2)
+{% endhighlight %}

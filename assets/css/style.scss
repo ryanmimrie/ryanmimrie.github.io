@@ -4,8 +4,12 @@
 @import "{{ site.theme }}";
 
 .project-button {
-  background-color: #27ae60;
+  background-color: #e74c3c;
   color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
+  display: inline-block; /* Add this line */
+  width: 200px; /* Add this line - adjust width as needed */
+  text-align: center; /* Ensure text is centered */
+  white-space: normal; /* Ensure text wraps naturally */
 }

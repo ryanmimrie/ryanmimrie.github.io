@@ -1,2 +1,2 @@
 # ryanmimrie.github.io
-Repository for hosting personal and professional website
+Repository for hosting my personal and professional website

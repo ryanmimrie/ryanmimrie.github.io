@@ -16,7 +16,7 @@ Running WH-MAVI is a two stage process:
 </ol>
 
 ## Designing a WH-MAVI run
-.mavi text files can be created using the GUI-based design tool (either in a web browser or locally), or manually. 
+.mavi text files can be created using the GUI-based design tool or manually. 
 ### GUI-based Designer
 <div>
   <a href="/whmavi/" class="project-button">Web Designer</a>

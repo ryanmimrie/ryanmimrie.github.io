@@ -8,8 +8,17 @@
   color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
-  display: inline-block; /* Add this line */
-  width: 200px; /* Add this line - adjust width as needed */
-  text-align: center; /* Ensure text is centered */
-  white-space: normal; /* Ensure text wraps naturally */
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+  white-space: normal;
+  transition: background-color 0.3s;
+}
+
+.project-button:hover {
+  background-color: #2ecc71;
+}
+
+.project-button:active {
+  background-color: #2ecc71;
 }

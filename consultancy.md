@@ -6,7 +6,7 @@ permalink: /consultancy/
 
 ## Services
 
-<div style="font-size: 0.9em;">I have been actively collaborating with industry partners for several years and am happy to receive any new inquiries. Feel free to contact me at ryan.m.imrie@gmail.com with any questions.</div>
+<div style="font-size: 0.9em;">I have been actively collaborating with industry partners for several years and am happy to receive any new enquiries. Feel free to contact me at ryan.m.imrie@gmail.com with any questions.</div>
 
 #### Assay Design, Wet-Lab Workflows, and SOPs
 
@@ -42,7 +42,16 @@ permalink: /consultancy/
 </ul></div>
 
 #### Statistical Analysis and Reporting
-<div style="font-size: 0.9em;"></div>
+<div style="font-size: 0.9em;">
+    <ul>
+        <li>Parametric and non-parametric statistical tests</li>
+        <li>Frequentist linear modelling</li>
+        <li>Bayesian GLMMs including phylogenetic GLMMs</li>
+        <li>Survival analysis</li>
+        <li>Principle component analysis (PCA)</li>
+        <li>Machine learning</li>
+    </ul>
+</div>
 
 
 ## Consultancy Rates

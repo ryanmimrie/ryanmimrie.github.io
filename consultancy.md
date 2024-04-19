@@ -36,7 +36,7 @@ I have extensive experience of bioinformatics analysis of next-generation sequen
 
 Some projects require novel or unique solutions to data collection, wrangling, and analysis. With over a decade of experience coding in Python, R, Bash, and Javascript, I am happy to provide bespoke coding solutions to any projects that require them. This includes the development of web apps and GUIs that can be easily interacted with by non-coders. Some examples of past projects are:
 <ul>
-    <li>A Python image processing pipeline to isolate and quantify endosomes in 3-dimensions from confocal microscopy images.</li>
+    <li>A Python image processing pipeline to isolate and quantify endosomes in 3D from confocal microscopy images.</li>
     <li>A custom Bash script to demultiplex Oxford Nanopore reads prepared with Illumina sequencing barcodes.</li>
     <li>An custom R script to efficiently extract and combine qRT-PCR amplification data from many StepOne Plus Real-Time PCR files.</li>
     <li>An R image processing pipeline to segment and quantify melanisation of <em>Galleria mellonella</em> larvae from raw DSLR images.</li>

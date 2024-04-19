@@ -6,25 +6,24 @@ permalink: /consultancy/
 
 ## Services
 
-I have been regularly consulting with industry partners for multiple years and I am always happy to receive new enquiries. You can get in touch at ryan.m.imrie@gmail.com with any queries.
+I have been actively collaborating with industry partners for several years and welcome new inquiries. Feel free to contact me at ryan.m.imrie@gmail.com with any questions.
 
-### Assay, SOP, and Wet Lab Workflows
+#### Assay Design, Wet-Lab Workflows, and SOPs
 
-I have many years of experience in molecular biology wet lab techniques, with a particular focus on improving usability, reliability, and throughput for the following techniques:
+I have many years of experience in molecular biology wet-lab techniques, with a particular focus on improving usability, reliability, and throughput for the following techniques:
 <ul>
     <li>DNA & RNA extraction from animal tissue, bacterial and animal cell culture, and stool samples.</li>
     <li>Single and multiplex conventional PCR</li>
     <li>qPCR and qRT-PCR</li>
-    <li>Oxford Nanopore sequencing library prep and multiplex sequencing</li>
-    <li>Targeted and amplicon sequencing</li>
+    <li>Oxford Nanopore sequencing library preparation and multiplex sequencing</li>
+    <li>DNA & RNA targeted amplicon sequencing</li>
 </ul>
 
-
-### Bioinformatics Analysis and Workflows
-
+#### Bioinformatics Analysis and Workflows
 
 
-### Statistical Analysis and Reporting
+
+#### Statistical Analysis and Reporting
 
 When I'm not working, I enjoy [Your Hobbies or Interests].
 

@@ -23,13 +23,13 @@ I have many years of experience in molecular biology wet-lab techniques, with a 
 
 I have extensive experience of bioinformatics analysis of next-generation sequencing data, including the design of bespoke solutions for unique projects. While I am happy to receive enquiries about any bioinformatics projects, I can offer expertise in the following:
 <ul>
-    <li>Illumina and Oxford Nanopore demultiplexing, quality control, and library analysis</li>
-    <li>Reference sequence alignment and assembly</li>
-    <li>De novo genome assembly</li>
-    <li>Genome annotation</li>
-    <li>Metagenomics and meta-transcriptomics analysis</li>
-    <li>RNAseq alignment and expression analysis</li>
-    <li>Multiple sequence alignment and phylogetic inference</li>
+    <li>Illumina and Oxford Nanopore demultiplexing, quality control, and library analysis.</li>
+    <li>Reference sequence alignment and assembly.</li>
+    <li>De novo genome assembly.</li>
+    <li>Genome annotation.</li>
+    <li>Metagenomics and meta-transcriptomics analysis.</li>
+    <li>RNAseq alignment and expression analysis.</li>
+    <li>Multiple sequence alignment and phylogenetic reconstruction.</li>
 </ul>
 
 #### Bespoke Coding Solutions

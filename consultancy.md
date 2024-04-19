@@ -12,9 +12,8 @@ I have been actively collaborating with industry partners for several years and 
 
 I have many years of experience in molecular biology wet-lab techniques, with a particular focus on improving usability, reliability, and throughput for the following techniques:
 <ul>
-    <li>DNA & RNA extraction from animal tissue, bacterial and animal cell culture, and stool samples.</li>
-    <li>Single and multiplex conventional PCR.</li>
-    <li>qPCR and qRT-PCR.</li>
+    <li>DNA & RNA extraction from animal tissue, bacterial and animal cell cultures, and stool samples.</li>
+    <li>Single and multiplex conventional PCR, qPCR and qRT-PCR.</li>
     <li>Oxford Nanopore sequencing library preparation and multiplex sequencing.</li>
     <li>DNA & RNA targeted amplicon sequencing.</li>
 </ul>

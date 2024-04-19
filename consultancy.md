@@ -14,7 +14,7 @@ permalink: /consultancy/
 <ul>
     <li>DNA & RNA extraction from animal tissue, bacterial and animal cell cultures, and stool samples.</li>
     <li>Single and multiplex conventional PCR, qPCR and qRT-PCR.</li>
-    <li>Oxford Nanopore sequencing library preparation and multiplex sequencing.</li>
+    <li>Oxford Nanopore sequencing library preparation and multiplexing</li>
     <li>DNA & RNA targeted amplicon sequencing.</li>
 </ul></div>
 
@@ -47,9 +47,9 @@ permalink: /consultancy/
 
 ## Consultancy Rates
 
-<div style="font-size: 0.9em;">The following are my standard consultancy rates, negotiable for any large or recurring projects. <br>
+<div style="font-size: 0.9em;">The following are my standard consultancy rates, negotiable for any large or recurring projects. <br><br>
 It is common for computer based projects to consist of a few hours of active work followed by a period where the computer is processing data unsupervised. To reflect this, a reduced rate that covers only the cost of running and maintaining the bioinformatics system is used. For example, a straightforward metagenomics analysis of a small number of samples may require 2 hours of active time (£110) plus 6 hours of processing time (£30), for a total of £140.
-
+<br><br>
 <table border="1">
     <tr>
         <th>Type of Work</th>

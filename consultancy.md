@@ -67,6 +67,7 @@ The following are my standard consultancy rates, negotiable for any large or rec
         <td>Hourly computer processing rate</td>
         <td>£5</td>
         <td>N/A</td>
-        <td>This rate applies to the processing time used by the bioinformatics system to complete a project. It does not apply to non-bioinformatics computer tasks like meetings and writing.</td>
+        <td>This rate applies to the processing time used by the bioinformatics system to complete a project, and covers the costs of running and maintaining the system I use for processing.</td>
     </tr>
 </table>
+It is common for bioinformatics projects to consist of a few hours of active time at the hourly work rate, followed by a longer period where the computer is processing unsupervised. For example, a straightforward metagenomics analysis of a small number of samples may require 2 hours of active time (£110) plus 6 hours of processing time (£30), for a total of £140.

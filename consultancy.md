@@ -49,7 +49,7 @@ Some projects require novel or unique solutions to data collection, wrangling, a
 ## Consultancy Rates
 
 The following are my standard consultancy rates, negotiable for any large or recurring projects. 
-It is common for computer based projects to consist of a few hours of active work followed by a longer period where the computer is processing data unsupervised. To reflect this, a reduced rate that covers only the cost of running and maintaining the bioinformatics system is used. For example, a straightforward metagenomics analysis of a small number of samples may require 2 hours of active time (£110) plus 6 hours of processing time (£30), for a total of £140.
+It is common for computer based projects to consist of a few hours of active work followed by a period where the computer is processing data unsupervised. To reflect this, a reduced rate that covers only the cost of running and maintaining the bioinformatics system is used. For example, a straightforward metagenomics analysis of a small number of samples may require 2 hours of active time (£110) plus 6 hours of processing time (£30), for a total of £140.
 
 <table border="1">
     <tr>

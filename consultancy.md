@@ -6,7 +6,7 @@ permalink: /consultancy/
 
 ## Services
 
-I have been actively collaborating with industry partners for several years and am happy to receive any new inquiries. Feel free to contact me at ryan.m.imrie@gmail.com with any questions.
+<div style="font-size: 0.9em;">I have been actively collaborating with industry partners for several years and am happy to receive any new inquiries. Feel free to contact me at ryan.m.imrie@gmail.com with any questions.</div>
 
 #### Assay Design, Wet-Lab Workflows, and SOPs
 

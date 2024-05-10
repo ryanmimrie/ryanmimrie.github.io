@@ -94,19 +94,28 @@ This designer is a visual representation of the distribution function used in WH
   </div>
 </div>
 
-<div id="controls">
-  <h2>Plot Controls</h2>
-  <div class="control-group">
-        <label for="xmin">X Min:</label>
-        <input type="number" id="xmin" value="-0.2" step="0.1">
-      </div>
-  <div class="control-group">
-    <label for="xmax">X Max:</label>
-    <input type="number" id="xmax" value="1.2" step="0.1">
+<div id="controls" style="display: flex; justify-content: space-between;">
+  <div id="population-controls">
+    <h3>Population Controls</h2>
+    <div class="control-group">
+          <label for="phenoratio">Phenotype Ratio:</label>
+          <input type="number" id="phenoratio" value="0.5" step="0.01">
+        </div>
   </div>
-  <div class="control-group">
-    <label for="ymax">Y Max:</label>
-    <input type="number" id="ymax" value="1.2" step="0.1">
+  <div id="plot-controls">
+    <h3>Plot Controls</h2>
+    <div class="control-group">
+          <label for="xmin">X Min:</label>
+          <input type="number" id="xmin" value="-0.2" step="0.1">
+        </div>
+    <div class="control-group">
+      <label for="xmax">X Max:</label>
+      <input type="number" id="xmax" value="1.2" step="0.1">
+    </div>
+    <div class="control-group">
+      <label for="ymax">Y Max:</label>
+      <input type="number" id="ymax" value="1.2" step="0.1">
+    </div>
   </div>
 </div>
 

@@ -10,8 +10,8 @@ This designer is a visual representation of the distribution function used in WH
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 
-  #distribution1-controls h3 {
-      text-align: left;
+  h3 {
+      text-align: right;
   }
   
   #controls {
@@ -35,9 +35,9 @@ This designer is a visual representation of the distribution function used in WH
   
   @media (max-width: 768px) {
 
-    #distribution1-controls h3 {
-          text-align: center;
-      }
+    h3 {
+        text-align: center;
+    }
     
       .control-group {
           flex-direction: column;

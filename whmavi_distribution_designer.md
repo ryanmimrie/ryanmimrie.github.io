@@ -96,14 +96,14 @@ This designer is a visual representation of the distribution function used in WH
 
 <div id="controls2" style="display: flex; justify-content: space-between;">
   <div id="population-controls">
-    <h3>Population Controls</h2>
+    <h3>Population Controls</h3>
     <div class="control-group">
           <label for="phenoratio">Phenotype Ratio:</label>
           <input type="number" id="phenoratio" value="0.5" step="0.01">
         </div>
   </div>
   <div id="plot-controls">
-    <h3>Plot Controls</h2>
+    <h3>Plot Controls</h3>
     <div class="control-group">
           <label for="xmin">X Min:</label>
           <input type="number" id="xmin" value="-0.2" step="0.1">

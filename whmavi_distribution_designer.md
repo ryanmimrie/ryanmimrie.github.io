@@ -38,7 +38,7 @@ This designer is a visual representation of the distribution function used in WH
       <input type="number" id="mean1" value="1" step="0.1">
     </div>
     <div class="control-group" id="sd1-group">
-      <label for="sd1">Standard Deviation:</label>
+      <label for="sd1">SD:</label>
       <input type="number" id="sd1" value="1" step="0.1">
     </div>
     <div class="control-group" id="alpha1-group">
@@ -73,7 +73,7 @@ This designer is a visual representation of the distribution function used in WH
       <input type="number" id="mean2" value="1" step="0.1">
     </div>
     <div class="control-group" id="sd2-group">
-      <label for="sd2">Standard Deviation:</label>
+      <label for="sd2">SD:  </label>
       <input type="number" id="sd2" value="1" step="0.1">
     </div>
     <div class="control-group" id="alpha2-group">

@@ -15,6 +15,9 @@ This designer is a visual representation of the distribution function used in WH
   .control-group {
     margin-bottom: 10px;
   }
+  .hidden {
+    display: none;
+  }
 </style>
 
 <canvas id="distributionChart" width="800" height="400"></canvas>
@@ -25,7 +28,7 @@ This designer is a visual representation of the distribution function used in WH
     <h3>Phenotypic Group 1</h3>
     <div class="control-group">
       <label for="distribution1">Distribution:</label>
-      <select id="distribution1">
+      <select id="distribution1" onchange="toggleInputs('1')">
         <option value="johnson-su">Johnson-SU</option>
         <option value="beta">Beta</option>
       </select>
@@ -38,27 +41,27 @@ This designer is a visual representation of the distribution function used in WH
       <label for="xmax1">X Max:</label>
       <input type="number" id="xmax1" value="10" step="0.1">
     </div>
-    <div class="control-group">
+    <div class="control-group hidden" id="mean1-group">
       <label for="mean1">Mean:</label>
       <input type="number" id="mean1" value="1" step="0.1">
     </div>
-    <div class="control-group">
+    <div class="control-group hidden" id="sd1-group">
       <label for="sd1">Standard Deviation:</label>
       <input type="number" id="sd1" value="1" step="0.1">
     </div>
-    <div class="control-group">
+    <div class="control-group" id="alpha1-group">
       <label for="alpha1">Alpha:</label>
       <input type="number" id="alpha1" value="1" step="0.1">
     </div>
-    <div class="control-group">
+    <div class="control-group" id="beta1-group">
       <label for="beta_param1">Beta:</label>
       <input type="number" id="beta_param1" value="1" step="0.1">
     </div>
-    <div class="control-group">
+    <div class="control-group hidden" id="scale1-group">
       <label for="scale1">Scale:</label>
       <input type="number" id="scale1" value="1" step="0.1">
     </div>
-    <div class="control-group">
+    <div class="control-group hidden" id="clamp1-group">
       <input type="checkbox" id="clamp1"> Clamp
     </div>
   </div>
@@ -68,7 +71,7 @@ This designer is a visual representation of the distribution function used in WH
     <h3>Phenotypic Group 2</h3>
     <div class="control-group">
       <label for="distribution2">Distribution:</label>
-      <select id="distribution2">
+      <select id="distribution2" onchange="toggleInputs('2')">
         <option value="johnson-su">Johnson-SU</option>
         <option value="beta">Beta</option>
       </select>
@@ -81,31 +84,71 @@ This designer is a visual representation of the distribution function used in WH
       <label for="xmax2">X Max:</label>
       <input type="number" id="xmax2" value="10" step="0.1">
     </div>
-    <div class="control-group">
+    <div class="control-group hidden" id="mean2-group">
       <label for="mean2">Mean:</label>
       <input type="number" id="mean2" value="1" step="0.1">
     </div>
-    <div class="control-group">
+    <div class="control-group hidden" id="sd2-group">
       <label for="sd2">Standard Deviation:</label>
       <input type="number" id="sd2" value="1" step="0.1">
     </div>
-    <div class="control-group">
+    <div class="control-group" id="alpha2-group">
       <label for="alpha2">Alpha:</label>
       <input type="number" id="alpha2" value="1" step="0.1">
     </div>
-    <div class="control-group">
+    <div class="control-group" id="beta2-group">
       <label for="beta_param2">Beta:</label>
       <input type="number" id="beta_param2" value="1" step="0.1">
     </div>
-    <div class="control-group">
+    <div class="control-group hidden" id="scale2-group">
       <label for="scale2">Scale:</label>
       <input type="number" id="scale2" value="1" step="0.1">
     </div>
-    <div class="control-group">
+    <div class="control-group hidden" id="clamp2-group">
       <input type="checkbox" id="clamp2"> Clamp
     </div>
   </div>
 </div>
+
+<script>
+function toggleInputs(groupNumber) {
+  const distributionType = document.getElementById('distribution' + groupNumber).value;
+
+  // Select elements related to Johnson-SU fields
+  const meanGroup = document.getElementById('mean' + groupNumber + '-group');
+  const sdGroup = document.getElementById('sd' + groupNumber + '-group');
+  const clampGroup = document.getElementById('clamp' + groupNumber + '-group');
+
+  // Select elements related to Beta fields
+  const alphaGroup = document.getElementById('alpha' + groupNumber + '-group');
+  const betaGroup = document.getElementById('beta' + groupNumber + '-group');
+  const scaleGroup = document.getElementById('scale' + groupNumber + '-group');
+
+  if (distributionType === 'johnson-su') {
+    // Show Johnson-SU fields
+    meanGroup.classList.remove('hidden');
+    sdGroup.classList.remove('hidden');
+    clampGroup.classList.remove('hidden');
+    // Hide Beta fields
+    alphaGroup.classList.remove('hidden');
+    betaGroup.classList.remove('hidden');
+    scaleGroup.classList.add('hidden');
+  } else if (distributionType === 'beta') {
+    // Hide Johnson-SU fields
+    meanGroup.classList.add('hidden');
+    sdGroup.classList.add('hidden');
+    clampGroup.classList.add('hidden');
+    // Show Beta fields
+    alphaGroup.classList.remove('hidden');
+    betaGroup.classList.remove('hidden');
+    scaleGroup.classList.remove('hidden');
+  }
+}
+
+// Initial setup: call the toggleInputs function for each group to set visibility based on the default distribution type
+toggleInputs('1');
+toggleInputs('2');
+</script>
 
 <script>
 let chart; // Global chart instance

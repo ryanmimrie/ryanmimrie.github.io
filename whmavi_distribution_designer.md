@@ -19,87 +19,92 @@ This designer is a visual representation of the distribution function used in WH
   }
 </style>
 
-<div id="controls">
-  <h3>Distribution 1</h3>
-  <div class="control-group">
-    <label for="distribution1">Distribution:</label>
-    <select id="distribution1">
-      <option value="johnson-su">Johnson-SU</option>
-      <option value="beta">Beta</option>
-    </select>
-  </div>
-  <div class="control-group">
-    <label for="xmin1">X Min:</label>
-    <input type="number" id="xmin1" value="0" step="0.1">
-  </div>
-  <div class="control-group">
-    <label for="xmax1">X Max:</label>
-    <input type="number" id="xmax1" value="10" step="0.1">
-  </div>
-  <div class="control-group">
-    <label for="mean1">Mean:</label>
-    <input type="number" id="mean1" value="1" step="0.1">
-  </div>
-  <div class="control-group">
-    <label for="sd1">Standard Deviation:</label>
-    <input type="number" id="sd1" value="1" step="0.1">
-  </div>
-  <div class="control-group">
-    <label for="alpha1">Alpha:</label>
-    <input type="number" id="alpha1" value="1" step="0.1">
-  </div>
-  <div class="control-group">
-    <label for="beta_param1">Beta:</label>
-    <input type="number" id="beta_param1" value="1" step="0.1">
-  </div>
-  <div class="control-group">
-    <label for="scale1">Scale:</label>
-    <input type="number" id="scale1" value="1" step="0.1">
-  </div>
-  <div class="control-group">
-    <input type="checkbox" id="clamp1"> Clamp
+<div id="controls" style="display: flex; justify-content: space-between;">
+  <!-- Distribution 1 Inputs -->
+  <div id="distribution1-controls">
+    <h3>Distribution 1</h3>
+    <div class="control-group">
+      <label for="distribution1">Distribution:</label>
+      <select id="distribution1">
+        <option value="johnson-su">Johnson-SU</option>
+        <option value="beta">Beta</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label for="xmin1">X Min:</label>
+      <input type="number" id="xmin1" value="0" step="0.1">
+    </div>
+    <div class="control-group">
+      <label for="xmax1">X Max:</label>
+      <input type="number" id="xmax1" value="10" step="0.1">
+    </div>
+    <div class="control-group">
+      <label for="mean1">Mean:</label>
+      <input type="number" id="mean1" value="1" step="0.1">
+    </div>
+    <div class="control-group">
+      <label for="sd1">Standard Deviation:</label>
+      <input type="number" id="sd1" value="1" step="0.1">
+    </div>
+    <div class="control-group">
+      <label for="alpha1">Alpha:</label>
+      <input type="number" id="alpha1" value="1" step="0.1">
+    </div>
+    <div class="control-group">
+      <label for="beta_param1">Beta:</label>
+      <input type="number" id="beta_param1" value="1" step="0.1">
+    </div>
+    <div class="control-group">
+      <label for="scale1">Scale:</label>
+      <input type="number" id="scale1" value="1" step="0.1">
+    </div>
+    <div class="control-group">
+      <input type="checkbox" id="clamp1"> Clamp
+    </div>
   </div>
 
-  <h3>Distribution 2</h3>
-  <div class="control-group">
-    <label for="distribution2">Distribution:</label>
-    <select id="distribution2">
-      <option value="johnson-su">Johnson-SU</option>
-      <option value="beta">Beta</option>
-    </select>
+  <!-- Distribution 2 Inputs -->
+  <div id="distribution2-controls">
+    <h3>Distribution 2</h3>
+    <div class="control-group">
+      <label for="distribution2">Distribution:</label>
+      <select id="distribution2">
+        <option value="johnson-su">Johnson-SU</option>
+        <option value="beta">Beta</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label for="xmin2">X Min:</label>
+      <input type="number" id="xmin2" value="0" step="0.1">
+    </div>
+    <div class="control-group">
+      <label for="xmax2">X Max:</label>
+      <input type="number" id="xmax2" value="10" step="0.1">
+    </div>
+    <div class="control-group">
+      <label for="mean2">Mean:</label>
+      <input type="number" id="mean2" value="1" step="0.1">
+    </div>
+    <div class="control-group">
+      <label for="sd2">Standard Deviation:</label>
+      <input type="number" id="sd2" value="1" step="0.1">
+    </div>
+    <div class="control-group">
+      <label for="alpha2">Alpha:</label>
+      <input type="number" id="alpha2" value="1" step="0.1">
+    </div>
+    <div class="control-group">
+      <label for="beta_param2">Beta:</label>
+      <input type="number" id="beta_param2" value="1" step="0.1">
+    </div>
+    <div class="control-group">
+      <label for="scale2">Scale:</label>
+      <input type="number" id="scale2" value="1" step="0.1">
+    </div>
+    <div class="control-group">
+      <input type="checkbox" id="clamp2"> Clamp
+    </div>
   </div>
-  <div class="control-group">
-    <label for="xmin2">X Min:</label>
-    <input type="number" id="xmin2" value="0" step="0.1">
-  </div>
-  <div class="control-group">
-    <label for="xmax2">X Max:</label>
-    <input type="number" id="xmax2" value="10" step="0.1">
-  </div>
-  <div class="control-group">
-    <label for="mean2">Mean:</label>
-    <input type="number" id="mean2" value="1" step="0.1">
-  </div>
-  <div class="control-group">
-    <label for="sd2">Standard Deviation:</label>
-    <input type="number" id="sd2" value="1" step="0.1">
-  </div>
-  <div class="control-group">
-    <label for="alpha2">Alpha:</label>
-    <input type="number" id="alpha2" value="1" step="0.1">
-  </div>
-  <div class="control-group">
-    <label for="beta_param2">Beta:</label>
-    <input type="number" id="beta_param2" value="1" step="0.1">
-  </div>
-  <div class="control-group">
-    <label for="scale2">Scale:</label>
-    <input type="number" id="scale2" value="1" step="0.1">
-  </div>
-  <div class="control-group">
-    <input type="checkbox" id="clamp2"> Clamp
-  </div>
-  <button onclick="plotDistribution()">Generate Plot</button>
 </div>
 
 <canvas id="distributionChart" width="800" height="400"></canvas>

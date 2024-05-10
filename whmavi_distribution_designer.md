@@ -241,30 +241,20 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta_p
     }
   } else if (distribution === "johnson-su") {
     y_values = x_values.map((x) => {
-  if (sd === 0) {
-    return mean; // Returning mean when sd is zero
-  }
+      if (sd === 0) {
+        return mean;
+      }
+      return Math.exp(-0.5 * Math.pow((x - mean) / sd, 2));
+    });
 
-  // Assuming `gamma` and `delta` are provided or can be derived
-  const gamma = mean; // As a placeholder, replace with the actual value
-  const delta = sd; // As a placeholder, replace with the actual value
-
-  const z = (x - gamma) / delta;
-  const factor1 = delta / Math.sqrt(2 * Math.PI);
-  const factor2 = 1 / Math.sqrt(1 + z * z);
-  const exponent = -0.5 * Math.pow(gamma + delta * Math.sinh(Math.asinh(z)), 2);
-
-  return factor1 * factor2 * Math.exp(exponent);
-});
-
-if (clamp) {
-  y_values = y_values.map((y, i) => {
-    if (x_values[i] < 0 || x_values[i] > 1) {
-      return 0;
+    if (clamp) {
+      y_values = y_values.map((y, i) => {
+        if (x_values[i] < 0 || x_values[i] > 1) {
+          return 0;
+        }
+        return y;
+      });
     }
-    return y;
-  });
-}
   return { x_values, y_values };
 }
 

@@ -33,14 +33,6 @@ This designer is a visual representation of the distribution function used in WH
         <option value="beta">Beta</option>
       </select>
     </div>
-    <div class="control-group">
-      <label for="xmin1">X Min:</label>
-      <input type="number" id="xmin1" value="0" step="0.1">
-    </div>
-    <div class="control-group">
-      <label for="xmax1">X Max:</label>
-      <input type="number" id="xmax1" value="10" step="0.1">
-    </div>
     <div class="control-group" id="mean1-group">
       <label for="mean1">Mean:</label>
       <input type="number" id="mean1" value="1" step="0.1">
@@ -76,14 +68,6 @@ This designer is a visual representation of the distribution function used in WH
         <option value="beta">Beta</option>
       </select>
     </div>
-    <div class="control-group">
-      <label for="xmin2">X Min:</label>
-      <input type="number" id="xmin2" value="0" step="0.1">
-    </div>
-    <div class="control-group">
-      <label for="xmax2">X Max:</label>
-      <input type="number" id="xmax2" value="10" step="0.1">
-    </div>
     <div class="control-group" id="mean2-group">
       <label for="mean2">Mean:</label>
       <input type="number" id="mean2" value="1" step="0.1">
@@ -109,6 +93,16 @@ This designer is a visual representation of the distribution function used in WH
     </div>
   </div>
 </div>
+
+<h2>Plot Controls</h2>
+<div class="control-group">
+      <label for="xmin1">X Min:</label>
+      <input type="number" id="xmin1" value="0" step="0.1">
+    </div>
+    <div class="control-group">
+      <label for="xmax1">X Max:</label>
+      <input type="number" id="xmax1" value="10" step="0.1">
+    </div>
 
 <script>
 function toggleInputs(groupNumber) {

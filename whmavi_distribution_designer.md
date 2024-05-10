@@ -258,14 +258,14 @@ function plotDistribution() {
             type: "linear",
             position: "bottom",
           },
-          yAxes: {
+          y: {
             ticks: {
               beginAtZero: true,
               max: ymax,
-              },
+            },
           },
         },
-      },
+      }
     });
   } else {
     // Update the existing chart's data and refresh it

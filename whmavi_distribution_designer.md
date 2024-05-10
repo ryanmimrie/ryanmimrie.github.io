@@ -124,6 +124,7 @@ The WH-MAVI Distribution Designer allows you to visualize different distribution
               data: y_values,
               borderColor: "blue",
               fill: false,
+            pointRadius: 0,
             },
           ],
         },

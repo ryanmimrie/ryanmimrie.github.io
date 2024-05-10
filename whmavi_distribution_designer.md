@@ -222,11 +222,13 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta_p
   let y_values = [];
 
   if (distribution === "normal") {
+    const factor = 1 / (sd * Math.sqrt(2 * Math.PI));
     y_values = x_values.map((x) => {
       if (sd === 0) {
-        return mean;
+        return 0;
       }
-      return Math.exp(-0.5 * Math.pow((x - mean) / sd, 2));
+      const exponent = -0.5 * Math.pow((x - mean) / sd, 2);
+      return factor * Math.exp(exponent);
     });
 
     if (clamp) {

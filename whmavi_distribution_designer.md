@@ -12,21 +12,38 @@ This designer is a visual representation of the distribution function used in WH
   #controls {
     margin-top: 20px;
   }
-  /* Default layout for larger screens */
-.control-group {
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-}
-
-.control-group label {
-  flex: 1;
-  margin-right: 10px;
-}
-
-.control-group select {
-  flex: 2;
-}
+  
+  .control-group {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .control-group label {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .control-group select {
+    flex: 2;
+  }
+  
+  @media (max-width: 768px) {
+      .control-group {
+          flex-direction: column;
+      }
+  
+      .control-group label {
+          margin-right: 0;
+          margin-bottom: 5px;
+      }
+  
+      .control-group input[type="number"],
+      .control-group select {
+          flex: none;
+          width: 100%;
+      }
+  }  
 
   .hidden {
     display: none;

@@ -107,6 +107,7 @@ This designer is a visual representation of the distribution function used in WH
   </div>
 </div>
 
+<script>
 let chart; // Global chart instance
 
 // Function to calculate distribution values

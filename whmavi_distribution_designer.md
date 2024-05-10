@@ -186,21 +186,21 @@ function plotDistribution() {
           {
             label: "Distribution 1",
             data: y_values1,
-            borderColor: "blue",
+            borderColor: "#3498db",
             fill: false,
             pointRadius: 0,
           },
           {
             label: "Distribution 2",
             data: y_values2,
-            borderColor: "red",
+            borderColor: "#e74c3c",
             fill: false,
             pointRadius: 0,
           },
           {
             label: "Sum of Distributions 1 & 2",
             data: y_values_sum,
-            backgroundColor: "rgba(0, 255, 0, 0.2)", // Adjust transparency if needed
+            backgroundColor: "#34495e",
             fill: true,
             pointRadius: 0,
           },

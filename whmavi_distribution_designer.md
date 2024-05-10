@@ -206,8 +206,8 @@ function plotDistribution() {
   const clamp2 = document.getElementById("clamp2").checked;
 
   // Calculate values for both distributions
-  const { x_values: x_values1, y_values: y_values1 } = calculateDistribution(distribution1, xmin1, xmax1, mean1, sd1, alpha1, beta_param1, clamp1);
-  const { x_values: x_values2, y_values: y_values2 } = calculateDistribution(distribution2, xmin2, xmax2, mean2, sd2, alpha2, beta_param2, clamp2);
+  const { x_values: x_values1, y_values: y_values1 } = calculateDistribution(distribution1, xmin, xmax, mean1, sd1, alpha1, beta_param1, clamp1);
+  const { x_values: x_values2, y_values: y_values2 } = calculateDistribution(distribution2, xmin, xmax, mean2, sd2, alpha2, beta_param2, clamp2);
 
   // Calculate the sum distribution
   const y_values_sum = y_values1.map((y, i) => y + y_values2[i]);

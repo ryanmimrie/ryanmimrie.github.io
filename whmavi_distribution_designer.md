@@ -259,10 +259,7 @@ function plotDistribution() {
             position: "bottom",
           },
           y: {
-            ticks: {
-              beginAtZero: true,
-              max: ymax,
-            },
+            max: ymax,
           },
         },
       }

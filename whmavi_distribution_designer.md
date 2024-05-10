@@ -19,7 +19,6 @@ The WH-MAVI Distribution Designer allows you to visualize different distribution
     }
   </style>
   
-  <h1>WH-MAVI Distribution Designer</h1>
   <div id="controls">
     <div class="control-group">
       <label for="distribution">Distribution:</label>
@@ -64,53 +63,58 @@ The WH-MAVI Distribution Designer allows you to visualize different distribution
   <canvas id="distributionChart" width="800" height="400"></canvas>
 
   <script>
-    function plotDistribution() {
-      const distribution = document.getElementById("distribution").value;
-      const xmin = parseFloat(document.getElementById("xmin").value);
-      const xmax = parseFloat(document.getElementById("xmax").value);
-      const mean = parseFloat(document.getElementById("mean").value);
-      const sd = parseFloat(document.getElementById("sd").value);
-      const alpha = parseFloat(document.getElementById("alpha").value);
-      const beta_param = parseFloat(document.getElementById("beta_param").value);
-      const scale = parseFloat(document.getElementById("scale").value);
-      const clamp = document.getElementById("clamp").checked;
+  let chart; // Global chart instance
 
-      const x_values = [];
-      const step = (xmax - xmin) / 10000;
+  // Function to plot or update the distribution chart
+  function plotDistribution() {
+    const distribution = document.getElementById("distribution").value;
+    const xmin = parseFloat(document.getElementById("xmin").value);
+    const xmax = parseFloat(document.getElementById("xmax").value);
+    const mean = parseFloat(document.getElementById("mean").value);
+    const sd = parseFloat(document.getElementById("sd").value);
+    const alpha = parseFloat(document.getElementById("alpha").value);
+    const beta_param = parseFloat(document.getElementById("beta_param").value);
+    const scale = parseFloat(document.getElementById("scale").value);
+    const clamp = document.getElementById("clamp").checked;
 
-      for (let x = xmin; x <= xmax; x += step) {
-        x_values.push(x);
-      }
+    const x_values = [];
+    const step = (xmax - xmin) / 10000;
 
-      let y_values = [];
+    for (let x = xmin; x <= xmax; x += step) {
+      x_values.push(x);
+    }
 
-      if (distribution === "johnson-su") {
-        y_values = x_values.map((x) => {
-          if (sd === 0) {
-            return mean;
-          }
-          // Mock implementation of Johnson-SU distribution (simplified)
-          return Math.exp(-0.5 * Math.pow((x - mean) / sd, 2));
-        });
+    let y_values = [];
 
-        if (clamp) {
-          y_values = y_values.map((y, i) => {
-            if (x_values[i] < 0 || x_values[i] > 1) {
-              return 0;
-            }
-            return y;
-          });
+    if (distribution === "johnson-su") {
+      y_values = x_values.map((x) => {
+        if (sd === 0) {
+          return mean;
         }
+        // Mock implementation of Johnson-SU distribution (simplified)
+        return Math.exp(-0.5 * Math.pow((x - mean) / sd, 2));
+      });
 
-      } else if (distribution === "beta") {
-        y_values = x_values.map((x) => {
-          // Mock implementation of Beta distribution (simplified)
-          return Math.pow(x, alpha - 1) * Math.pow(1 - x, beta_param - 1);
+      if (clamp) {
+        y_values = y_values.map((y, i) => {
+          if (x_values[i] < 0 || x_values[i] > 1) {
+            return 0;
+          }
+          return y;
         });
       }
 
+    } else if (distribution === "beta") {
+      y_values = x_values.map((x) => {
+        // Mock implementation of Beta distribution (simplified)
+        return Math.pow(x, alpha - 1) * Math.pow(1 - x, beta_param - 1);
+      });
+    }
+
+    if (!chart) {
+      // Initialize the chart the first time
       const ctx = document.getElementById("distributionChart").getContext("2d");
-      new Chart(ctx, {
+      chart = new Chart(ctx, {
         type: "line",
         data: {
           labels: x_values,
@@ -132,6 +136,21 @@ The WH-MAVI Distribution Designer allows you to visualize different distribution
           },
         },
       });
+    } else {
+      // Update the existing chart's data and refresh it
+      chart.data.labels = x_values;
+      chart.data.datasets[0].data = y_values;
+      chart.update();
     }
-  </script>
+  }
+
+  // Attach change listeners to all controls to update the chart on input change
+  document.querySelectorAll("#controls input, #controls select").forEach((input) => {
+    input.addEventListener("input", plotDistribution);
+  });
+
+  // Initial plot
+  plotDistribution();
+</script>
+
 

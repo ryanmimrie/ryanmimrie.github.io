@@ -94,7 +94,7 @@ This designer is a visual representation of the distribution function used in WH
   </div>
 </div>
 
-<div id="controls2" style="display: flex; justify-content: space-between;">
+<div id="controls" style="display: flex; justify-content: space-between;">
   <div id="population-controls">
     <h3>Population Controls</h3>
     <div class="control-group">

@@ -69,6 +69,7 @@ This designer is a visual representation of the distribution function used in WH
     <div class="control-group">
       <label for="distribution1">Distribution:</label>
       <select id="distribution1" onchange="toggleInputs('1')">
+        <option value="normal">Normal</option>
         <option value="johnson-su">Johnson-SU</option>
         <option value="beta">Beta</option>
       </select>
@@ -104,6 +105,7 @@ This designer is a visual representation of the distribution function used in WH
     <div class="control-group">
       <label for="distribution2">Distribution:</label>
       <select id="distribution2" onchange="toggleInputs('2')">
+        <option value="normal">Normal</option>
         <option value="johnson-su">Johnson-SU</option>
         <option value="beta">Beta</option>
       </select>
@@ -173,21 +175,25 @@ function toggleInputs(groupNumber) {
   const betaGroup = document.getElementById('beta' + groupNumber + '-group');
   const scaleGroup = document.getElementById('scale' + groupNumber + '-group');
 
-  if (distributionType === 'johnson-su') {
+  if (distributionType === 'normal') {
+    meanGroup.classList.remove('hidden');
+    sdGroup.classList.remove('hidden');
+    clampGroup.classList.remove('hidden');
+    alphaGroup.classList.add('hidden');
+    betaGroup.classList.add('hidden');
+    scaleGroup.classList.add('hidden');
+  } else if (distributionType === 'johnson-su') {
     // Show Johnson-SU fields
     meanGroup.classList.remove('hidden');
     sdGroup.classList.remove('hidden');
     clampGroup.classList.remove('hidden');
-    // Hide Beta fields
     alphaGroup.classList.remove('hidden');
     betaGroup.classList.remove('hidden');
     scaleGroup.classList.add('hidden');
   } else if (distributionType === 'beta') {
-    // Hide Johnson-SU fields
     meanGroup.classList.add('hidden');
     sdGroup.classList.add('hidden');
     clampGroup.classList.add('hidden');
-    // Show Beta fields
     alphaGroup.classList.remove('hidden');
     betaGroup.classList.remove('hidden');
     scaleGroup.classList.remove('hidden');
@@ -215,7 +221,23 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta_p
 
   let y_values = [];
 
-  if (distribution === "johnson-su") {
+  if (distribution === "normal") {
+    y_values = x_values.map((x) => {
+      if (sd === 0) {
+        return mean;
+      }
+      return Math.exp(-0.5 * Math.pow((x - mean) / sd, 2));
+    });
+
+    if (clamp) {
+      y_values = y_values.map((y, i) => {
+        if (x_values[i] < 0 || x_values[i] > 1) {
+          return 0;
+        }
+        return y;
+      });
+    }
+  } else if (distribution === "johnson-su") {
     y_values = x_values.map((x) => {
       if (sd === 0) {
         return mean;

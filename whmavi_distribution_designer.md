@@ -41,11 +41,11 @@ This designer is a visual representation of the distribution function used in WH
       <label for="xmax1">X Max:</label>
       <input type="number" id="xmax1" value="10" step="0.1">
     </div>
-    <div class="control-group hidden" id="mean1-group">
+    <div class="control-group" id="mean1-group">
       <label for="mean1">Mean:</label>
       <input type="number" id="mean1" value="1" step="0.1">
     </div>
-    <div class="control-group hidden" id="sd1-group">
+    <div class="control-group" id="sd1-group">
       <label for="sd1">Standard Deviation:</label>
       <input type="number" id="sd1" value="1" step="0.1">
     </div>
@@ -61,7 +61,7 @@ This designer is a visual representation of the distribution function used in WH
       <label for="scale1">Scale:</label>
       <input type="number" id="scale1" value="1" step="0.1">
     </div>
-    <div class="control-group hidden" id="clamp1-group">
+    <div class="control-group" id="clamp1-group">
       <input type="checkbox" id="clamp1"> Clamp
     </div>
   </div>
@@ -84,11 +84,11 @@ This designer is a visual representation of the distribution function used in WH
       <label for="xmax2">X Max:</label>
       <input type="number" id="xmax2" value="10" step="0.1">
     </div>
-    <div class="control-group hidden" id="mean2-group">
+    <div class="control-group" id="mean2-group">
       <label for="mean2">Mean:</label>
       <input type="number" id="mean2" value="1" step="0.1">
     </div>
-    <div class="control-group hidden" id="sd2-group">
+    <div class="control-group" id="sd2-group">
       <label for="sd2">Standard Deviation:</label>
       <input type="number" id="sd2" value="1" step="0.1">
     </div>
@@ -104,7 +104,7 @@ This designer is a visual representation of the distribution function used in WH
       <label for="scale2">Scale:</label>
       <input type="number" id="scale2" value="1" step="0.1">
     </div>
-    <div class="control-group hidden" id="clamp2-group">
+    <div class="control-group" id="clamp2-group">
       <input type="checkbox" id="clamp2"> Clamp
     </div>
   </div>
@@ -146,8 +146,10 @@ function toggleInputs(groupNumber) {
 }
 
 // Initial setup: call the toggleInputs function for each group to set visibility based on the default distribution type
-toggleInputs('1');
-toggleInputs('2');
+document.addEventListener('DOMContentLoaded', function() {
+  toggleInputs('1');
+  toggleInputs('2');
+});
 </script>
 
 <script>

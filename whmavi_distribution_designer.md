@@ -28,23 +28,6 @@ This designer is a visual representation of the distribution function used in WH
   flex: 2;
 }
 
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-    .control-group {
-        flex-direction: column;
-    }
-
-    .control-group label {
-        margin-right: 0;
-    }
-
-    .control-group input[type="number"],
-    .control-group select {
-        flex: none;
-        width: 100%;
-    }
-}
-
   .hidden {
     display: none;
   }
@@ -55,7 +38,7 @@ This designer is a visual representation of the distribution function used in WH
 <div id="controls" style="display: flex; justify-content: space-between;">
   <!-- Distribution 1 Inputs -->
   <div id="distribution1-controls">
-    <h3>Phenotypic Group 1</h3>
+    <h3>Phenotype 1</h3>
     <div class="control-group">
       <label for="distribution1">Distribution:</label>
       <select id="distribution1" onchange="toggleInputs('1')">
@@ -90,7 +73,7 @@ This designer is a visual representation of the distribution function used in WH
 
   <!-- Distribution 2 Inputs -->
   <div id="distribution2-controls">
-    <h3>Phenotypic Group 2</h3>
+    <h3>Phenotype 2</h3>
     <div class="control-group">
       <label for="distribution2">Distribution:</label>
       <select id="distribution2" onchange="toggleInputs('2')">
@@ -126,7 +109,7 @@ This designer is a visual representation of the distribution function used in WH
 
 <div id="controls" style="display: flex; justify-content: space-between;">
   <div id="population-controls">
-    <h3>Population Controls</h3>
+    <h3>Ratio</h3>
     <div class="control-group">
           <label for="phenoratio">Phenotype Ratio:</label>
           <input type="number" id="phenoratio" value="0.5" step="0.01">

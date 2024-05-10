@@ -96,13 +96,13 @@ This designer is a visual representation of the distribution function used in WH
 
 <h2>Plot Controls</h2>
 <div class="control-group">
-      <label for="xmin1">X Min:</label>
-      <input type="number" id="xmin1" value="0" step="0.1">
+      <label for="xmin">X Min:</label>
+      <input type="number" id="xmin" value="0" step="0.1">
     </div>
-    <div class="control-group">
-      <label for="xmax1">X Max:</label>
-      <input type="number" id="xmax1" value="10" step="0.1">
-    </div>
+<div class="control-group">
+  <label for="xmax">X Max:</label>
+  <input type="number" id="xmax" value="10" step="0.1">
+</div>
 
 <script>
 function toggleInputs(groupNumber) {
@@ -189,8 +189,8 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta_p
 function plotDistribution() {
   // Fetch inputs for Distribution 1
   const distribution1 = document.getElementById("distribution1").value;
-  const xmin1 = parseFloat(document.getElementById("xmin1").value);
-  const xmax1 = parseFloat(document.getElementById("xmax1").value);
+  const xmin = parseFloat(document.getElementById("xmin").value);
+  const xmax = parseFloat(document.getElementById("xmax").value);
   const mean1 = parseFloat(document.getElementById("mean1").value);
   const sd1 = parseFloat(document.getElementById("sd1").value);
   const alpha1 = parseFloat(document.getElementById("alpha1").value);
@@ -199,8 +199,6 @@ function plotDistribution() {
 
   // Fetch inputs for Distribution 2
   const distribution2 = document.getElementById("distribution2").value;
-  const xmin2 = parseFloat(document.getElementById("xmin2").value);
-  const xmax2 = parseFloat(document.getElementById("xmax2").value);
   const mean2 = parseFloat(document.getElementById("mean2").value);
   const sd2 = parseFloat(document.getElementById("sd2").value);
   const alpha2 = parseFloat(document.getElementById("alpha2").value);

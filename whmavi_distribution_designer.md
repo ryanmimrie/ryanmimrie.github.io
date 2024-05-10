@@ -184,21 +184,21 @@ function plotDistribution() {
         labels: x_values1, // First distribution is used for labels
         datasets: [
           {
-            label: "Distribution 1",
+            label: "Phenotypic Group 1",
             data: y_values1,
             borderColor: "#3498db",
             fill: false,
             pointRadius: 0,
           },
           {
-            label: "Distribution 2",
+            label: "Phenotypic Group 2",
             data: y_values2,
             borderColor: "#e74c3c",
             fill: false,
             pointRadius: 0,
           },
           {
-            label: "Sum of Distributions 1 & 2",
+            label: "Agent Population Distribution",
             data: y_values_sum,
             backgroundColor: "#34495e",
             fill: true,

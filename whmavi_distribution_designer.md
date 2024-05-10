@@ -9,23 +9,6 @@ The WH-MAVI Distribution Designer allows you to visualize different distribution
 
 ## Distribution Plot Tool
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>WH-MAVI Distribution Designer</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    #controls {
-      margin-bottom: 20px;
-    }
-    .control-group {
-      margin-bottom: 10px;
-    }
-  </style>
-</head>
-<body>
   <h1>WH-MAVI Distribution Designer</h1>
   <div id="controls">
     <div class="control-group">
@@ -141,5 +124,3 @@ The WH-MAVI Distribution Designer allows you to visualize different distribution
       });
     }
   </script>
-</body>
-</html>

@@ -9,6 +9,11 @@ This designer is a visual representation of the distribution function used in WH
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
+
+  #distribution1-controls h3 {
+      text-align: left;
+  }
+  
   #controls {
     margin-top: 20px;
   }
@@ -29,6 +34,11 @@ This designer is a visual representation of the distribution function used in WH
   }
   
   @media (max-width: 768px) {
+
+    #distribution1-controls h3 {
+          text-align: center;
+      }
+    
       .control-group {
           flex-direction: column;
       }
@@ -42,6 +52,7 @@ This designer is a visual representation of the distribution function used in WH
       .control-group select {
           flex: none;
           width: 100%;
+        margin-right: 10px;
       }
   }  
 

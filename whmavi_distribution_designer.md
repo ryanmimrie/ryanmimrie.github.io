@@ -104,6 +104,10 @@ This designer is a visual representation of the distribution function used in WH
     <label for="xmax">X Max:</label>
     <input type="number" id="xmax" value="1.2" step="0.1">
   </div>
+  <div class="control-group">
+    <label for="ymax">Y Max:</label>
+    <input type="number" id="ymax" value="1.2" step="0.1">
+  </div>
 </div>
 
 <script>
@@ -191,8 +195,6 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta_p
 function plotDistribution() {
   // Fetch inputs for Distribution 1
   const distribution1 = document.getElementById("distribution1").value;
-  const xmin = parseFloat(document.getElementById("xmin").value);
-  const xmax = parseFloat(document.getElementById("xmax").value);
   const mean1 = parseFloat(document.getElementById("mean1").value);
   const sd1 = parseFloat(document.getElementById("sd1").value);
   const alpha1 = parseFloat(document.getElementById("alpha1").value);
@@ -206,6 +208,11 @@ function plotDistribution() {
   const alpha2 = parseFloat(document.getElementById("alpha2").value);
   const beta_param2 = parseFloat(document.getElementById("beta_param2").value);
   const clamp2 = document.getElementById("clamp2").checked;
+
+  // Fetch plot inputs
+  const xmin = parseFloat(document.getElementById("xmin").value);
+  const xmax = parseFloat(document.getElementById("xmax").value);
+  const ymax = parseFloat(document.getElementById("ymax").value);
 
   // Calculate values for both distributions
   const { x_values: x_values1, y_values: y_values1 } = calculateDistribution(distribution1, xmin, xmax, mean1, sd1, alpha1, beta_param1, clamp1);
@@ -250,6 +257,12 @@ function plotDistribution() {
           x: {
             type: "linear",
             position: "bottom",
+          },
+          yAxes: {
+            ticks: {
+              beginAtZero: true,
+              max: ymax,
+              },
           },
         },
       },

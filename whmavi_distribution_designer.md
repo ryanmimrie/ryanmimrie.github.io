@@ -50,7 +50,8 @@ This designer is a visual representation of the distribution function used in WH
   
       .control-group input[type="number"],
       .control-group select {
-          margin-right: 5px;
+        flex: none;
+        margin-right: 5px;
       }
   }  
 

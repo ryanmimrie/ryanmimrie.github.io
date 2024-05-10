@@ -1,7 +1,7 @@
 ---
 layout: default
 title: WH-MAVI Distribution Designer
-permalink: /whmavi/distribution_designer
+permalink: /whmavi/distribution_designer/
 ---
 
 ## Description

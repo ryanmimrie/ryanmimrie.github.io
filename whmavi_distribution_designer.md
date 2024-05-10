@@ -152,7 +152,7 @@ let chart; // Global chart instance
 // Function to calculate distribution values
 function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta_param, clamp) {
   const x_values = [];
-  const step = (xmax - xmin) / 100;
+  const step = (xmax - xmin) / 200;
 
   for (let x = xmin; x <= xmax; x += step) {
     x_values.push(x);
@@ -248,6 +248,8 @@ function plotDistribution() {
           x: {
             type: "linear",
             position: "bottom",
+            min: xmin,
+            max: xmax,
           },
         },
       },

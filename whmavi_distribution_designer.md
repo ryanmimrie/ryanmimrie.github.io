@@ -35,19 +35,19 @@ This designer is a visual representation of the distribution function used in WH
     </div>
     <div class="control-group" id="mean1-group">
       <label for="mean1">Mean:</label>
-      <input type="number" id="mean1" value="1" step="0.1">
+      <input type="number" id="mean1" value="0.75" step="0.01">
     </div>
     <div class="control-group" id="sd1-group">
       <label for="sd1">SD:</label>
-      <input type="number" id="sd1" value="1" step="0.1">
+      <input type="number" id="sd1" value="0.1" step="0.01">
     </div>
     <div class="control-group" id="alpha1-group">
       <label for="alpha1">Alpha:</label>
-      <input type="number" id="alpha1" value="1" step="0.1">
+      <input type="number" id="alpha1" value="0" step="0.01">
     </div>
     <div class="control-group" id="beta1-group">
       <label for="beta_param1">Beta:</label>
-      <input type="number" id="beta_param1" value="1" step="0.1">
+      <input type="number" id="beta_param1" value="5" step="0.1">
     </div>
     <div class="control-group hidden" id="scale1-group">
       <label for="scale1">Scale:</label>
@@ -70,19 +70,19 @@ This designer is a visual representation of the distribution function used in WH
     </div>
     <div class="control-group" id="mean2-group">
       <label for="mean2">Mean:</label>
-      <input type="number" id="mean2" value="1" step="0.1">
+      <input type="number" id="mean2" value="0.25" step="0.01">
     </div>
     <div class="control-group" id="sd2-group">
       <label for="sd2">SD:  </label>
-      <input type="number" id="sd2" value="1" step="0.1">
+      <input type="number" id="sd2" value="0.1" step="0.01">
     </div>
     <div class="control-group" id="alpha2-group">
       <label for="alpha2">Alpha:</label>
-      <input type="number" id="alpha2" value="1" step="0.1">
+      <input type="number" id="alpha2" value="0" step="0.01">
     </div>
     <div class="control-group" id="beta2-group">
       <label for="beta_param2">Beta:</label>
-      <input type="number" id="beta_param2" value="1" step="0.1">
+      <input type="number" id="beta_param2" value="5" step="0.1">
     </div>
     <div class="control-group hidden" id="scale2-group">
       <label for="scale2">Scale:</label>

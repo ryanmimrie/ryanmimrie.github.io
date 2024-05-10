@@ -11,7 +11,7 @@ This designer is a visual representation of the distribution function used in WH
 <style>
 
   h3 {
-      text-align: right;
+      text-align: left;
   }
   
   #controls {
@@ -50,9 +50,7 @@ This designer is a visual representation of the distribution function used in WH
   
       .control-group input[type="number"],
       .control-group select {
-          flex: none;
-          width: 100%;
-        margin-right: 10px;
+          margin-right: 5px;
       }
   }  
 

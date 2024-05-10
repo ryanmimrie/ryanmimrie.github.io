@@ -78,7 +78,7 @@ The WH-MAVI Distribution Designer allows you to visualize different distribution
     const clamp = document.getElementById("clamp").checked;
 
     const x_values = [];
-    const step = (xmax - xmin) / 10000;
+    const step = (xmax - xmin) / 1000;
 
     for (let x = xmin; x <= xmax; x += step) {
       x_values.push(x);

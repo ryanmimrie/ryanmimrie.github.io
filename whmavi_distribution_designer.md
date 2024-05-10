@@ -270,6 +270,7 @@ function plotDistribution() {
     chart.data.datasets[0].data = y_values1;
     chart.data.datasets[1].data = y_values2;
     chart.data.datasets[2].data = y_values_sum;
+    chart.options.scales.y.max = ymax;
     chart.update();
   }
 }

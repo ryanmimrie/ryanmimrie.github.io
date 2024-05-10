@@ -5,24 +5,24 @@ permalink: /whmavi/distribution_designer/
 ---
 
 ## Description
-This designer is a visual representation of the distribution function used in WH-MAVI to create phenotypic heterogeneity across agents in the model.
-
-## Distribution Plot Tool
+This designer is a visual representation of the distribution function used in WH-MAVI to create agent phenotypic heterogeneity.
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
   #controls {
-    margin-bottom: 20px;
+    margin-top: 20px;
   }
   .control-group {
     margin-bottom: 10px;
   }
 </style>
 
+<canvas id="distributionChart" width="800" height="400"></canvas>
+
 <div id="controls" style="display: flex; justify-content: space-between;">
   <!-- Distribution 1 Inputs -->
   <div id="distribution1-controls">
-    <h3>Distribution 1</h3>
+    <h3>Phenotypic Group 1</h3>
     <div class="control-group">
       <label for="distribution1">Distribution:</label>
       <select id="distribution1">
@@ -65,7 +65,7 @@ This designer is a visual representation of the distribution function used in WH
 
   <!-- Distribution 2 Inputs -->
   <div id="distribution2-controls">
-    <h3>Distribution 2</h3>
+    <h3>Phenotypic Group 2</h3>
     <div class="control-group">
       <label for="distribution2">Distribution:</label>
       <select id="distribution2">
@@ -106,8 +106,6 @@ This designer is a visual representation of the distribution function used in WH
     </div>
   </div>
 </div>
-
-<canvas id="distributionChart" width="800" height="400"></canvas>
 
 <script>
   let chart; // Global chart instance

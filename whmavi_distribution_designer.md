@@ -250,8 +250,6 @@ function plotDistribution() {
           x: {
             type: "linear",
             position: "bottom",
-            min: xmin,
-            max: xmax,
           },
         },
       },

@@ -325,7 +325,7 @@ function plotDistribution() {
           },
           {
             label: "Agent Population Distribution",
-            data: y_values_sum_mult,
+            data: y_values_sum,
             backgroundColor: "#34495e",
             fill: true,
             pointRadius: 0,
@@ -349,7 +349,7 @@ function plotDistribution() {
     chart.data.labels = x_values1;
     chart.data.datasets[0].data = y_values1_mult;
     chart.data.datasets[1].data = y_values2_mult;
-    chart.data.datasets[2].data = y_values_sum_mult;
+    chart.data.datasets[2].data = y_values_sum;
     chart.options.scales.y.max = ymax;
     chart.update();
   }

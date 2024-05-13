@@ -147,7 +147,7 @@ This designer is a visual representation of the distribution function used in WH
       </div>
     <div>
       <label for="fixdensities">Fix Ignored Densities:</label>
-      <input type="checkbox" id="fixdensities" checked style="transform: scale(1.5);">
+      <input type="checkbox" id="fixdensities" checked style="transform: scale(1.25); margin-left: 5px;">
     </div>
   </div>
   <div id="plot-controls">

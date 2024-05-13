@@ -210,7 +210,6 @@ function toggleInputs(groupNumber) {
   }
 }
 
-// Initial setup: call the toggleInputs function for each group to set visibility based on the default distribution type
 document.addEventListener('DOMContentLoaded', function() {
   toggleInputs('1');
   toggleInputs('2');
@@ -218,9 +217,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <script>
-let chart; // Global chart instance
+let chart;
 
-// Function to calculate distribution values
 function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta_param, clamp) {
   const x_values = [];
   const step = (xmax - xmin) / 200;
@@ -253,12 +251,28 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta_p
       const sumYBelowZero = x_values.reduce((acc, x, i) => x < 0 ? acc + y_values[i] : acc, 0);
       const sumYAboveOne = x_values.reduce((acc, x, i) => x > 1 ? acc + y_values[i] : acc, 0);
     
+      let indexClosestToZero = 0;
+      let indexClosestToOne = 0;
+      let minDistToZero = Infinity;
+      let minDistToOne = Infinity;
+    
+      x_values.forEach((x, i) => {
+        if (Math.abs(x) < minDistToZero) {
+          minDistToZero = Math.abs(x);
+          indexClosestToZero = i;
+        }
+        if (Math.abs(x - 1) < minDistToOne) {
+          minDistToOne = Math.abs(x - 1);
+          indexClosestToOne = i;
+        }
+      });
+    
       y_values = y_values.map((y, i) => {
         if (x_values[i] < 0 || x_values[i] > 1) {
           return 0;
-        } else if (x_values[i] === 0) {
+        } else if (i === indexClosestToZero) {
           return sumYBelowZero;
-        } else if (x_values[i] === 1) {
+        } else if (i === indexClosestToOne) {
           return sumYAboveOne;
         }
         return y;

@@ -173,18 +173,18 @@ This designer is a visual representation of the distribution function used in WH
 ### Details
 The WH-MAVI sample distribution function takes in seven arguments to produce a distribution:
 <ul>
-  <li>Distribution: Either "Normal" or "Johnson-SU". The latter is a four-parameter extension of the normal distribution which allows for increased control of the distribution's shape.</li>
-  <li>Mean: The centre of the distribution. For the normal distribution, this value represents the mean. For the Johnson-SU distribution, this value represents the Lambda (λ) parameter.</li>
-  <li>Spread: The extent to which heterogeneity exists around the mean. For the normal distribution, this value represents the standard deviation. For the Johnson-SU distribution, this value represents the Xi (ξ) parameter.</li>
-  <li>Skew: The extent to which the Johnson-SU distribution is positively or negatively skewed. This value represents the Gamma (γ) parameter.</li>
-  <li>Outlier Rarity: The rarity of outlier values in the Johnson-SU distribution. This value represents the Delta (δ) parameter. </li>
-  <li>Clamp: This parameter controls the behaviour of values that fall outside the expected phenotypic range of 0-1.</li>
+  <li><b>Distribution</b>: Either "Normal" or "Johnson-SU". The latter is a four-parameter extension of the normal distribution which allows for increased control of the distribution's shape.</li>
+  <li><b>Mean</b>: The centre of the distribution. For the normal distribution, this value represents the mean. For the Johnson-SU distribution, this value represents the Lambda (λ) parameter.</li>
+  <li><b>Spread</b>: The extent to which heterogeneity exists around the mean. For the normal distribution, this value represents the standard deviation. For the Johnson-SU distribution, this value represents the Xi (ξ) parameter.</li>
+  <li><b>Skew</b>: The extent to which the Johnson-SU distribution is positively or negatively skewed. This value represents the Gamma (γ) parameter.</li>
+  <li><b>Outlier Rarity</b>: The rarity of outlier values in the Johnson-SU distribution. This value represents the Delta (δ) parameter. </li>
+  <li><b>Clamp: This parameter controls the behaviour of values that fall outside the expected phenotypic range of 0-1.</li>
   <ul>
     <li>"None": The values are unchanged.</li>
     <li>"Ignore": The values are dropped from the distribution.</li>
     <li>"Squish": The values are added to the boundaries of the distribution.</li>
   </ul>
-  <li>Fix Ignored Densities: Applies only when clamp = "ignore", corrects the size of the remaining posterior density so it still integrates to a value of 1. This is important when combining multiple distributions (as in the above) as it maintains the phenotypic ratio set by the user.</li>
+  <li><b>Fix Ignored Densities</b>: Applies only when clamp = "ignore", corrects the size of the remaining posterior density so it still integrates to a value of 1. This is important when combining multiple distributions (as in the above) as it maintains the phenotypic ratio set by the user.</li>
 </ul>
 
 <script>

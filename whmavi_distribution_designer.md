@@ -297,10 +297,10 @@ function plotDistribution() {
   const { x_values: x_values1, y_values: y_values1 } = calculateDistribution(distribution1, xmin, xmax, mean1, spread1, skew1, rarity1, clamp1);
   const { x_values: x_values2, y_values: y_values2 } = calculateDistribution(distribution2, xmin, xmax, mean2, spread2, skew2, rarity2, clamp2);
 
-  const y_values1 = y_values1.map(value => value * phenoratio);
-  const y_values2 = y_values2.map(value => value * (1 - phenoratio));
+  const y_values1_mult = y_values1.map(value => value * phenoratio);
+  const y_values2_mult = y_values2.map(value => value * (1 - phenoratio));
 
-  const y_values_sum = y_values1.map((y, i) => y + y_values2[i]);
+  const y_values_sum = y_values1_mult.map((y, i) => y + y_values2_mult[i]);
 
   if (!chart) {
     const ctx = document.getElementById("distributionChart").getContext("2d");
@@ -311,21 +311,21 @@ function plotDistribution() {
         datasets: [
           {
             label: "Phenotypic Group 1",
-            data: y_values1,
+            data: y_values1_mult,
             borderColor: "#3498db",
             fill: false,
             pointRadius: 0,
           },
           {
             label: "Phenotypic Group 2",
-            data: y_values2,
+            data: y_values2_mult,
             borderColor: "#e74c3c",
             fill: false,
             pointRadius: 0,
           },
           {
             label: "Agent Population Distribution",
-            data: y_values_sum,
+            data: y_values_sum_mult,
             backgroundColor: "#34495e",
             fill: true,
             pointRadius: 0,
@@ -347,9 +347,9 @@ function plotDistribution() {
   } else {
     // Update the existing chart's data and refresh it
     chart.data.labels = x_values1;
-    chart.data.datasets[0].data = y_values1;
-    chart.data.datasets[1].data = y_values2;
-    chart.data.datasets[2].data = y_values_sum;
+    chart.data.datasets[0].data = y_values1_mult;
+    chart.data.datasets[1].data = y_values2_mult;
+    chart.data.datasets[2].data = y_values_sum_mult;
     chart.options.scales.y.max = ymax;
     chart.update();
   }

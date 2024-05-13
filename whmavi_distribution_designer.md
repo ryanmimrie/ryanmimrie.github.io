@@ -284,7 +284,7 @@ function plotDistribution() {
   const sd1 = parseFloat(document.getElementById("sd1").value);
   const alpha1 = parseFloat(document.getElementById("alpha1").value);
   const beta_param1 = parseFloat(document.getElementById("beta_param1").value);
-  const clamp1 = document.getElementById("clamp1").checked;
+  const clamp1 = document.getElementById("clamp1").value;
 
   // Fetch inputs for Distribution 2
   const distribution2 = document.getElementById("distribution2").value;
@@ -292,7 +292,7 @@ function plotDistribution() {
   const sd2 = parseFloat(document.getElementById("sd2").value);
   const alpha2 = parseFloat(document.getElementById("alpha2").value);
   const beta_param2 = parseFloat(document.getElementById("beta_param2").value);
-  const clamp2 = document.getElementById("clamp2").checked;
+  const clamp2 = document.getElementById("clamp2").value;
 
   // Fetch plot inputs
   const xmin = parseFloat(document.getElementById("xmin").value);

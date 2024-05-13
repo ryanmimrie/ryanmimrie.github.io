@@ -253,7 +253,7 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta, 
     });
   } else if (distribution === "beta") {
     y_values = x_values.map((x) => {
-      return Math.pow(x, alpha - 1) * Math.pow(1 - x, beta_param - 1);
+      return Math.pow(x, alpha - 1) * Math.pow(1 - x, beta - 1);
     });
   }
 
@@ -306,7 +306,7 @@ function plotDistribution() {
   const mean1 = parseFloat(document.getElementById("mean1").value);
   const sd1 = parseFloat(document.getElementById("sd1").value);
   const alpha1 = parseFloat(document.getElementById("alpha1").value);
-  const beta1 = parseFloat(document.getElementById("beta_param1").value);
+  const beta1 = parseFloat(document.getElementById("beta1").value);
   const clamp1 = document.getElementById("clamp1").value;
 
   // Fetch inputs for Distribution 2
@@ -314,7 +314,7 @@ function plotDistribution() {
   const mean2 = parseFloat(document.getElementById("mean2").value);
   const sd2 = parseFloat(document.getElementById("sd2").value);
   const alpha2 = parseFloat(document.getElementById("alpha2").value);
-  const beta2 = parseFloat(document.getElementById("beta_param2").value);
+  const beta2 = parseFloat(document.getElementById("beta2").value);
   const clamp2 = document.getElementById("clamp2").value;
 
   // Fetch plot inputs

@@ -81,7 +81,7 @@ This designer is a visual representation of the distribution function used in WH
     </div>
     <div class="control-group" id="spread1-group">
       <label for="spread1">Spread:</label>
-      <input type="number" id="spread1" value="0.1" step="0.01">
+      <input type="number" id="spread1" value="0.15" step="0.01">
     </div>
     <div class="control-group" id="skew1-group">
       <label for="skew1">Skew:</label>
@@ -117,7 +117,7 @@ This designer is a visual representation of the distribution function used in WH
     </div>
     <div class="control-group" id="spread2-group">
       <label for="spread2">Spread:</label>
-      <input type="number" id="spread2" value="0.1" step="0.01">
+      <input type="number" id="spread2" value="0.15" step="0.01">
     </div>
     <div class="control-group" id="skew2-group">
       <label for="skew2">Skew:</label>
@@ -142,9 +142,13 @@ This designer is a visual representation of the distribution function used in WH
   <div id="population-controls">
     <h3>Ratio</h3>
     <div class="control-group">
-          <label for="phenoratio">Phenotype Ratio:</label>
-          <input type="number" id="phenoratio" value="0.5" step="0.01">
-        </div>
+        <label for="phenoratio">Phenotype Ratio:</label>
+        <input type="number" id="phenoratio" value="0.75" step="0.01">
+      </div>
+    <div class="control-group">
+      <label for="fixdensities">Fix Ignored Densities:</label>
+      <input type="checkbox" id="fixdensities" checked>
+    </div>
   </div>
   <div id="plot-controls">
     <h3>Plot Controls</h3>
@@ -158,7 +162,7 @@ This designer is a visual representation of the distribution function used in WH
     </div>
     <div class="control-group">
       <label for="ymax">Y Max:</label>
-      <input type="number" id="ymax" value="6" step="0.1">
+      <input type="number" id="ymax" value="3" step="0.1">
     </div>
   </div>
 </div>

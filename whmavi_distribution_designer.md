@@ -88,7 +88,7 @@ This designer is a visual representation of the distribution function used in WH
     </div>
     <div class="control-group" id="beta1-group">
       <label for="beta1">Beta:</label>
-      <input type="number" id="beta1" value="5" step="0.1">
+      <input type="number" id="beta1" value="1" step="0.1">
     </div>
     <div class="control-group hidden" id="scale1-group">
       <label for="scale1">Scale:</label>
@@ -129,7 +129,7 @@ This designer is a visual representation of the distribution function used in WH
     </div>
     <div class="control-group" id="beta2-group">
       <label for="beta2">Beta:</label>
-      <input type="number" id="beta2" value="5" step="0.1">
+      <input type="number" id="beta2" value="1" step="0.1">
     </div>
     <div class="control-group hidden" id="scale2-group">
       <label for="scale2">Scale:</label>
@@ -173,14 +173,11 @@ This designer is a visual representation of the distribution function used in WH
 
 <script>
 function toggleInputs(groupNumber) {
+  
   const distributionType = document.getElementById('distribution' + groupNumber).value;
-
-  // Select elements related to Normal fields
   const meanGroup = document.getElementById('mean' + groupNumber + '-group');
   const sdGroup = document.getElementById('sd' + groupNumber + '-group');
   const clampGroup = document.getElementById('clamp' + groupNumber + '-group');
-
-  // Select elements related to Beta fields
   const alphaGroup = document.getElementById('alpha' + groupNumber + '-group');
   const betaGroup = document.getElementById('beta' + groupNumber + '-group');
   const scaleGroup = document.getElementById('scale' + groupNumber + '-group');
@@ -218,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 let chart;
 
-function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta, clamp) {
+function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta, scale, clamp) {
   const x_values = [];
   const step = (xmax - xmin) / 200;
 
@@ -252,9 +249,11 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta, 
       return factor * Math.exp(exponent) / denominator;
     });
   } else if (distribution === "beta") {
-    y_values = x_values.map((x) => {
-      return Math.pow(x, alpha - 1) * Math.pow(1 - x, beta - 1);
-    });
+      if (x < 0 || x > 1 || alpha <= 0 || beta <= 0) {
+      return 0;
+    }
+    const B = gamma(alpha) * gamma(beta) / gamma(alpha + beta);
+    return (Math.pow(x, alpha - 1) * Math.pow(1 - x, beta - 1) / B) * scale;
   }
 
   if (clamp == "ignore") {
@@ -299,43 +298,38 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta, 
   return { x_values, y_values };
 }
 
-// Function to plot or update the distribution chart
 function plotDistribution() {
-  // Fetch inputs for Distribution 1
   const distribution1 = document.getElementById("distribution1").value;
   const mean1 = parseFloat(document.getElementById("mean1").value);
   const sd1 = parseFloat(document.getElementById("sd1").value);
   const alpha1 = parseFloat(document.getElementById("alpha1").value);
   const beta1 = parseFloat(document.getElementById("beta1").value);
+  const scale1 = parseFloat(document.getElementById("scale1").value);
   const clamp1 = document.getElementById("clamp1").value;
 
-  // Fetch inputs for Distribution 2
   const distribution2 = document.getElementById("distribution2").value;
   const mean2 = parseFloat(document.getElementById("mean2").value);
   const sd2 = parseFloat(document.getElementById("sd2").value);
   const alpha2 = parseFloat(document.getElementById("alpha2").value);
   const beta2 = parseFloat(document.getElementById("beta2").value);
+  const scale2 = parseFloat(document.getElementById("scale2").value);
   const clamp2 = document.getElementById("clamp2").value;
 
-  // Fetch plot inputs
   const xmin = parseFloat(document.getElementById("xmin").value);
   const xmax = parseFloat(document.getElementById("xmax").value);
   const ymax = parseFloat(document.getElementById("ymax").value);
 
-  // Calculate values for both distributions
-  const { x_values: x_values1, y_values: y_values1 } = calculateDistribution(distribution1, xmin, xmax, mean1, sd1, alpha1, beta1, clamp1);
-  const { x_values: x_values2, y_values: y_values2 } = calculateDistribution(distribution2, xmin, xmax, mean2, sd2, alpha2, beta2, clamp2);
+  const { x_values: x_values1, y_values: y_values1 } = calculateDistribution(distribution1, xmin, xmax, mean1, sd1, alpha1, beta1, scale1, clamp1);
+  const { x_values: x_values2, y_values: y_values2 } = calculateDistribution(distribution2, xmin, xmax, mean2, sd2, alpha2, beta2, scale2, clamp2);
 
-  // Calculate the sum distribution
   const y_values_sum = y_values1.map((y, i) => y + y_values2[i]);
 
   if (!chart) {
-    // Initialize the chart the first time
     const ctx = document.getElementById("distributionChart").getContext("2d");
     chart = new Chart(ctx, {
       type: "line",
       data: {
-        labels: x_values1, // First distribution is used for labels
+        labels: x_values1,
         datasets: [
           {
             label: "Phenotypic Group 1",

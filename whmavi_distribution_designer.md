@@ -326,7 +326,7 @@ function plotDistribution() {
   const clamp2 = document.getElementById("clamp2").value;
   
   const phenoratio = parseFloat(document.getElementById("phenoratio").value);
-  const fix = document.getElementById("fixdensities").value;
+  const fix = document.getElementById("fixdensities").checked;
   
   const xmin = parseFloat(document.getElementById("xmin").value);
   const xmax = parseFloat(document.getElementById("xmax").value);

@@ -308,7 +308,7 @@ function plotDistribution() {
   const skew1 = parseFloat(document.getElementById("skew1").value);
   const rarity1 = parseFloat(document.getElementById("rarity1").value);
   const clamp1 = document.getElementById("clamp1").value;
-  const fix1 = document.getElementById("fix1").value;
+  
 
   const distribution2 = document.getElementById("distribution2").value;
   const mean2 = parseFloat(document.getElementById("mean2").value);
@@ -316,16 +316,16 @@ function plotDistribution() {
   const skew2 = parseFloat(document.getElementById("skew2").value);
   const rarity2 = parseFloat(document.getElementById("rarity2").value);
   const clamp2 = document.getElementById("clamp2").value;
-  const fix2 = document.getElementById("fix2").value;
+  
+  const phenoratio = parseFloat(document.getElementById("phenoratio").value);
+  const fix = document.getElementById("fixdensities").value;
   
   const xmin = parseFloat(document.getElementById("xmin").value);
   const xmax = parseFloat(document.getElementById("xmax").value);
   const ymax = parseFloat(document.getElementById("ymax").value);
-
-  const phenoratio = parseFloat(document.getElementById("phenoratio").value);
-
-  const { x_values: x_values1, y_values: y_values1 } = calculateDistribution(distribution1, xmin, xmax, mean1, spread1, skew1, rarity1, clamp1, fix1);
-  const { x_values: x_values2, y_values: y_values2 } = calculateDistribution(distribution2, xmin, xmax, mean2, spread2, skew2, rarity2, clamp2, fix2);
+  
+  const { x_values: x_values1, y_values: y_values1 } = calculateDistribution(distribution1, xmin, xmax, mean1, spread1, skew1, rarity1, clamp1, fix);
+  const { x_values: x_values2, y_values: y_values2 } = calculateDistribution(distribution2, xmin, xmax, mean2, spread2, skew2, rarity2, clamp2, fix);
 
   const y_values1_mult = y_values1.map(value => value * phenoratio);
   const y_values2_mult = y_values2.map(value => value * (1 - phenoratio));

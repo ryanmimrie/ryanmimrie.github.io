@@ -249,6 +249,20 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta_p
         }
         return y;
       });
+    } else if (clamp == "squish") {
+      const sumYBelowZero = x_values.reduce((acc, x, i) => x < 0 ? acc + y_values[i] : acc, 0);
+      const sumYAboveOne = x_values.reduce((acc, x, i) => x > 1 ? acc + y_values[i] : acc, 0);
+    
+      y_values = y_values.map((y, i) => {
+        if (x_values[i] < 0 || x_values[i] > 1) {
+          return 0;
+        } else if (x_values[i] === 0) {
+          return sumYBelowZero;
+        } else if (x_values[i] === 1) {
+          return sumYAboveOne;
+        }
+        return y;
+      });
     }
   } else if (distribution === "johnson-su") {
     // Placeholder code to replicate current behavior, replace this as needed

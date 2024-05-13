@@ -238,8 +238,35 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta_p
       const exponent = -0.5 * Math.pow((x - mean) / sd, 2);
       return factor * Math.exp(exponent);
     });
+  } else if (distribution === "johnson-su") {
+    y_values = x_values.map((x) => {
+        if (sd === 0) {
+            const closestX = x_values.reduce((a, b) => Math.abs(b - mean) < Math.abs(a - mean) ? b : a);
+            return x === closestX ? 1 : 0;
+        }
+      const sqrtTwoPi = Math.sqrt(2 * Math.PI);
+      const factor = beta / (sd * sqrtTwoPi);
+      const z = Math.asinh((x - mean) / sd);
+      const exponent = -0.5 * Math.pow(alpha + beta * z, 2);
+      const denominator = Math.sqrt(1 + Math.pow((x - mean) / sd, 2));
+      return factor * Math.exp(exponent) / denominator;
+    });
 
     if (clamp == "ignore") {
+      y_values = y_values.map((y, i) => {
+        if (x_values[i] < 0 || x_values[i] > 1) {
+          return 0;
+        }
+        return y;
+      });
+    }
+  } else if (distribution === "beta") {
+    y_values = x_values.map((x) => {
+      return Math.pow(x, alpha - 1) * Math.pow(1 - x, beta_param - 1);
+    });
+  }
+
+  if (clamp == "ignore") {
       y_values = y_values.map((y, i) => {
         if (x_values[i] < 0 || x_values[i] > 1) {
           return 0;
@@ -277,28 +304,6 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta_p
         return y;
       });
     }
-  } else if (distribution === "johnson-su") {
-    // Placeholder code to replicate current behavior, replace this as needed
-    y_values = x_values.map((x) => {
-      if (sd === 0) {
-        return mean;
-      }
-      return Math.exp(-0.5 * Math.pow((x - mean) / sd, 2));
-    });
-
-    if (clamp == "ignore") {
-      y_values = y_values.map((y, i) => {
-        if (x_values[i] < 0 || x_values[i] > 1) {
-          return 0;
-        }
-        return y;
-      });
-    }
-  } else if (distribution === "beta") {
-    y_values = x_values.map((x) => {
-      return Math.pow(x, alpha - 1) * Math.pow(1 - x, beta_param - 1);
-    });
-  }
 
   return { x_values, y_values };
 }

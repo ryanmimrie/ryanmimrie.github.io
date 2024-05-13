@@ -145,7 +145,7 @@ This designer is a visual representation of the distribution function used in WH
         <label for="phenoratio">Phenotype Ratio:</label>
         <input type="number" id="phenoratio" value="0.75" step="0.01">
       </div>
-    <div class="control-group">
+    <div>
       <label for="fixdensities">Fix Ignored Densities:</label>
       <input type="checkbox" id="fixdensities" checked>
     </div>

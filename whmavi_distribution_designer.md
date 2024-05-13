@@ -214,7 +214,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <script>
 let chart;
-
+import { gamma } from 'mathjs';
+  
 function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta, scale, clamp) {
   const x_values = [];
   const step = (xmax - xmin) / 200;
@@ -249,11 +250,14 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta, 
       return factor * Math.exp(exponent) / denominator;
     });
   } else if (distribution === "beta") {
-      if (x < 0 || x > 1 || alpha <= 0 || beta <= 0) {
-      return 0;
-    }
     const B = gamma(alpha) * gamma(beta) / gamma(alpha + beta);
-    return (Math.pow(x, alpha - 1) * Math.pow(1 - x, beta - 1) / B) * scale;
+
+    const y_values = x_values.map((x) => {
+      if (x < 0 || x > 1 || alpha <= 0 || beta <= 0) {
+        return 0;
+      }
+      return Math.pow(x, alpha - 1) * Math.pow(1 - x, beta - 1) / B;
+    });
   }
 
   if (clamp == "ignore") {

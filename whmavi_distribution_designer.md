@@ -240,6 +240,7 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta_p
       });
     }
   } else if (distribution === "johnson-su") {
+    // Placeholder code to replicate current behavior, replace this as needed
     y_values = x_values.map((x) => {
       if (sd === 0) {
         return mean;
@@ -255,6 +256,12 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta_p
         return y;
       });
     }
+  } else if (distribution === "beta") {
+    y_values = x_values.map((x) => {
+      return Math.pow(x, alpha - 1) * Math.pow(1 - x, beta_param - 1);
+    });
+  }
+
   return { x_values, y_values };
 }
 

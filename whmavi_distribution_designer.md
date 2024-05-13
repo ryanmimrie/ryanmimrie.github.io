@@ -276,16 +276,16 @@ function calculateDistribution(distribution, xmin, xmax, mean, spread, skew, rar
 function plotDistribution() {
   const distribution1 = document.getElementById("distribution1").value;
   const mean1 = parseFloat(document.getElementById("mean1").value);
-  const spread1 = parseFloat(document.getElementById("sd1").value);
-  const skew1 = parseFloat(document.getElementById("alpha1").value);
-  const rarity1 = parseFloat(document.getElementById("beta1").value);
+  const spread1 = parseFloat(document.getElementById("spread1").value);
+  const skew1 = parseFloat(document.getElementById("skew1").value);
+  const rarity1 = parseFloat(document.getElementById("rarity1").value);
   const clamp1 = document.getElementById("clamp1").value;
 
   const distribution2 = document.getElementById("distribution2").value;
   const mean2 = parseFloat(document.getElementById("mean2").value);
-  const spread2 = parseFloat(document.getElementById("sd2").value);
-  const skew2 = parseFloat(document.getElementById("alpha2").value);
-  const rarity2 = parseFloat(document.getElementById("beta2").value);
+  const spread2 = parseFloat(document.getElementById("spread2").value);
+  const skew2 = parseFloat(document.getElementById("skew2").value);
+  const rarity2 = parseFloat(document.getElementById("rarity2").value);
   const clamp2 = document.getElementById("clamp2").value;
 
   const xmin = parseFloat(document.getElementById("xmin").value);

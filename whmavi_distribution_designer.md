@@ -201,6 +201,9 @@ document.addEventListener('DOMContentLoaded', function() {
 let chart;
   
 function calculateDistribution(distribution, xmin, xmax, mean, spread, skew, rarity, clamp, fix) {
+
+  console.log("Fix:", fix);
+  
   const x_values = [];
   const step = (xmax - xmin) / 200;
 

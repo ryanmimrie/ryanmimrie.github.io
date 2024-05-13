@@ -98,6 +98,10 @@ This designer is a visual representation of the distribution function used in WH
         <option value="squish">Squish</option>
       </select>
     </div>
+    <div>
+      <label for="fix1">Fix Ignored Density:</label>
+      <input type="checkbox" id="fix1" checked style="transform: scale(1.35); margin-left: 5px;">
+    </div>
   </div>
 
   <!-- Distribution 2 Inputs -->
@@ -134,6 +138,10 @@ This designer is a visual representation of the distribution function used in WH
         <option value="squish">Squish</option>
       </select>
     </div>
+    <div>
+      <label for="fix2">Fix Ignored Density:</label>
+      <input type="checkbox" id="fix2" checked style="transform: scale(1.35); margin-left: 5px;">
+    </div>
   </div>
 </div>
 
@@ -144,10 +152,6 @@ This designer is a visual representation of the distribution function used in WH
         <label for="phenoratio">Phenotype Ratio:</label>
         <input type="number" id="phenoratio" value="0.75" step="0.01">
       </div>
-    <div>
-      <label for="fixdensities">Fix Ignored Densities:</label>
-      <input type="checkbox" id="fixdensities" checked style="transform: scale(1.35); margin-left: 5px;">
-    </div>
   </div>
   <div id="plot-controls">
     <h3>Plot Controls</h3>
@@ -327,7 +331,7 @@ function plotDistribution() {
   const skew1 = parseFloat(document.getElementById("skew1").value);
   const rarity1 = parseFloat(document.getElementById("rarity1").value);
   const clamp1 = document.getElementById("clamp1").value;
-  
+  const fix1 = document.getElementById("fix1").checked;
 
   const distribution2 = document.getElementById("distribution2").value;
   const mean2 = parseFloat(document.getElementById("mean2").value);
@@ -335,16 +339,17 @@ function plotDistribution() {
   const skew2 = parseFloat(document.getElementById("skew2").value);
   const rarity2 = parseFloat(document.getElementById("rarity2").value);
   const clamp2 = document.getElementById("clamp2").value;
+  const fix2 = document.getElementById("fix2").checked;
   
   const phenoratio = parseFloat(document.getElementById("phenoratio").value);
-  const fix = document.getElementById("fixdensities").checked;
+  
   
   const xmin = parseFloat(document.getElementById("xmin").value);
   const xmax = parseFloat(document.getElementById("xmax").value);
   const ymax = parseFloat(document.getElementById("ymax").value);
   
-  const { x_values: x_values1, y_values: y_values1 } = calculateDistribution(distribution1, xmin, xmax, mean1, spread1, skew1, rarity1, clamp1, fix);
-  const { x_values: x_values2, y_values: y_values2 } = calculateDistribution(distribution2, xmin, xmax, mean2, spread2, skew2, rarity2, clamp2, fix);
+  const { x_values: x_values1, y_values: y_values1 } = calculateDistribution(distribution1, xmin, xmax, mean1, spread1, skew1, rarity1, clamp1, fix1);
+  const { x_values: x_values2, y_values: y_values2 } = calculateDistribution(distribution2, xmin, xmax, mean2, spread2, skew2, rarity2, clamp2, fix2);
 
   const y_values1_mult = y_values1.map(value => value * phenoratio);
   const y_values2_mult = y_values2.map(value => value * (1 - phenoratio));

@@ -251,15 +251,6 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta_p
       const denominator = Math.sqrt(1 + Math.pow((x - mean) / sd, 2));
       return factor * Math.exp(exponent) / denominator;
     });
-
-    if (clamp == "ignore") {
-      y_values = y_values.map((y, i) => {
-        if (x_values[i] < 0 || x_values[i] > 1) {
-          return 0;
-        }
-        return y;
-      });
-    }
   } else if (distribution === "beta") {
     y_values = x_values.map((x) => {
       return Math.pow(x, alpha - 1) * Math.pow(1 - x, beta_param - 1);

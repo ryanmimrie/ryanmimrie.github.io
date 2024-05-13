@@ -8,7 +8,7 @@ permalink: /whmavi/distribution_designer/
 This designer is a visual representation of the distribution function used in WH-MAVI to create agent phenotypic heterogeneity.
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.1.1/math.js"></script>
+<script src="assets/js/math.js"></script>
 
 <style>
 

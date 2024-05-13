@@ -214,7 +214,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <script>
 let chart;
-import { gamma } from 'mathjs';
   
 function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta, scale, clamp) {
   const x_values = [];
@@ -250,16 +249,23 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta, 
       return factor * Math.exp(exponent) / denominator;
     });
   } else if (distribution === "beta") {
-    const B = gamma(alpha) * gamma(beta) / gamma(alpha + beta);
-
-    const y_values = x_values.map((x) => {
-      if (x < 0 || x > 1 || alpha <= 0 || beta <= 0) {
-        return 0;
+      function factorial(n) {
+        let result = 1;
+        for (let i = 2; i <= n; i++) {
+          result *= i;
+        }
+        return result;
       }
-      return Math.pow(x, alpha - 1) * Math.pow(1 - x, beta - 1) / B;
-    });
-  }
-
+    
+      const B = factorial(alpha - 1) * factorial(beta - 1) / factorial(alpha + beta - 1);
+    
+      const y_values = x_values.map((x) => {
+        if (x < 0 || x > 1 || alpha <= 0 || beta <= 0) {
+          return 0;
+        }
+        return Math.pow(x, alpha - 1) * Math.pow(1 - x, beta - 1) / B;
+      });
+    }
   if (clamp == "ignore") {
       y_values = y_values.map((y, i) => {
         if (x_values[i] < 0 || x_values[i] > 1) {

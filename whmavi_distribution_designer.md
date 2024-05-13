@@ -8,6 +8,8 @@ permalink: /whmavi/distribution_designer/
 This designer is a visual representation of the distribution function used in WH-MAVI to create agent phenotypic heterogeneity.
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.1.1/math.js"></script>
+
 <style>
 
   h3 {
@@ -250,7 +252,14 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta, 
     });
   } else if (distribution === "beta") {
       y_values = x_values.map((x) => {
-      return Math.pow(x, alpha - 1) * Math.pow(1 - x, beta - 1);
+        if (x < 0 || x > 1) return 0;
+    
+        const gammaAlpha = math.gamma(alpha);
+        const gammaBeta = math.gamma(beta);
+        const gammaAlphaBeta = math.gamma(alpha + beta);
+        const normalization = gammaAlpha * gammaBeta / gammaAlphaBeta;
+    
+        return (Math.pow(x, alpha - 1) * Math.pow(1 - x, beta - 1)) / normalization;
     });
   }
   if (clamp == "ignore") {

@@ -73,28 +73,23 @@ This designer is a visual representation of the distribution function used in WH
       <select id="distribution1" onchange="toggleInputs('1')">
         <option value="normal">Normal</option>
         <option value="johnson-su">Johnson-SU</option>
-        <option value="beta">Beta</option>
       </select>
     </div>
     <div class="control-group" id="mean1-group">
       <label for="mean1">Mean:</label>
       <input type="number" id="mean1" value="0.75" step="0.01">
     </div>
-    <div class="control-group" id="sd1-group">
-      <label for="sd1">SD:</label>
-      <input type="number" id="sd1" value="0.1" step="0.01">
+    <div class="control-group" id="spread1-group">
+      <label for="spread1">Spread:</label>
+      <input type="number" id="spread1" value="0.1" step="0.01">
     </div>
-    <div class="control-group" id="alpha1-group">
-      <label for="alpha1">Alpha:</label>
-      <input type="number" id="alpha1" value="0" step="0.01">
+    <div class="control-group" id="skew1-group">
+      <label for="skew1">Skew:</label>
+      <input type="number" id="skew1" value="0" step="0.01">
     </div>
-    <div class="control-group" id="beta1-group">
-      <label for="beta1">Beta:</label>
-      <input type="number" id="beta1" value="1" step="0.1">
-    </div>
-    <div class="control-group hidden" id="scale1-group">
-      <label for="scale1">Scale:</label>
-      <input type="number" id="scale1" value="1" step="0.1">
+    <div class="control-group" id="rarity1-group">
+      <label for="rarity1">Outlier Rarity:</label>
+      <input type="number" id="rarity1" value="1" step="0.1">
     </div>
     <div class="control-group" id="clamp1-group">
       <label for="clamp1">Clamp:</label>
@@ -114,28 +109,23 @@ This designer is a visual representation of the distribution function used in WH
       <select id="distribution2" onchange="toggleInputs('2')">
         <option value="normal">Normal</option>
         <option value="johnson-su">Johnson-SU</option>
-        <option value="beta">Beta</option>
       </select>
     </div>
     <div class="control-group" id="mean2-group">
       <label for="mean2">Mean:</label>
       <input type="number" id="mean2" value="0.25" step="0.01">
     </div>
-    <div class="control-group" id="sd2-group">
-      <label for="sd2">SD:</label>
-      <input type="number" id="sd2" value="0.1" step="0.01">
+    <div class="control-group" id="spread2-group">
+      <label for="spread2">Spread:</label>
+      <input type="number" id="spread2" value="0.1" step="0.01">
     </div>
-    <div class="control-group" id="alpha2-group">
-      <label for="alpha2">Alpha:</label>
-      <input type="number" id="alpha2" value="0" step="0.01">
+    <div class="control-group" id="skew2-group">
+      <label for="skew2">Skew:</label>
+      <input type="number" id="skew2" value="0" step="0.01">
     </div>
-    <div class="control-group" id="beta2-group">
-      <label for="beta2">Beta:</label>
-      <input type="number" id="beta2" value="1" step="0.1">
-    </div>
-    <div class="control-group hidden" id="scale2-group">
-      <label for="scale2">Scale:</label>
-      <input type="number" id="scale2" value="1" step="0.1">
+    <div class="control-group" id="rarity2-group">
+      <label for="rarity2">Outlier Rarity:</label>
+      <input type="number" id="rarity2" value="1" step="0.1">
     </div>
     <div class="control-group" id="clamp2-group">
       <label for="clamp2">Clamp:</label>
@@ -178,33 +168,23 @@ function toggleInputs(groupNumber) {
   
   const distributionType = document.getElementById('distribution' + groupNumber).value;
   const meanGroup = document.getElementById('mean' + groupNumber + '-group');
-  const sdGroup = document.getElementById('sd' + groupNumber + '-group');
+  const spreadGroup = document.getElementById('spread' + groupNumber + '-group');
+  const skewGroup = document.getElementById('skew' + groupNumber + '-group');
+  const rarityGroup = document.getElementById('rarity' + groupNumber + '-group');
   const clampGroup = document.getElementById('clamp' + groupNumber + '-group');
-  const alphaGroup = document.getElementById('alpha' + groupNumber + '-group');
-  const betaGroup = document.getElementById('beta' + groupNumber + '-group');
-  const scaleGroup = document.getElementById('scale' + groupNumber + '-group');
 
   if (distributionType === 'normal') {
     meanGroup.classList.remove('hidden');
-    sdGroup.classList.remove('hidden');
+    spreadGroup.classList.remove('hidden');
+    skewGroup.classList.add('hidden');
+    rarityGroup.classList.add('hidden');
     clampGroup.classList.remove('hidden');
-    alphaGroup.classList.add('hidden');
-    betaGroup.classList.add('hidden');
-    scaleGroup.classList.add('hidden');
   } else if (distributionType === 'johnson-su') {
     meanGroup.classList.remove('hidden');
-    sdGroup.classList.remove('hidden');
+    spreadGroup.classList.remove('hidden');
+    skewGroup.classList.remove('hidden');
+    rarityGroup.classList.remove('hidden');
     clampGroup.classList.remove('hidden');
-    alphaGroup.classList.remove('hidden');
-    betaGroup.classList.remove('hidden');
-    scaleGroup.classList.add('hidden');
-  } else if (distributionType === 'beta') {
-    meanGroup.classList.add('hidden');
-    sdGroup.classList.add('hidden');
-    clampGroup.classList.add('hidden');
-    alphaGroup.classList.remove('hidden');
-    betaGroup.classList.remove('hidden');
-    scaleGroup.classList.remove('hidden');
   }
 }
 
@@ -217,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 let chart;
   
-function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta, scale, clamp) {
+function calculateDistribution(distribution, xmin, xmax, mean, spread, skew, rarity, clamp) {
   const x_values = [];
   const step = (xmax - xmin) / 200;
 
@@ -229,41 +209,28 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta, 
 
   if (distribution === "normal") {
     y_values = x_values.map((x) => {
-        if (sd === 0) {
+        if (spread === 0) {
             const closestX = x_values.reduce((a, b) => Math.abs(b - mean) < Math.abs(a - mean) ? b : a);
             return x === closestX ? 1 : 0;
         }
-      const factor = 1 / (sd * Math.sqrt(2 * Math.PI));
-      const exponent = -0.5 * Math.pow((x - mean) / sd, 2);
+      const factor = 1 / (spread * Math.sqrt(2 * Math.PI));
+      const exponent = -0.5 * Math.pow((x - mean) / spread, 2);
       return factor * Math.exp(exponent);
     });
   } else if (distribution === "johnson-su") {
     y_values = x_values.map((x) => {
-        if (sd === 0) {
+        if (spread === 0) {
             const closestX = x_values.reduce((a, b) => Math.abs(b - mean) < Math.abs(a - mean) ? b : a);
             return x === closestX ? 1 : 0;
         }
       const sqrtTwoPi = Math.sqrt(2 * Math.PI);
-      const factor = beta / (sd * sqrtTwoPi);
-      const z = Math.asinh((x - mean) / sd);
-      const exponent = -0.5 * Math.pow(alpha + beta * z, 2);
-      const denominator = Math.sqrt(1 + Math.pow((x - mean) / sd, 2));
+      const factor = rarity / (spread * sqrtTwoPi);
+      const z = Math.asinh((x - mean) / spread);
+      const exponent = -0.5 * Math.pow(skew + rarity * z, 2);
+      const denominator = Math.sqrt(1 + Math.pow((x - mean) / spread, 2));
       return factor * Math.exp(exponent) / denominator;
     });
-  } else if (distribution === "beta") {
-      y_values = x_values.map((x) => {
-        if (x < 0 || x > 1) return {x: x * scale, y: 0};
-    
-        const gammaAlpha = math.gamma(alpha);
-        const gammaBeta = math.gamma(beta);
-        const gammaAlphaBeta = math.gamma(alpha + beta);
-        const normalization = gammaAlpha * gammaBeta / gammaAlphaBeta;
-        const pdfValue = (Math.pow(x, alpha - 1) * Math.pow(1 - x, beta - 1)) / normalization;
-    
-        return {x: x * scale, y: pdfValue};
-      });
-  }
-
+  } 
   if (clamp == "ignore") {
       y_values = y_values.map((y, i) => {
         if (x_values[i] < 0 || x_values[i] > 1) {
@@ -309,26 +276,24 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta, 
 function plotDistribution() {
   const distribution1 = document.getElementById("distribution1").value;
   const mean1 = parseFloat(document.getElementById("mean1").value);
-  const sd1 = parseFloat(document.getElementById("sd1").value);
-  const alpha1 = parseFloat(document.getElementById("alpha1").value);
-  const beta1 = parseFloat(document.getElementById("beta1").value);
-  const scale1 = parseFloat(document.getElementById("scale1").value);
+  const spread1 = parseFloat(document.getElementById("sd1").value);
+  const skew1 = parseFloat(document.getElementById("alpha1").value);
+  const rarity1 = parseFloat(document.getElementById("beta1").value);
   const clamp1 = document.getElementById("clamp1").value;
 
   const distribution2 = document.getElementById("distribution2").value;
   const mean2 = parseFloat(document.getElementById("mean2").value);
-  const sd2 = parseFloat(document.getElementById("sd2").value);
-  const alpha2 = parseFloat(document.getElementById("alpha2").value);
-  const beta2 = parseFloat(document.getElementById("beta2").value);
-  const scale2 = parseFloat(document.getElementById("scale2").value);
+  const spread2 = parseFloat(document.getElementById("sd2").value);
+  const skew2 = parseFloat(document.getElementById("alpha2").value);
+  const rarity2 = parseFloat(document.getElementById("beta2").value);
   const clamp2 = document.getElementById("clamp2").value;
 
   const xmin = parseFloat(document.getElementById("xmin").value);
   const xmax = parseFloat(document.getElementById("xmax").value);
   const ymax = parseFloat(document.getElementById("ymax").value);
 
-  const { x_values: x_values1, y_values: y_values1 } = calculateDistribution(distribution1, xmin, xmax, mean1, sd1, alpha1, beta1, scale1, clamp1);
-  const { x_values: x_values2, y_values: y_values2 } = calculateDistribution(distribution2, xmin, xmax, mean2, sd2, alpha2, beta2, scale2, clamp2);
+  const { x_values: x_values1, y_values: y_values1 } = calculateDistribution(distribution1, xmin, xmax, mean1, spread1, skew1, rarity1, clamp1);
+  const { x_values: x_values2, y_values: y_values2 } = calculateDistribution(distribution2, xmin, xmax, mean2, spread2, skew2, rarity2, clamp2);
 
   const y_values_sum = y_values1.map((y, i) => y + y_values2[i]);
 

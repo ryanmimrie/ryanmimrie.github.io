@@ -96,10 +96,10 @@ This designer is a visual representation of the distribution function used in WH
     </div>
     <div class="control-group">
       <label for="clamp1">Clamp:</label>
-      <select id="clamp1" onchange="toggleInputs('1')">
-        <option value="clamp-none">None</option>
-        <option value="clamp-ignore">Ignore</option>
-        <option value="clamp-squish">Squish</option>
+      <select id="clamp1">
+        <option value="none">None</option>
+        <option value="ignore">Ignore</option>
+        <option value="squish">Squish</option>
       </select>
     </div>
   </div>
@@ -135,8 +135,13 @@ This designer is a visual representation of the distribution function used in WH
       <label for="scale2">Scale:</label>
       <input type="number" id="scale2" value="1" step="0.1">
     </div>
-    <div class="control-group" id="clamp2-group">
-      <input type="checkbox" id="clamp2"> Clamp
+    <div class="control-group">
+      <label for="clamp2">Clamp:</label>
+      <select id="clamp2">
+        <option value="none">None</option>
+        <option value="ignore">Ignore</option>
+        <option value="squish">Squish</option>
+      </select>
     </div>
   </div>
 </div>
@@ -237,7 +242,7 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta_p
       return factor * Math.exp(exponent);
     });
 
-    if (clamp) {
+    if (clamp == "ignore") {
       y_values = y_values.map((y, i) => {
         if (x_values[i] < 0 || x_values[i] > 1) {
           return 0;
@@ -254,7 +259,7 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta_p
       return Math.exp(-0.5 * Math.pow((x - mean) / sd, 2));
     });
 
-    if (clamp) {
+    if (clamp == "ignore") {
       y_values = y_values.map((y, i) => {
         if (x_values[i] < 0 || x_values[i] > 1) {
           return 0;

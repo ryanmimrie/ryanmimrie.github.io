@@ -371,14 +371,14 @@ function plotDistribution() {
             position: "bottom",
             title: {
             display: true,
-            text: 'X Axis Label'
+            text: 'Phenotype Strength'
             }
           },
           y: {
             max: ymax,
             title: {
             display: true,
-            text: 'Y Axis Label'
+            text: 'Probability Density'
             }
           },
         },

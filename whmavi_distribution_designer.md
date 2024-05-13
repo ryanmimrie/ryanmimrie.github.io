@@ -176,9 +176,9 @@ The WH-MAVI sample distribution function takes in seven arguments to produce a d
   <li>Outlier Rarity: The rarity of outlier values in the Johnson-SU distribution. This value represents the Delta (δ) parameter. </li>
   <li>Clamp: This parameter controls the behaviour of values that fall outside the expected phenotypic range of 0-1.</li>
   <ul>
-    <li>"None"</li>
-    <li>"Ignore"</li>
-    <li>"Squish"</li>
+    <li>"None": The values are unchanged.</li>
+    <li>"Ignore": The values are dropped from the distribution.</li>
+    <li>"Squish": The values are added to the boundaries of the distribution.</li>
   </ul>
   <li>Fix Ignored Densities: Applies only when clamp = "ignore", corrects the size of the remaining posterior density so it still integrates to a value of 1. This is important when combining multiple distributions (as in the above) as it maintains the phenotypic ratio set by the user.</li>
 </ul>

@@ -94,7 +94,7 @@ This designer is a visual representation of the distribution function used in WH
       <label for="scale1">Scale:</label>
       <input type="number" id="scale1" value="1" step="0.1">
     </div>
-    <div class="control-group">
+    <div class="control-group" id="clamp1-group">
       <label for="clamp1">Clamp:</label>
       <select id="clamp1">
         <option value="none">None</option>
@@ -135,7 +135,7 @@ This designer is a visual representation of the distribution function used in WH
       <label for="scale2">Scale:</label>
       <input type="number" id="scale2" value="1" step="0.1">
     </div>
-    <div class="control-group">
+    <div class="control-group" id="clamp2-group">
       <label for="clamp2">Clamp:</label>
       <select id="clamp2">
         <option value="none">None</option>
@@ -175,7 +175,7 @@ This designer is a visual representation of the distribution function used in WH
 function toggleInputs(groupNumber) {
   const distributionType = document.getElementById('distribution' + groupNumber).value;
 
-  // Select elements related to Johnson-SU fields
+  // Select elements related to Normal fields
   const meanGroup = document.getElementById('mean' + groupNumber + '-group');
   const sdGroup = document.getElementById('sd' + groupNumber + '-group');
   const clampGroup = document.getElementById('clamp' + groupNumber + '-group');
@@ -193,7 +193,6 @@ function toggleInputs(groupNumber) {
     betaGroup.classList.add('hidden');
     scaleGroup.classList.add('hidden');
   } else if (distributionType === 'johnson-su') {
-    // Show Johnson-SU fields
     meanGroup.classList.remove('hidden');
     sdGroup.classList.remove('hidden');
     clampGroup.classList.remove('hidden');

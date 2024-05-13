@@ -257,10 +257,6 @@ function calculateDistribution(distribution, xmin, xmax, mean, spread, skew, rar
       if (x_values[i] < 0 || x_values[i] > 1) {
         return 0;
       }
-
-      console.log("Sum of y_values where x_values < 0 or x_values > 1 (sumA):", sumA);
-      console.log("Sum of y_values where 0 < x_values < 1 (sumB):", sumB);
-      console.log("Correction Factor:", correctionFactor);
         
       return y * correctionFactor;
     });
@@ -373,9 +369,17 @@ function plotDistribution() {
           x: {
             type: "linear",
             position: "bottom",
+            title: {
+            display: true,
+            text: 'X Axis Label'
+            }
           },
           y: {
             max: ymax,
+            title: {
+            display: true,
+            text: 'Y Axis Label'
+            }
           },
         },
       }

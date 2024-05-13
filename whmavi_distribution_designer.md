@@ -5,7 +5,7 @@ permalink: /whmavi/distribution_designer/
 ---
 
 ## Description
-This designer is a visual representation of the distribution function used in WH-MAVI to create agent phenotypic heterogeneity.
+This designer is a visual representation of the distribution function used in WH-MAVI to create phenotypic heterogeneity.
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://ryanmimrie.github.io/assets/js/math.js"></script>
@@ -140,14 +140,14 @@ This designer is a visual representation of the distribution function used in WH
 
 <div id="controls" style="display: flex; justify-content: space-between;">
   <div id="population-controls">
-    <h3>Ratio</h3>
+    <h3>Population</h3>
     <div class="control-group">
         <label for="phenoratio">Phenotype Ratio:</label>
         <input type="number" id="phenoratio" value="0.75" step="0.01">
       </div>
     <div>
       <label for="fixdensities">Fix Ignored Densities:</label>
-      <input type="checkbox" id="fixdensities" checked style="transform: scale(1.25); margin-left: 5px;">
+      <input type="checkbox" id="fixdensities" checked style="transform: scale(1.35); margin-left: 5px;">
     </div>
   </div>
   <div id="plot-controls">
@@ -215,7 +215,7 @@ function calculateDistribution(distribution, xmin, xmax, mean, spread, skew, rar
     y_values = x_values.map((x) => {
         if (spread === 0) {
             const closestX = x_values.reduce((a, b) => Math.abs(b - mean) < Math.abs(a - mean) ? b : a);
-            return x === closestX ? 1 : 0;
+            return x === closestX ? 40 : 0;
         }
       const factor = 1 / (spread * Math.sqrt(2 * Math.PI));
       const exponent = -0.5 * Math.pow((x - mean) / spread, 2);
@@ -225,7 +225,7 @@ function calculateDistribution(distribution, xmin, xmax, mean, spread, skew, rar
     y_values = x_values.map((x) => {
         if (spread === 0) {
             const closestX = x_values.reduce((a, b) => Math.abs(b - mean) < Math.abs(a - mean) ? b : a);
-            return x === closestX ? 1 : 0;
+            return x === closestX ? 40 : 0;
         }
       const sqrtTwoPi = Math.sqrt(2 * Math.PI);
       const factor = rarity / (spread * sqrtTwoPi);
@@ -314,21 +314,21 @@ function plotDistribution() {
         labels: x_values1,
         datasets: [
           {
-            label: "Phenotypic Group 1",
+            label: "Phenotype 1",
             data: y_values1_mult,
             borderColor: "#3498db",
             fill: false,
             pointRadius: 0,
           },
           {
-            label: "Phenotypic Group 2",
+            label: "Phenotype 2",
             data: y_values2_mult,
             borderColor: "#e74c3c",
             fill: false,
             pointRadius: 0,
           },
           {
-            label: "Agent Population Distribution",
+            label: "Population Probability Density",
             data: y_values_sum,
             backgroundColor: "#34495e",
             fill: true,

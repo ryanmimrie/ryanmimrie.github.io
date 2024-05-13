@@ -87,8 +87,8 @@ This designer is a visual representation of the distribution function used in WH
       <input type="number" id="alpha1" value="0" step="0.01">
     </div>
     <div class="control-group" id="beta1-group">
-      <label for="beta_param1">Beta:</label>
-      <input type="number" id="beta_param1" value="5" step="0.1">
+      <label for="beta1">Beta:</label>
+      <input type="number" id="beta1" value="5" step="0.1">
     </div>
     <div class="control-group hidden" id="scale1-group">
       <label for="scale1">Scale:</label>
@@ -128,8 +128,8 @@ This designer is a visual representation of the distribution function used in WH
       <input type="number" id="alpha2" value="0" step="0.01">
     </div>
     <div class="control-group" id="beta2-group">
-      <label for="beta_param2">Beta:</label>
-      <input type="number" id="beta_param2" value="5" step="0.1">
+      <label for="beta2">Beta:</label>
+      <input type="number" id="beta2" value="5" step="0.1">
     </div>
     <div class="control-group hidden" id="scale2-group">
       <label for="scale2">Scale:</label>
@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 let chart;
 
-function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta_param, clamp) {
+function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta, clamp) {
   const x_values = [];
   const step = (xmax - xmin) / 200;
 
@@ -306,7 +306,7 @@ function plotDistribution() {
   const mean1 = parseFloat(document.getElementById("mean1").value);
   const sd1 = parseFloat(document.getElementById("sd1").value);
   const alpha1 = parseFloat(document.getElementById("alpha1").value);
-  const beta_param1 = parseFloat(document.getElementById("beta_param1").value);
+  const beta1 = parseFloat(document.getElementById("beta_param1").value);
   const clamp1 = document.getElementById("clamp1").value;
 
   // Fetch inputs for Distribution 2
@@ -314,7 +314,7 @@ function plotDistribution() {
   const mean2 = parseFloat(document.getElementById("mean2").value);
   const sd2 = parseFloat(document.getElementById("sd2").value);
   const alpha2 = parseFloat(document.getElementById("alpha2").value);
-  const beta_param2 = parseFloat(document.getElementById("beta_param2").value);
+  const beta2 = parseFloat(document.getElementById("beta_param2").value);
   const clamp2 = document.getElementById("clamp2").value;
 
   // Fetch plot inputs
@@ -323,8 +323,8 @@ function plotDistribution() {
   const ymax = parseFloat(document.getElementById("ymax").value);
 
   // Calculate values for both distributions
-  const { x_values: x_values1, y_values: y_values1 } = calculateDistribution(distribution1, xmin, xmax, mean1, sd1, alpha1, beta_param1, clamp1);
-  const { x_values: x_values2, y_values: y_values2 } = calculateDistribution(distribution2, xmin, xmax, mean2, sd2, alpha2, beta_param2, clamp2);
+  const { x_values: x_values1, y_values: y_values1 } = calculateDistribution(distribution1, xmin, xmax, mean1, sd1, alpha1, beta1, clamp1);
+  const { x_values: x_values2, y_values: y_values2 } = calculateDistribution(distribution2, xmin, xmax, mean2, sd2, alpha2, beta2, clamp2);
 
   // Calculate the sum distribution
   const y_values_sum = y_values1.map((y, i) => y + y_values2[i]);

@@ -236,26 +236,31 @@ function calculateDistribution(distribution, xmin, xmax, mean, spread, skew, rar
   } 
   if (clamp == "ignore") {
     if (fix == true) {
-    // Calculate the sum of y_values where x_values < 0 or x_values > 1 (a)
-    let sumA = y_values.reduce((acc, y, i) => {
-      if (x_values[i] < 0 || x_values[i] > 1) {
-        return acc + y;
-      }
-      return acc;
-    }, 0);
-
-    let sumB = y_values.reduce((acc, y, i) => {
-      if (x_values[i] > 0 && x_values[i] < 1) {
-        return acc + y;
-      }
-      return acc;
-    }, 0);
-
-    let correctionFactor = sumB * ((sumA / sumB) + 1);
-    y_values = y_values.map((y, i) => {
+      let sumA = y_values.reduce((acc, y, i) => {
+        if (x_values[i] < 0 || x_values[i] > 1) {
+          return acc + y;
+        }
+        return acc;
+      }, 0);
+  
+      let sumB = y_values.reduce((acc, y, i) => {
+        if (x_values[i] > 0 && x_values[i] < 1) {
+          return acc + y;
+        }
+        return acc;
+      }, 0);
+  
+      let correctionFactor = sumB * ((sumA / sumB) + 1);
+      
+      y_values = y_values.map((y, i) => {
       if (x_values[i] < 0 || x_values[i] > 1) {
         return 0;
       }
+
+      console.log("Sum of y_values where x_values < 0 or x_values > 1 (sumA):", sumA);
+      console.log("Sum of y_values where 0 < x_values < 1 (sumB):", sumB);
+      console.log("Correction Factor:", correctionFactor);
+        
       return y * correctionFactor;
     });
   } else {

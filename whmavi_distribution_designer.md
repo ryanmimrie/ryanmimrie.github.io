@@ -250,7 +250,7 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta, 
       const denominator = Math.sqrt(1 + Math.pow((x - mean) / sd, 2));
       return factor * Math.exp(exponent) / denominator;
     });
-    else if (distribution === "beta") {
+  } else if (distribution === "beta") {
       y_values = x_values.map((x) => {
         if (x < 0 || x > 1) return {x: x * scale, y: 0};
     

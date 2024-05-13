@@ -178,7 +178,7 @@ The WH-MAVI sample distribution function takes in seven arguments to produce a d
   <li><b>Spread</b>: The extent to which heterogeneity exists around the mean. For the normal distribution, this value represents the standard deviation. For the Johnson-SU distribution, this value represents the Xi (ξ) parameter.</li>
   <li><b>Skew</b>: The extent to which the Johnson-SU distribution is positively or negatively skewed. This value represents the Gamma (γ) parameter.</li>
   <li><b>Outlier Rarity</b>: The rarity of outlier values in the Johnson-SU distribution. This value represents the Delta (δ) parameter. </li>
-  <li><b>Clamp: This parameter controls the behaviour of values that fall outside the expected phenotypic range of 0-1.</li>
+  <li><b>Clamp</b>: This parameter controls the behaviour of values that fall outside the expected phenotypic range of 0-1.</li>
   <ul>
     <li>"None": The values are unchanged.</li>
     <li>"Ignore": The values are dropped from the distribution.</li>

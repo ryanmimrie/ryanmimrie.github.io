@@ -250,18 +250,20 @@ function calculateDistribution(distribution, xmin, xmax, mean, sd, alpha, beta, 
       const denominator = Math.sqrt(1 + Math.pow((x - mean) / sd, 2));
       return factor * Math.exp(exponent) / denominator;
     });
-  } else if (distribution === "beta") {
+    else if (distribution === "beta") {
       y_values = x_values.map((x) => {
-        if (x < 0 || x > 1) return 0;
+        if (x < 0 || x > 1) return {x: x * scale, y: 0};
     
         const gammaAlpha = math.gamma(alpha);
         const gammaBeta = math.gamma(beta);
         const gammaAlphaBeta = math.gamma(alpha + beta);
         const normalization = gammaAlpha * gammaBeta / gammaAlphaBeta;
+        const pdfValue = (Math.pow(x, alpha - 1) * Math.pow(1 - x, beta - 1)) / normalization;
     
-        return (Math.pow(x, alpha - 1) * Math.pow(1 - x, beta - 1)) / normalization;
-    });
+        return {x: x * scale, y: pdfValue};
+      });
   }
+
   if (clamp == "ignore") {
       y_values = y_values.map((y, i) => {
         if (x_values[i] < 0 || x_values[i] > 1) {

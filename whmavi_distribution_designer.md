@@ -158,7 +158,7 @@ This designer is a visual representation of the distribution function used in WH
     </div>
     <div class="control-group">
       <label for="ymax">Y Max:</label>
-      <input type="number" id="ymax" value="1.2" step="0.1">
+      <input type="number" id="ymax" value="6" step="0.1">
     </div>
   </div>
 </div>
@@ -292,8 +292,13 @@ function plotDistribution() {
   const xmax = parseFloat(document.getElementById("xmax").value);
   const ymax = parseFloat(document.getElementById("ymax").value);
 
+  const phenoratio = parseFloat(document.getElementById("phenoratio").value);
+
   const { x_values: x_values1, y_values: y_values1 } = calculateDistribution(distribution1, xmin, xmax, mean1, spread1, skew1, rarity1, clamp1);
   const { x_values: x_values2, y_values: y_values2 } = calculateDistribution(distribution2, xmin, xmax, mean2, spread2, skew2, rarity2, clamp2);
+
+  const multiplied_y_values1 = y_values1.map(value => value * phenoratio);
+  const multiplied_y_values2 = y_values2.map(value => value * (1 - phenoratio));
 
   const y_values_sum = y_values1.map((y, i) => y + y_values2[i]);
 

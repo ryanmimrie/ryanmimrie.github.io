@@ -94,8 +94,13 @@ This designer is a visual representation of the distribution function used in WH
       <label for="scale1">Scale:</label>
       <input type="number" id="scale1" value="1" step="0.1">
     </div>
-    <div class="control-group" id="clamp1-group">
-      <input type="checkbox" id="clamp1"> Clamp
+    <div class="control-group">
+      <label for="clamp1">Clamp:</label>
+      <select id="clamp1" onchange="toggleInputs('1')">
+        <option value="clamp-none">None</option>
+        <option value="clamp-ignore">Ignore</option>
+        <option value="clamp-squish">Squish</option>
+      </select>
     </div>
   </div>
 

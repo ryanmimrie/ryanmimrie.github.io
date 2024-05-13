@@ -10,3 +10,4 @@ Within-Host Model of Acute Virus Infection (WH-MAVI) is an agent-based mathemati
 ## Links
 
 <a href="/whmavi/distribution_designer/" class="project-button">Distribution Designer</a>
+<a href="/whmavi/relationship_designer/" class="project-button">Relationship Designer</a>

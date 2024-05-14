@@ -5,7 +5,7 @@ permalink: /whmavi/relationship_designer/
 ---
 
 ## Description
-<div style="font-size: 0.95em;">This designer is a visual representation of the relationship function used in WH-MAVI to describe correlated phenotypes and effects that vary over time.</div>
+<div style="font-size: 0.95em;">This designer is a visual representation of the relationship function used in WH-MAVI to describe correlated phenotypes and effects that vary over time.<br><br></div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -85,7 +85,7 @@ permalink: /whmavi/relationship_designer/
     </div>
     <div class="control-group">
       <label for="start-x">Start X:</label>
-      <input type="start-x" id="start-x-value" value="0.5" step="0.01">
+      <input type="number" id="start-x-value" value="0.5" step="0.01">
     </div>
     <div class="control-group">
       <label for="end-y">End Y:</label>

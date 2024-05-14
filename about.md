@@ -14,4 +14,4 @@ When I'm not working, I enjoy hiking around the nearby Loch Lomond and Trossachs
 
 ## Let's Connect
 
-If you're interested in collaborating or just want to say hi, feel free to reach out through [Ryan.Imrie@glasgow.ac.uk](mailto:Ryan.Imrie@glasgow.ac.uk).
+If you're interested in collaborating or just want to say hi, feel free to reach out through [Ryan.Imrie@glasgow.ac.uk](mailto:Ryan.Imrie@glasgow.ac.uk). For any industry enquiries, please get in touch through [ryan.m.imrie@gmail.com](mailto:ryan.m.imrie@gmail.com)

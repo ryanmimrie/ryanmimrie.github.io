@@ -126,7 +126,7 @@ permalink: /whmavi/relationship_designer/
   </div>
 </div>
 
-<div id="plot-controls">
+<div id="controls" style="margin-top: 20px;">
   <h3>Plot Controls</h3>
   <div class="noncontrol-group">
     <label for="xmax">X Max:</label>
@@ -289,10 +289,6 @@ function plotRelationship() {
   }
 
   const y = calculateRelationship(x, shape, start_y, end_y, start_x, end_x, base_y, mid_y, curve, plateau_upper, plateau_lower);
-
-  console.log("Curve:", curve);
-  console.log("First 10 values of x:", x.slice(0, 10));
-  console.log("First 10 values of y_values:", y.slice(0, 10));
 
   if (!chart) {
     const ctx = document.getElementById("relationshipChart").getContext("2d");

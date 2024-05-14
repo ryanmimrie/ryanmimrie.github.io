@@ -98,10 +98,6 @@ permalink: /whmavi/distribution_designer/
         <option value="squish">Squish</option>
       </select>
     </div>
-    <div>
-      <label for="fix1">Fix Ignored Density:</label>
-      <input type="checkbox" id="fix1" checked style="transform: scale(1.35); margin-left: 5px;">
-    </div>
   </div>
 
   <!-- Distribution 2 Inputs -->
@@ -138,10 +134,6 @@ permalink: /whmavi/distribution_designer/
         <option value="squish">Squish</option>
       </select>
     </div>
-    <div>
-      <label for="fix2">Fix Ignored Density:</label>
-      <input type="checkbox" id="fix2" checked style="transform: scale(1.35); margin-left: 5px;">
-    </div>
   </div>
 </div>
 
@@ -171,7 +163,7 @@ permalink: /whmavi/distribution_designer/
 </div>
 
 ### Details
-<div style="font-size: 0.95em;">The WH-MAVI sample distribution function takes in seven arguments to produce a distribution:<br><br>
+<div style="font-size: 0.95em;">The WH-MAVI sample distribution function takes in six arguments to produce a distribution:<br><br>
 <ul>
   <li><b>Distribution</b>: Either "Normal" or "Johnson-SU". The latter is a four-parameter extension of the normal distribution which allows for increased control of the distribution's shape.</li>
   <li><b>Mean</b>: The centre of the distribution. For the normal distribution, this value represents the mean. For the Johnson-SU distribution, this value represents the Lambda (λ) parameter.</li>
@@ -181,10 +173,9 @@ permalink: /whmavi/distribution_designer/
   <li><b>Clamp</b>: This parameter controls the behaviour of values that fall outside the expected phenotypic range of 0-1.</li>
   <ul>
     <li>"None": The values are unchanged.</li>
-    <li>"Ignore": The values are dropped from the distribution.</li>
+    <li>"Ignore": The values are dropped from the distribution and their density re-distributed to maintain the correct phenotype ratios.</li>
     <li>"Squish": The values are added to the boundaries of the distribution.</li>
   </ul>
-  <li><b>Fix Ignored Densities</b>: Applies only when clamp = "ignore", corrects the size of the remaining posterior density so it still integrates to a value of 1. This is important when combining multiple distributions (as in the above) as it maintains the phenotypic ratio set by the user.</li>
 </ul>
 </div>
 
@@ -222,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 let chart;
   
-function calculateDistribution(distribution, xmin, xmax, mean, spread, skew, rarity, clamp, fix) {
+function calculateDistribution(distribution, xmin, xmax, mean, spread, skew, rarity, clamp) {
   
   const x_values = [];
   const step = (xmax - xmin) / 200;
@@ -258,38 +249,29 @@ function calculateDistribution(distribution, xmin, xmax, mean, spread, skew, rar
     });
   } 
   if (clamp == "ignore") {
-    if (fix == true) {
-      let sumA = y_values.reduce((acc, y, i) => {
-        if (x_values[i] < 0 || x_values[i] > 1) {
-          return acc + y;
-        }
-        return acc;
-      }, 0);
+    let sumA = y_values.reduce((acc, y, i) => {
+      if (x_values[i] < 0 || x_values[i] > 1) {
+        return acc + y;
+      }
+      return acc;
+    }, 0);
   
-      let sumB = y_values.reduce((acc, y, i) => {
-        if (x_values[i] > 0 && x_values[i] < 1) {
-          return acc + y;
-        }
-        return acc;
-      }, 0);
+    let sumB = y_values.reduce((acc, y, i) => {
+      if (x_values[i] > 0 && x_values[i] < 1) {
+        return acc + y;
+      }
+      return acc;
+    }, 0);
   
-      let correctionFactor = (sumA / sumB) + 1;
+    let correctionFactor = (sumA / sumB) + 1;
       
-      y_values = y_values.map((y, i) => {
-      if (x_values[i] < 0 || x_values[i] > 1) {
-        return 0;
-      }
-        
-      return y * correctionFactor;
-    });
-  } else {
     y_values = y_values.map((y, i) => {
-      if (x_values[i] < 0 || x_values[i] > 1) {
-        return 0;
-      }
-      return y;
-    });
+    if (x_values[i] < 0 || x_values[i] > 1) {
+      return 0;
     }
+        
+    return y * correctionFactor;
+    });
   } else if (clamp == "squish") {
       const sumYBelowZero = x_values.reduce((acc, x, i) => x < 0 ? acc + y_values[i] : acc, 0);
       const sumYAboveOne = x_values.reduce((acc, x, i) => x > 1 ? acc + y_values[i] : acc, 0);
@@ -332,7 +314,6 @@ function plotDistribution() {
   const skew1 = parseFloat(document.getElementById("skew1").value);
   const rarity1 = parseFloat(document.getElementById("rarity1").value);
   const clamp1 = document.getElementById("clamp1").value;
-  const fix1 = document.getElementById("fix1").checked;
 
   const distribution2 = document.getElementById("distribution2").value;
   const mean2 = parseFloat(document.getElementById("mean2").value);
@@ -340,7 +321,6 @@ function plotDistribution() {
   const skew2 = parseFloat(document.getElementById("skew2").value);
   const rarity2 = parseFloat(document.getElementById("rarity2").value);
   const clamp2 = document.getElementById("clamp2").value;
-  const fix2 = document.getElementById("fix2").checked;
   
   const phenoratio = parseFloat(document.getElementById("phenoratio").value);
   
@@ -349,8 +329,8 @@ function plotDistribution() {
   const xmax = parseFloat(document.getElementById("xmax").value);
   const ymax = parseFloat(document.getElementById("ymax").value);
   
-  const { x_values: x_values1, y_values: y_values1 } = calculateDistribution(distribution1, xmin, xmax, mean1, spread1, skew1, rarity1, clamp1, fix1);
-  const { x_values: x_values2, y_values: y_values2 } = calculateDistribution(distribution2, xmin, xmax, mean2, spread2, skew2, rarity2, clamp2, fix2);
+  const { x_values: x_values1, y_values: y_values1 } = calculateDistribution(distribution1, xmin, xmax, mean1, spread1, skew1, rarity1, clamp1);
+  const { x_values: x_values2, y_values: y_values2 } = calculateDistribution(distribution2, xmin, xmax, mean2, spread2, skew2, rarity2, clamp2);
 
   const y_values1_mult = y_values1.map(value => value * phenoratio);
   const y_values2_mult = y_values2.map(value => value * (1 - phenoratio));
@@ -408,7 +388,6 @@ function plotDistribution() {
       }
     });
   } else {
-    // Update the existing chart's data and refresh it
     chart.data.labels = x_values1;
     chart.data.datasets[0].data = y_values1_mult;
     chart.data.datasets[1].data = y_values2_mult;
@@ -419,11 +398,9 @@ function plotDistribution() {
 }
 
 
-  // Attach change listeners to all controls to update the chart on input change
   document.querySelectorAll("#controls input, #controls select").forEach((input) => {
     input.addEventListener("input", plotDistribution);
   });
 
-  // Initial plot
   plotDistribution();
 </script>

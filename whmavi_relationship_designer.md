@@ -321,10 +321,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     } else {
-      chart.data.labels = x;
-      chart.data.datasets[0].data = y;
-      chart.options.scales.x.max = xmax;
-      chart.options.scales.y.max = ymax;
+        chart.data.labels = x;
+        chart.data.datasets[0].data = y;
+        chart.options.scales.x.max = xmax;
+        chart.options.scales.y.max = ymax;
+      }
+      
+      let additionalPoints = [];
+      if (shape === "tradeoff") {
+        additionalPoints.push({x: start_x, y: base_y});
+        additionalPoints.push({x: end_x, y: base_y});
+        additionalPoints.push({x: start_x + (end_x - start_x) / 2, y: mid_y});
+      } else {
+        additionalPoints.push({x: start_x, y: start_y});
+        additionalPoints.push({x: end_x, y: end_y});
+      }
+      
+      chart.data.datasets[1].data = additionalPoints;
       chart.update();
     }
   }

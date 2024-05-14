@@ -119,12 +119,13 @@ permalink: /whmavi/relationship_designer/
 </div>
 
 <div id="plot-controls">
+  <br><br>
   <h3>Plot Controls</h3>
-  <div class="control-group">
+  <div>
     <label for="xmax">X Max:</label>
     <input type="number" id="xmax" value="1" step="0.1">
   </div>
-  <div class="control-group">
+  <div>
     <label for="ymax">Y Max:</label>
     <input type="number" id="ymax" value="1" step="0.1">
   </div>

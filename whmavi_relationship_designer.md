@@ -80,25 +80,26 @@ permalink: /whmavi/relationship_designer/
         <option value="deceleratingdown">Decelerating (negative)</option>
       </select>
     </div>
-    <div class="control-group" id="start">
+    <div class="control-group">
       <label for="start">Start:</label>
-      <input type="number" id="start" value="0" step="0.01">
+      <input type="number" id="start-value" value="0" step="0.01">
     </div>
-    <div class="control-group" id="end">
+    <div class="control-group">
       <label for="end">End:</label>
-      <input type="number" id="end" value="1" step="0.01">
+      <input type="number" id="end-value" value="1" step="0.01">
     </div>
-    <div class="control-group" id="inflection">
+    <div class="control-group">
       <label for="inflection">Inflection:</label>
-      <input type="number" id="inflection" value="0.5" step="0.01">
+      <input type="number" id="inflection-value" value="0.5" step="0.01">
     </div>
-    <div class="control-group" id="steepness">
+    <div class="control-group">
       <label for="steepness">Steepness:</label>
-      <input type="number" id="steepness" value="1" step="0.1">
+      <input type="number" id="steepness-value" value="1" step="0.1">
     </div>
-  </div>
+</div>
 
-  <div id="distribution2-controls">
+
+  <div id="plot-controls">
     <h3>Plot Controls</h3>
     <div class="control-group">
       <label for="xmax">X Max:</label>
@@ -129,10 +130,10 @@ permalink: /whmavi/relationship_designer/
 
   function plotRelationship() {
     const shape = document.getElementById("shape").value;
-    const start = parseFloat(document.getElementById("start").value);
-    const end = parseFloat(document.getElementById("end").value);
-    const inflection = parseFloat(document.getElementById("inflection").value);
-    const steepness = parseFloat(document.getElementById("steepness").value);
+    const start = parseFloat(document.getElementById("start-value").value);
+    const end = parseFloat(document.getElementById("end-value").value);
+    const inflection = parseFloat(document.getElementById("inflection-value").value);
+    const steepness = parseFloat(document.getElementById("steepness-value").value);
 
     const xmax = parseFloat(document.getElementById("xmax").value);
     const ymax = parseFloat(document.getElementById("ymax").value);

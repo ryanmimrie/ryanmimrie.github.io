@@ -263,7 +263,7 @@ function plotRelationship() {
   const ymax = parseFloat(document.getElementById("ymax").value);
 
   let x = [];
-    for (let i = 0; i <= 1; i += 0.001) {
+    for (let i = 0; i <= 1; i += 0.005) {
         x.push(parseFloat(i.toFixed(3)));
     }
     for (let j = 1.1; j <= 100; j += 0.1) {

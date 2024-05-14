@@ -124,7 +124,7 @@ permalink: /whmavi/relationship_designer/
       let inflection = (start_x + end_x) / 2;
   
       x.forEach(xi => {
-          let y = start_y + (end_y - start_y) / (1 + Math.exp(-steepness * (xi - inflection)));
+          let y = xi
           yValues.push(y);
       });
   }
@@ -173,6 +173,7 @@ permalink: /whmavi/relationship_designer/
         options: {
           scales: {
             x: {
+              min: 0,
               type: "linear",
               position: "bottom",
               title: {

@@ -99,11 +99,11 @@ permalink: /whmavi/relationship_designer/
       <input type="checkbox" id="apply-plateau-value" checked style="transform: scale(1.35); margin-left: 5px;">
     </div>
     <div class="control-group" id="plateau-upper">
-      <label for="plateau-upper-value">Upper Plateau:</label>
+      <label for="plateau-upper-value">Upper:</label>
       <input type="number" id="plateau-upper-value" value="1" step="0.1">
     </div>
     <div class="control-group" id="plateau-lower">
-      <label for="plateau-lower-value">Lower Plateau:</label>
+      <label for="plateau-lower-value">Lower:</label>
       <input type="number" id="plateau-lower-value" value="0" step="0.1">
     </div>
 </div>

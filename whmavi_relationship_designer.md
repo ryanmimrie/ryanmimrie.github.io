@@ -81,20 +81,20 @@ permalink: /whmavi/relationship_designer/
       </select>
     </div>
     <div class="control-group">
-      <label for="start">Start:</label>
-      <input type="number" id="start-value" value="0" step="0.01">
+      <label for="start-y">Start Y:</label>
+      <input type="number" id="start-y-value" value="0" step="0.01">
     </div>
     <div class="control-group">
-      <label for="end">End:</label>
-      <input type="number" id="end-value" value="1" step="0.01">
+      <label for="end-y">End Y:</label>
+      <input type="number" id="end-y-value" value="1" step="0.01">
     </div>
     <div class="control-group">
-      <label for="inflection">Inflection:</label>
-      <input type="number" id="inflection-value" value="0.5" step="0.01">
+      <label for="inflection">Start X:</label>
+      <input type="start-x" id="start-x-value" value="0.5" step="0.01">
     </div>
     <div class="control-group">
-      <label for="steepness">Steepness:</label>
-      <input type="number" id="steepness-value" value="1" step="0.1">
+      <label for="end-x">End X:</label>
+      <input type="number" id="end-x-value" value="1" step="0.1">
     </div>
 </div>
 
@@ -115,25 +115,29 @@ permalink: /whmavi/relationship_designer/
 <script>
   let chart;
 
-  function calculateRelationship(x, shape, start, end, inflection, steepness) {
+  function calculateRelationship(x, shape, start_y, end_y, start_x, end_x) {
     let yValues = [];
 
     if (shape === "sigmoid") {
-        x.forEach(xi => {
-            let y = start + (end - start) / (1 + Math.exp(-steepness * (xi - inflection)));
-            yValues.push(y);
-        });
-    }
+      let yValues = [];
+      let steepness = 10 / (end_x - start_x);
+      let inflection = (start_x + end_x) / 2;
+  
+      x.forEach(xi => {
+          let y = start_y + (end_y - start_y) / (1 + Math.exp(-steepness * (xi - inflection)));
+          yValues.push(y);
+      });
+  }
 
     return yValues;
   }
 
   function plotRelationship() {
     const shape = document.getElementById("shape").value;
-    const start = parseFloat(document.getElementById("start-value").value);
-    const end = parseFloat(document.getElementById("end-value").value);
-    const inflection = parseFloat(document.getElementById("inflection-value").value);
-    const steepness = parseFloat(document.getElementById("steepness-value").value);
+    const start_y = parseFloat(document.getElementById("start-y-value").value);
+    const end_y = parseFloat(document.getElementById("end-y-value").value);
+    const start_x = parseFloat(document.getElementById("start-x-value").value);
+    const end_x = parseFloat(document.getElementById("end-x-value").value);
 
     const xmax = parseFloat(document.getElementById("xmax").value);
     const ymax = parseFloat(document.getElementById("ymax").value);
@@ -143,10 +147,10 @@ permalink: /whmavi/relationship_designer/
         x.push(parseFloat(i.toFixed(2)));
     }
 
-    console.log(`shape: ${shape}, start: ${start}, end: ${end}, inflection: ${inflection}, steepness: ${steepness}`);
+    console.log(`shape: ${shape}, start y: ${start_y}, end y: ${end_y}, start x: ${start_x}, end x: ${end_x}`);
     console.log(`xmax: ${xmax}, ymax: ${ymax}`);
     
-    const y = calculateRelationship(x, shape, start, end, inflection, steepness);
+    const y = calculateRelationship(x, shape, start_y, end_y, start_x, end_x);
 
     console.log("First 10 values of x:", x.slice(0, 10));
     console.log("First 10 values of y_values:", y.slice(0, 10));
@@ -189,6 +193,7 @@ permalink: /whmavi/relationship_designer/
     } else {
       chart.data.labels = x;
       chart.data.datasets[0].data = y;
+      chart.options.scales.x.max = xmax;
       chart.options.scales.y.max = ymax;
       chart.update();
     }

@@ -6,7 +6,7 @@ permalink: /consultancy/
 
 ## Services
 
-<div style="font-size: 0.9em;">With expertise in molecular biology, microbiology, bioinformatics, programming, and statistics, I have been actively collaborating with industry partners for years and am happy to receive any new enquiries. Feel free to contact me at ryan.m.imrie@gmail.com with any questions.</div>
+<div style="font-size: 0.9em;">With expertise in molecular biology, microbiology, bioinformatics, programming, and statistics, I have been actively collaborating with industry partners for years and am happy to receive any new enquiries. Feel free to contact me at [ryan.m.imrie@gmail.com](mailto:ryan.m.imrie@gmail.com) with any questions.</div>
 
 #### Assay Design, Wet-Lab Workflows, and SOPs
 

@@ -80,7 +80,6 @@ permalink: /whmavi/relationship_designer/
         <option value="sigmoid">Sigmoid</option>
         <option value="tradeoff">Trade-off</option>
         <option value="linear">Linear</option>
-        <option value="exponential">Exponential</option>
       </select>
     </div>
     <div class="control-group" id="start-x">
@@ -130,11 +129,11 @@ permalink: /whmavi/relationship_designer/
   <h3>Plot Controls</h3>
   <div class="noncontrol-group">
     <label for="xmax">X Max:</label>
-    <input type="number" id="xmax" value="1" step="0.1">
+    <input type="number" id="xmax" value="1" step="0.01">
   </div>
   <div class="noncontrol-group">
     <label for="ymax">Y Max:</label>
-    <input type="number" id="ymax" value="1" step="0.1">
+    <input type="number" id="ymax" value="1" step="0.01">
   </div>
 </div>
 
@@ -172,16 +171,6 @@ function toggleInputs() {
     upper_plateau.classList.remove('hidden');
     lower_plateau.classList.remove('hidden');
   } else if (shape === 'linear') {
-    start_y.classList.remove('hidden');
-    start_x.classList.remove('hidden');
-    end_y.classList.remove('hidden');
-    end_x.classList.remove('hidden');
-    base_y.classList.add('hidden');
-    midpoint_y.classList.add('hidden');
-    curve.classList.add('hidden');
-    upper_plateau.classList.remove('hidden');
-    lower_plateau.classList.remove('hidden');
-  } else if (shape === 'exponential') {
     start_y.classList.remove('hidden');
     start_x.classList.remove('hidden');
     end_y.classList.remove('hidden');
@@ -228,16 +217,6 @@ function calculateRelationship(x, shape, start_y, end_y, start_x, end_x, base_y,
   }
 
   if (shape === "linear") {
-    let slope = (end_y - start_y) / (end_x - start_x);
-    let intercept = start_y - slope * start_x;
-
-    x.forEach(xi => {
-      let y = slope * xi + intercept;
-      yValues.push(y);
-    });
-  }
-
-  if (shape === "exponential") {
     if (curve === 0) {
         let slope = (end_y - start_y) / (end_x - start_x);
         x.forEach(xi => {

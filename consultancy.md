@@ -43,7 +43,7 @@ permalink: /consultancy/
 
 #### Statistical Analysis and Reporting
 <div style="font-size: 0.9em;">
-    Reliable and clear statistical analysis can be crucial to interpret your data correctly and avoid false or inflated conclusions. I have been applying and teaching statistical methods for over six years, and can provide help with any of the following:
+    Reliable and clear statistical analysis can be crucial to interpret your data correctly and avoid false or inflated conclusions. I have been applying and teaching statistical methods for over six years, and can provide help with any of the following:<br><br>
     <ul>
         <li>Parametric and non-parametric statistical tests</li>
         <li>Frequentist linear modelling</li>

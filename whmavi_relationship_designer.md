@@ -33,6 +33,14 @@ permalink: /whmavi/relationship_designer/
   .control-group select {
     flex: 2;
   }
+
+  .noncontrol-group {
+    margin-bottom: 5px;
+  }
+
+  .noncontrol-group label {
+    margin-right: 10px;
+  }
   
   @media (max-width: 768px) {
 
@@ -119,13 +127,13 @@ permalink: /whmavi/relationship_designer/
 </div>
 
 <div id="plot-controls">
-  <br><br>
+  <br>
   <h3>Plot Controls</h3>
-  <div>
+  <div class="noncontrol-group">
     <label for="xmax">X Max:</label>
     <input type="number" id="xmax" value="1" step="0.1">
   </div>
-  <div>
+  <div class="noncontrol-group">
     <label for="ymax">Y Max:</label>
     <input type="number" id="ymax" value="1" step="0.1">
   </div>

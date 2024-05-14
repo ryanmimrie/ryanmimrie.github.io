@@ -78,7 +78,7 @@ permalink: /consultancy/
         <td>This rate applies to the processing time used by the bioinformatics system to complete a project, and covers the costs of running and maintaining the system I use for processing.</td>
     </tr>
 </table>
-    <br><br>
+<br><br>
 It is common for computer based projects to consist of a few hours of active work followed by a period where the computer is processing data unsupervised. To reflect this, a reduced rate that covers only the cost of running and maintaining the bioinformatics system is used for the hours I am not actively working on the current project. As an example, a straightforward metagenomics analysis of a small number of samples may require 2 hours of active time (£110) plus 6 hours of processing time (£30), for a total of £140.
     
 </div>

@@ -101,7 +101,7 @@ permalink: /whmavi/relationship_designer/
     </div>
     <div class="control-group" id="curve">
       <label for="curve">Curve:</label>
-      <input type="number" id="curve-value" value="0" step="0.01">
+      <input type="number" id="curve-value" value="0" step="0.1">
     </div>
     <div class="control-group" id="plateau-upper">
       <label for="plateau-upper-value">Upper:</label>
@@ -148,8 +148,8 @@ function toggleInputs() {
     base_y.classList.add('hidden');
     midpoint_y.classList.add('hidden');
     curve.classList.add('hidden');
-    upper_plateau.classList.add('hidden');
-    lower_plateau.classList.add('hidden');
+    upper_plateau.classList.remove('hidden');
+    lower_plateau.classList.remove('hidden');
   } else if (shape === 'tradeoff') {
     start_y.classList.add('hidden');
     start_x.classList.remove('hidden');
@@ -158,8 +158,8 @@ function toggleInputs() {
     base_y.classList.remove('hidden');
     midpoint_y.classList.remove('hidden');
     curve.classList.add('hidden');
-    upper_plateau.classList.add('hidden');
-    lower_plateau.classList.add('hidden');
+    upper_plateau.classList.remove('hidden');
+    lower_plateau.classList.remove('hidden');
   } else if (shape === 'linear') {
     start_y.classList.remove('hidden');
     start_x.classList.remove('hidden');
@@ -178,8 +178,8 @@ function toggleInputs() {
     base_y.classList.add('hidden');
     midpoint_y.classList.add('hidden');
     curve.classList.remove('hidden');
-    upper_plateau.classList.add('hidden');
-    lower_plateau.classList.add('hidden');
+    upper_plateau.classList.remove('hidden');
+    lower_plateau.classList.remove('hidden');
   }
 }
 
@@ -187,7 +187,6 @@ document.addEventListener('DOMContentLoaded', function() {
   toggleInputs();
   document.getElementById('shape').addEventListener('change', toggleInputs);
 });
-
   
 </script>
 
@@ -291,11 +290,11 @@ function plotRelationship() {
             pointRadius: 0,
           },
           {
-            data: [], // New dataset for additional points
-            borderColor: "red", // Different color for the points
+            data: [],
+            borderColor: "#e74c3c",
             fill: false,
-            pointRadius: 5, // Visible points
-            showLine: false // Only show points, not lines
+            pointRadius: 6,
+            showLine: false
           }
         ],
       },
@@ -352,6 +351,5 @@ document.querySelectorAll("#controls input, #controls select").forEach((input) =
   input.addEventListener("input", plotRelationship);
 });
 
-// Initial plot
 plotRelationship();
 </script>

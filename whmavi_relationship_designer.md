@@ -119,7 +119,6 @@ permalink: /whmavi/relationship_designer/
     let yValues = [];
 
     if (shape === "sigmoid") {
-      let yValues = [];
       let steepness = 10 / (end_x - start_x);
       let inflection = (start_x + end_x) / 2;
   

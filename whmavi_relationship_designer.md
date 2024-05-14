@@ -103,11 +103,11 @@ permalink: /whmavi/relationship_designer/
     <h3>Plot Controls</h3>
     <div class="control-group">
       <label for="xmax">X Max:</label>
-      <input type="number" id="xmax" value="1.2" step="0.1">
+      <input type="number" id="xmax" value="1" step="0.1">
     </div>
     <div class="control-group">
       <label for="ymax">Y Max:</label>
-      <input type="number" id="ymax" value="3" step="0.1">
+      <input type="number" id="ymax" value="1" step="0.1">
     </div>
   </div>
 </div>
@@ -123,7 +123,7 @@ permalink: /whmavi/relationship_designer/
       let inflection = (start_x + end_x) / 2;
   
       x.forEach(xi => {
-          let y = xi
+          let y = start_y + (end_y - start_y) / (1 + Math.exp(-steepness * (xi - inflection)));
           yValues.push(y);
       });
   }
@@ -173,6 +173,7 @@ permalink: /whmavi/relationship_designer/
           scales: {
             x: {
               min: 0,
+              max: xmax,
               type: "linear",
               position: "bottom",
               title: {

@@ -71,8 +71,7 @@ permalink: /whmavi/relationship_designer/
       <select id="shape" onchange="toggleInputs('1')">
         <option value="sigmoid">Sigmoid</option>
         <option value="tradeoff">Trade-off</option>
-        <option value="linear (model)">Linear (model)</option>
-        <option value="linear (descriptive)">Linear (descriptive)</option>
+        <option value="linear">Linear</option>
         <option value="acceleratingup">Accelerating (positive)</option>
         <option value="deceleratingup">Decelerating (positive)</option>
         <option value="acceleratingdown">Accelerating (negative)</option>
@@ -122,12 +121,22 @@ permalink: /whmavi/relationship_designer/
     let yValues = [];
 
     if (shape === "sigmoid") {
-      let steepness = 10 / (end_x - start_x);
-      let inflection = (start_x + end_x) / 2;
-  
-      x.forEach(xi => {
-          let y = start_y + (end_y - start_y) / (1 + Math.exp(-steepness * (xi - inflection)));
-          yValues.push(y);
+        let steepness = 10 / (end_x - start_x);
+        let inflection = (start_x + end_x) / 2;
+
+        x.forEach(xi => {
+            let y = start_y + (end_y - start_y) / (1 + Math.exp(-steepness * (xi - inflection)));
+            yValues.push(y);
+        });
+    }
+
+    if (shape === "linear") {
+        let slope = (end_y - start_y) / (end_x - start_x);
+        let intercept = start_y - slope * start_x;
+
+        x.forEach(xi => {
+            let y = slope * xi + intercept;
+            yValues.push(y);
         });
     }
 
@@ -136,7 +145,7 @@ permalink: /whmavi/relationship_designer/
     }
 
     return yValues;
-  }
+}
 
   function plotRelationship() {
     const shape = document.getElementById("shape").value;

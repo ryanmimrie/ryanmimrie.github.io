@@ -137,6 +137,22 @@ permalink: /whmavi/relationship_designer/
   </div>
 </div>
 
+### Details
+<div style="font-size: 0.95em;">The WH-MAVI relationship function takes in ten arguments to produce a relationship between two variables in the model.<br><br>
+<ul>
+  <li><b>Shape</b>: One of "Sigmoid", "Trade-Off", or "Linear". Each describes a different shape of relationship between the two variables.</li>
+  <li><b>Start X</b>: For Sigmoid and Linear shapes this is the X coordinate of the first anchor point controlling the relationship. For the Trade-Off shape this is the point along the X-axis where the bell-curve begins.</li>
+  <li><b>Start Y</b>: For Sigmoid and Linear shapes this is the Y coordinate of the first anchor point controlling the relationship.</li>
+  <li><b>End X</b>: For Sigmoid and Linear shapes this is the X coordinate of the second anchor point controlling the relationship. For the Trade-Off shape this is the point along the X-axis where the bell-curve ends</li>
+  <li><b>End Y</b>: For Sigmoid and Linear shapes this is the Y coordinate of the second anchor point controlling the relationship.</li>
+  <li><b>Base Y</b>: For the Trade-Off shape this is the Y value outside of the bell-curve.</li>
+  <li><b>Midpoint Y</b>: For the Trade-Off shape this is the Y value at the peak of the bell-curve.</li>
+  <li><b>Curve</b>: For the Linear shape this is the extent of curvature that exists between the two anchor points. At a value of 0, the relationship produced is a straight line.</li>
+  <li><b>Upper</b>: The maximum Y value of the relationship.</li>
+  <li><b>Lower</b>: The minimum Y value of the relationship.</li>
+</ul>
+</div>
+
 <script>
 function toggleInputs() {
   const shape = document.getElementById('shape').value;

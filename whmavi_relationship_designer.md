@@ -71,7 +71,6 @@ permalink: /whmavi/relationship_designer/
       <select id="shape" onchange="toggleInputs('1')">
         <option value="sigmoid">Sigmoid</option>
         <option value="tradeoff">Trade-off</option>
-        <option value="sudden">Sudden</option>
         <option value="linear (model)">Linear (model)</option>
         <option value="linear (descriptive)">Linear (descriptive)</option>
         <option value="acceleratingup">Accelerating (positive)</option>
@@ -85,12 +84,12 @@ permalink: /whmavi/relationship_designer/
       <input type="number" id="start-y-value" value="0" step="0.01">
     </div>
     <div class="control-group">
-      <label for="end-y">End Y:</label>
-      <input type="number" id="end-y-value" value="1" step="0.01">
+      <label for="start-x">Start X:</label>
+      <input type="start-x" id="start-x-value" value="0.5" step="0.01">
     </div>
     <div class="control-group">
-      <label for="inflection">Start X:</label>
-      <input type="start-x" id="start-x-value" value="0.5" step="0.01">
+      <label for="end-y">End Y:</label>
+      <input type="number" id="end-y-value" value="1" step="0.01">
     </div>
     <div class="control-group">
       <label for="end-x">End X:</label>
@@ -182,6 +181,7 @@ permalink: /whmavi/relationship_designer/
               }
             },
             y: {
+              min: 0,
               max: ymax,
               title: {
                 display: true,

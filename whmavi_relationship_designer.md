@@ -132,7 +132,7 @@ function toggleInputs() {
   const start_y = document.getElementById('start-y');
   const start_x = document.getElementById('start-x');
   const end_y = document.getElementById('end-y');
-  const end_x = document.getElementById('end-y');
+  const end_x = document.getElementById('end-x');
   const base_y = document.getElementById('base-y');
   const midpoint_y = document.getElementById('mid-y');
   const upper_plateau = document.getElementById('plateau-upper');

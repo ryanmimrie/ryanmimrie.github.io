@@ -169,7 +169,7 @@ permalink: /whmavi/relationship_designer/
     const end_y = parseFloat(document.getElementById("end-y-value").value);
     const start_x = parseFloat(document.getElementById("start-x-value").value);
     const end_x = parseFloat(document.getElementById("end-x-value").value);
-    const plateau = document.getElementById("clamp-apply-plateau-value-value").checked;
+    const plateau = document.getElementById("apply-plateau-value").checked;
     const plateau_upper = parseFloat(document.getElementById("plateau-upper-value").value);
     const plateau_lower = parseFloat(document.getElementById("plateau-lower-value").value);
     

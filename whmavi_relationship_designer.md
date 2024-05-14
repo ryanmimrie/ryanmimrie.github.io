@@ -129,10 +129,10 @@ permalink: /whmavi/relationship_designer/
 
   function plotRelationship() {
     const shape = document.getElementById("shape").value;
-    const start = parseFloat(document.getElementById("mean1").value);
-    const end = parseFloat(document.getElementById("spread1").value);
-    const inflection = parseFloat(document.getElementById("skew1").value);
-    const steepness = parseFloat(document.getElementById("rarity1").value);
+    const start = parseFloat(document.getElementById("start").value);
+    const end = parseFloat(document.getElementById("end").value);
+    const inflection = parseFloat(document.getElementById("inflection").value);
+    const steepness = parseFloat(document.getElementById("steepness").value);
 
     const xmax = parseFloat(document.getElementById("xmax").value);
     const ymax = parseFloat(document.getElementById("ymax").value);

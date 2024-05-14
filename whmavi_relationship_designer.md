@@ -69,7 +69,7 @@ permalink: /whmavi/relationship_designer/
     <div class="control-group">
       <label for="shape">Shape:</label>
       <select id="shape" onchange="toggleInputs('1')">
-        <option value="sigmoid">Sigmoidal</option>
+        <option value="sigmoid">Sigmoid</option>
         <option value="tradeoff">Trade-off</option>
         <option value="sudden">Sudden</option>
         <option value="linear (model)">Linear (model)</option>
@@ -142,6 +142,9 @@ permalink: /whmavi/relationship_designer/
         x.push(parseFloat(i.toFixed(2)));
     }
 
+    console.log(`shape: ${shape}, start: ${start}, end: ${end}, inflection: ${inflection}, steepness: ${steepness}`);
+    console.log(`xmax: ${xmax}, ymax: ${ymax}`);
+    
     const y = calculateRelationship(x, shape, start, end, inflection, steepness);
 
     console.log("First 10 values of x:", x.slice(0, 10));

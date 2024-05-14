@@ -263,9 +263,12 @@ function plotRelationship() {
   const ymax = parseFloat(document.getElementById("ymax").value);
 
   let x = [];
-  for (let i = 0; i <= xmax; i += xmax / 1000) {
-    x.push(parseFloat(i.toFixed(2)));
-  }
+    for (let i = 0; i <= 1; i += 0.001) {
+        x.push(parseFloat(i.toFixed(3)));
+    }
+    for (let j = 1.1; j <= 100; j += 0.1) {
+        x.push(parseFloat(j.toFixed(1)));
+    }
 
   const y = calculateRelationship(x, shape, start_y, end_y, start_x, end_x, base_y, mid_y, curve, plateau_upper, plateau_lower);
 

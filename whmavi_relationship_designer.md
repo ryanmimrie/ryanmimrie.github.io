@@ -100,7 +100,7 @@ permalink: /whmavi/relationship_designer/
       <input type="number" id="mid-y-value" value="1" step="0.01">
     </div>
     <div class="control-group" id="curve">
-      <label for="curve">Midpoint Y:</label>
+      <label for="curve">Curve:</label>
       <input type="number" id="curve-value" value="0" step="0.01">
     </div>
     <div class="control-group" id="plateau-upper">
@@ -273,6 +273,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const y = calculateRelationship(x, shape, start_y, end_y, start_x, end_x, base_y, mid_y, curve, plateau_upper, plateau_lower);
 
+    console.log("Curve:", curve);
     console.log("First 10 values of x:", x.slice(0, 10));
     console.log("First 10 values of y_values:", y.slice(0, 10));
     

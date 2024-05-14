@@ -35,7 +35,7 @@ permalink: /whmavi/relationship_designer/
   }
 
   .noncontrol-group {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
 
   .noncontrol-group label {
@@ -127,7 +127,6 @@ permalink: /whmavi/relationship_designer/
 </div>
 
 <div id="plot-controls">
-  <br>
   <h3>Plot Controls</h3>
   <div class="noncontrol-group">
     <label for="xmax">X Max:</label>

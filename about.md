@@ -14,4 +14,4 @@ When I'm not working, I enjoy hiking around the nearby Loch Lomond and Trossacks
 
 ## Let's Connect
 
-If you're interested in collaborating or just want to say hi, feel free to reach out through ryanimrie@glasgow.ac.uk.
+If you're interested in collaborating or just want to say hi, feel free to reach out through [ryanimrie@glasgow.ac.uk](mailto:ryanimrie@glasgow.ac.uk).

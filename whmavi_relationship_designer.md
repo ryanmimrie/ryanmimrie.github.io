@@ -94,16 +94,16 @@ permalink: /whmavi/relationship_designer/
       <label for="end-x">End X:</label>
       <input type="number" id="end-x-value" value="1" step="0.1">
     </div>
-    <div>
+    <div style="margin-bottom: 5px;">
       <label for="apply-plateau">Apply Plateau:</label>
       <input type="checkbox" id="apply-plateau-value" checked style="transform: scale(1.35); margin-left: 5px;">
     </div>
     <div class="control-group">
-      <label for="plateau-upper">End X:</label>
+      <label for="plateau-upper">Upper Plateau:</label>
       <input type="number" id="plateau-upper-value" value="1" step="0.1">
     </div>
     <div class="control-group">
-      <label for="plateau-lower">End X:</label>
+      <label for="plateau-lower">Lower Plateau:</label>
       <input type="number" id="plateau-lower-value" value="0" step="0.1">
     </div>
 </div>

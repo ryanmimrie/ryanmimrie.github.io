@@ -104,7 +104,7 @@ permalink: /whmavi/relationship_designer/
     </div>
     <div class="control-group">
       <label for="plateau-lower">Lower Plateau:</label>
-      <input type="number" id="plateau-lower-value" value="0" step="0.1">
+      <input type="number" id="plateau-lower" value="0" step="0.1">
     </div>
 </div>
 
@@ -132,7 +132,7 @@ function toggleInputs() {
   const end_x = document.getElementById('end-y-value');
   const apply_plateau = document.getElementById('apply-plateau-value');
   const upper_plateau = document.getElementById('plateau-upper-value');
-  const lower_plateau = document.getElementById('plateau-lower-value');
+  const lower_plateau = document.getElementById('plateau-lower');
 
   if (shape === 'sigmoid') {
     start_y.classList.remove('hidden');

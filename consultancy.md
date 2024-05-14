@@ -79,6 +79,6 @@ permalink: /consultancy/
     </tr>
 </table>
 
-<br><br>It is common for computer-based projects to consist of a few hours of active work followed by a period where the computer is processing data unsupervised. For these unsupervised hours, a reduced rate that covers only the cost of running and maintaining the bioinformatics system is used. As an example, a straightforward metagenomics analysis of a small number of samples may require 2 hours of active time (£110) plus 6 hours of processing time (£30), for a total of £140.
+<br>It is common for computer-based projects to consist of a few hours of active work followed by a period where the computer is processing data unsupervised. For these unsupervised hours, a reduced rate that covers only the cost of running and maintaining the bioinformatics system is used. As an example, a straightforward metagenomics analysis of a small number of samples may require 2 hours of active time (£110) plus 6 hours of processing time (£30), for a total of £140.
     
 </div>

@@ -72,10 +72,7 @@ permalink: /whmavi/relationship_designer/
         <option value="sigmoid">Sigmoid</option>
         <option value="tradeoff">Trade-off</option>
         <option value="linear">Linear</option>
-        <option value="acceleratingup">Accelerating (positive)</option>
-        <option value="deceleratingup">Decelerating (positive)</option>
-        <option value="acceleratingdown">Accelerating (negative)</option>
-        <option value="deceleratingdown">Decelerating (negative)</option>
+        <option value="exponential">Exponential</option>
       </select>
     </div>
     <div class="control-group" id="start-x">
@@ -101,6 +98,10 @@ permalink: /whmavi/relationship_designer/
     <div class="control-group" id="mid-y">
       <label for="mid-y">Midpoint Y:</label>
       <input type="number" id="mid-y-value" value="1" step="0.01">
+    </div>
+    <div class="control-group" id="curve">
+      <label for="curve">Midpoint Y:</label>
+      <input type="number" id="curve-value" value="0" step="0.01">
     </div>
     <div class="control-group" id="plateau-upper">
       <label for="plateau-upper-value">Upper:</label>
@@ -135,6 +136,7 @@ function toggleInputs() {
   const end_x = document.getElementById('end-x');
   const base_y = document.getElementById('base-y');
   const midpoint_y = document.getElementById('mid-y');
+  const curve = document.getElementById('curve');
   const upper_plateau = document.getElementById('plateau-upper');
   const lower_plateau = document.getElementById('plateau-lower');
 
@@ -145,6 +147,7 @@ function toggleInputs() {
     end_x.classList.remove('hidden');
     base_y.classList.add('hidden');
     midpoint_y.classList.add('hidden');
+    curve.classList.add('hidden');
     upper_plateau.classList.add('hidden');
     lower_plateau.classList.add('hidden');
   } else if (shape === 'tradeoff') {
@@ -154,6 +157,7 @@ function toggleInputs() {
     end_x.classList.remove('hidden');
     base_y.classList.remove('hidden');
     midpoint_y.classList.remove('hidden');
+    curve.classList.add('hidden');
     upper_plateau.classList.add('hidden');
     lower_plateau.classList.add('hidden');
   } else if (shape === 'linear') {
@@ -163,8 +167,19 @@ function toggleInputs() {
     end_x.classList.remove('hidden');
     base_y.classList.add('hidden');
     midpoint_y.classList.add('hidden');
+    curve.classList.add('hidden');
     upper_plateau.classList.remove('hidden');
     lower_plateau.classList.remove('hidden');
+  } else if (shape === 'exponential') {
+    start_y.classList.remove('hidden');
+    start_x.classList.remove('hidden');
+    end_y.classList.remove('hidden');
+    end_x.classList.remove('hidden');
+    base_y.classList.add('hidden');
+    midpoint_y.classList.add('hidden');
+    curve.classList.remove('hidden');
+    upper_plateau.classList.add('hidden');
+    lower_plateau.classList.add('hidden');
   }
 }
 
@@ -179,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
   let chart;
 
-  function calculateRelationship(x, shape, start_y, end_y, start_x, end_x, base_y, mid_y, plateau_upper, plateau_lower) {
+  function calculateRelationship(x, shape, start_y, end_y, start_x, end_x, base_y, mid_y, curve, plateau_upper, plateau_lower) {
     let yValues = [];
 
     if (shape === "sigmoid") {
@@ -213,6 +228,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    if (shape === "exponential") {
+        let A = (end_y - start_y) / (Math.exp(curve * (end_x - start_x)) - 1);
+        let B = start_y - A;
+    
+        x.forEach(xi => {
+            let y = A * (Math.exp(curve * (xi - start_x)) - 1) + B;
+            yValues.push(y);
+        });
+    }
+
     yValues = yValues.map(y => {
         if (y < plateau_lower) {
             return plateau_lower;
@@ -234,6 +259,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const end_x = parseFloat(document.getElementById("end-x-value").value);
     const base_y = parseFloat(document.getElementById("base-y-value").value);
     const mid_y = parseFloat(document.getElementById("mid-y-value").value);
+    const curve = parseFloat(document.getElementById("curve-value").value);
     const plateau_upper = parseFloat(document.getElementById("plateau-upper-value").value);
     const plateau_lower = parseFloat(document.getElementById("plateau-lower-value").value);
     
@@ -245,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function() {
         x.push(parseFloat(i.toFixed(2)));
     }
     
-    const y = calculateRelationship(x, shape, start_y, end_y, start_x, end_x, base_y, mid_y, plateau_upper, plateau_lower);
+    const y = calculateRelationship(x, shape, start_y, end_y, start_x, end_x, base_y, mid_y, curve, plateau_upper, plateau_lower);
 
     console.log("First 10 values of x:", x.slice(0, 10));
     console.log("First 10 values of y_values:", y.slice(0, 10));

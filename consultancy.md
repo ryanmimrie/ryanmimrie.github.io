@@ -6,7 +6,7 @@ permalink: /consultancy/
 
 ## Services
 
-<div style="font-size: 0.9em;">With expertise in molecular biology, microbiology, bioinformatics, programming, and statistics, I have been actively collaborating with industry partners for years and am happy to receive any new enquiries. Feel free to contact me at <a href="mailto:ryan.m.imrie@gmail.com">ryan.m.imrie@gmail.com</a> with any questions.</div>
+<div style="font-size: 0.9em;">With expertise in molecular biology, microbiology, bioinformatics, programming, and statistics, I have been actively collaborating with industry partners for years and am happy to receive any new enquiries. Feel free to contact me at <a href="mailto:ryan.m.imrie@gmail.com" style="color: #159957;">ryan.m.imrie@gmail.com</a> with any questions.</div>
 
 #### Assay Design, Wet-Lab Workflows, and SOPs
 
@@ -79,6 +79,6 @@ permalink: /consultancy/
     </tr>
 </table>
 
-<br><br><br><br>It is common for computer-based projects to consist of a few hours of active work followed by a period where the computer is processing data unsupervised. For these unsupervised hours, a reduced rate that covers only the cost of running and maintaining the bioinformatics system is used. As an example, a straightforward metagenomics analysis of a small number of samples may require 2 hours of active time (£110) plus 6 hours of processing time (£30), for a total of £140.
+<br><br>It is common for computer-based projects to consist of a few hours of active work followed by a period where the computer is processing data unsupervised. For these unsupervised hours, a reduced rate that covers only the cost of running and maintaining the bioinformatics system is used. As an example, a straightforward metagenomics analysis of a small number of samples may require 2 hours of active time (£110) plus 6 hours of processing time (£30), for a total of £140.
     
 </div>

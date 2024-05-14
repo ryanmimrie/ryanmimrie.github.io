@@ -5,7 +5,7 @@ permalink: /whmavi/relationship_designer/
 ---
 
 ## Description
-This designer is a visual representation of the relationship function used in WH-MAVI to set the relationships between correlated phenotypes, and effects that vary over time.
+<div style="font-size: 0.95em;">This designer is a visual representation of the relationship function used in WH-MAVI to describe correlated phenotypes and effects that vary over time.</div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -61,10 +61,10 @@ This designer is a visual representation of the relationship function used in WH
   }
 </style>
 
-<canvas id="distributionChart" width="800" height="400"></canvas>
+<canvas id="relationshipChart" width="800" height="400"></canvas>
 
 <div id="controls" style="display: flex; justify-content: space-between;">
-  <div id="distribution1-controls">
+  <div id="relationship-controls">
     <h3>Relationship</h3>
     <div class="control-group">
       <label for="distribution1">Shape:</label>
@@ -80,33 +80,21 @@ This designer is a visual representation of the relationship function used in WH
         <option value="deceleratingdown">Decelerating (negative)</option>
       </select>
     </div>
-    <div class="control-group" id="mean1-group">
-      <label for="mean1">Mean:</label>
-      <input type="number" id="mean1" value="0.75" step="0.01">
+    <div class="control-group" id="start">
+      <label for="start">Start:</label>
+      <input type="number" id="start" value="0" step="0.01">
     </div>
-    <div class="control-group" id="spread1-group">
-      <label for="spread1">Spread:</label>
-      <input type="number" id="spread1" value="0.15" step="0.01">
+    <div class="control-group" id="end">
+      <label for="end">End:</label>
+      <input type="number" id="end" value="1" step="0.01">
     </div>
-    <div class="control-group" id="skew1-group">
-      <label for="skew1">Skew:</label>
-      <input type="number" id="skew1" value="0" step="0.01">
+    <div class="control-group" id="inflection">
+      <label for="inflection">Inflection:</label>
+      <input type="number" id="inflection" value="0.5" step="0.01">
     </div>
-    <div class="control-group" id="rarity1-group">
-      <label for="rarity1">Outlier Rarity:</label>
-      <input type="number" id="rarity1" value="1" step="0.1">
-    </div>
-    <div class="control-group" id="clamp1-group">
-      <label for="clamp1">Clamp:</label>
-      <select id="clamp1">
-        <option value="none">None</option>
-        <option value="ignore">Ignore</option>
-        <option value="squish">Squish</option>
-      </select>
-    </div>
-    <div>
-      <label for="fix1">Fix Ignored Density:</label>
-      <input type="checkbox" id="fix1" checked style="transform: scale(1.35); margin-left: 5px;">
+    <div class="control-group" id="steepness">
+      <label for="steepness">Steepness:</label>
+      <input type="number" id="steepness" value="1" step="0.1">
     </div>
   </div>
 

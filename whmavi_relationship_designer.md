@@ -67,8 +67,8 @@ permalink: /whmavi/relationship_designer/
   <div id="relationship-controls">
     <h3>Relationship</h3>
     <div class="control-group">
-      <label for="distribution1">Shape:</label>
-      <select id="distribution1" onchange="toggleInputs('1')">
+      <label for="shape">Shape:</label>
+      <select id="shape" onchange="toggleInputs('1')">
         <option value="sigmoid">Sigmoidal</option>
         <option value="tradeoff">Trade-off</option>
         <option value="sudden">Sudden</option>

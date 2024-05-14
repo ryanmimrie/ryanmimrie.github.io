@@ -229,11 +229,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (shape === "exponential") {
-        let A = (end_y - start_y) / (Math.exp(curve * (end_x - start_x)) - 1);
-        let B = start_y - A;
+        let A = (end_y - start_y);
+        let B = start_y;
+        let exp_curve = Math.exp(curve * (end_x - start_x)) - 1;
     
         x.forEach(xi => {
-            let y = A * (Math.exp(curve * (xi - start_x)) - 1) + B;
+            let exponent = (xi - start_x) / (end_x - start_x);
+            let y = B + A * (1 - Math.exp(-curve * exponent)) / exp_curve;
             yValues.push(y);
         });
     }

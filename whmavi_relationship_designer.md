@@ -142,7 +142,7 @@ function toggleInputs() {
     apply_plateau.classList.remove('hidden');
     upper_plateau.classList.remove('hidden');
     lower_plateau.classList.remove('hidden');
-  } else if (distributionType === 'linear') {
+  } else if (shape === 'linear') {
     start_y.classList.remove('hidden');
     start_x.classList.remove('hidden');
     end_y.classList.remove('hidden');
@@ -216,7 +216,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const ymax = parseFloat(document.getElementById("ymax").value);
 
     let x = [];
-    for (let i = 0; i <= 100; i += 0.01) {
+    for (let i = 0; i <= 100; i += 0.05) {
         x.push(parseFloat(i.toFixed(2)));
     }
     

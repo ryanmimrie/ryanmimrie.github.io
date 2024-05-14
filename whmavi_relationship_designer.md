@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (shape === "tradeoff") {
         let mu = (start_x + end_x) / 2;
-        let sigma = (end_x - start_x) / 6;
+        let sigma = (end_x - start_x) / 8;
     
         x.forEach(xi => {
             let exponent = -Math.pow((xi - mu), 2) / (2 * Math.pow(sigma, 2));

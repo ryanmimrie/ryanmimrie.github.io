@@ -85,7 +85,7 @@ permalink: /whmavi/relationship_designer/
     </div>
     <div class="control-group">
       <label for="start-x">Start X:</label>
-      <input type="number" id="start-x-value" value="0.5" step="0.01">
+      <input type="number" id="start-x-value" value="0" step="0.01">
     </div>
     <div class="control-group">
       <label for="end-y">End Y:</label>
@@ -118,7 +118,7 @@ permalink: /whmavi/relationship_designer/
 <script>
   let chart;
 
-  function calculateRelationship(x, shape, start_y, end_y, start_x, end_x) {
+  function calculateRelationship(x, shape, start_y, end_y, start_x, end_x, clamp) {
     let yValues = [];
 
     if (shape === "sigmoid") {
@@ -128,8 +128,12 @@ permalink: /whmavi/relationship_designer/
       x.forEach(xi => {
           let y = start_y + (end_y - start_y) / (1 + Math.exp(-steepness * (xi - inflection)));
           yValues.push(y);
-      });
-  }
+        });
+    }
+
+    if (clamp) {
+        yValues = yValues.map(y => y < 0 ? 0 : y);
+    }
 
     return yValues;
   }
@@ -140,7 +144,8 @@ permalink: /whmavi/relationship_designer/
     const end_y = parseFloat(document.getElementById("end-y-value").value);
     const start_x = parseFloat(document.getElementById("start-x-value").value);
     const end_x = parseFloat(document.getElementById("end-x-value").value);
-
+    const clamp = document.getElementById("clamp-negative-value").checked;
+    
     const xmax = parseFloat(document.getElementById("xmax").value);
     const ymax = parseFloat(document.getElementById("ymax").value);
 
@@ -148,11 +153,8 @@ permalink: /whmavi/relationship_designer/
     for (let i = 0; i <= 100; i += 0.01) {
         x.push(parseFloat(i.toFixed(2)));
     }
-
-    console.log(`shape: ${shape}, start y: ${start_y}, end y: ${end_y}, start x: ${start_x}, end x: ${end_x}`);
-    console.log(`xmax: ${xmax}, ymax: ${ymax}`);
     
-    const y = calculateRelationship(x, shape, start_y, end_y, start_x, end_x);
+    const y = calculateRelationship(x, shape, start_y, end_y, start_x, end_x, clamp);
 
     console.log("First 10 values of x:", x.slice(0, 10));
     console.log("First 10 values of y_values:", y.slice(0, 10));

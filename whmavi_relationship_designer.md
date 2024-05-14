@@ -123,6 +123,45 @@ permalink: /whmavi/relationship_designer/
 </div>
 
 <script>
+  
+function toggleInputs() {
+  const shape = document.getElementById('shape').value;
+  const start_y = document.getElementById('start-y-value');
+  const start_x = document.getElementById('start-x-value');
+  const end_y = document.getElementById('end-y-value');
+  const end_x = document.getElementById('end-y-value');
+  const apply_plateau = document.getElementById('apply-plateau-value');
+  const upper_plateau = document.getElementById('plateau-upper-value');
+  const lower_plateau = document.getElementById('plateau-lower-value');
+
+  if (shape === 'sigmoid') {
+    start_y.classList.remove('hidden');
+    start_x.classList.remove('hidden');
+    end_y.classList.remove('hidden');
+    end_x.classList.remove('hidden');
+    apply_plateau.classList.remove('hidden');
+    upper_plateau.classList.remove('hidden');
+    lower_plateau.classList.remove('hidden');
+  } else if (distributionType === 'linear') {
+    start_y.classList.remove('hidden');
+    start_x.classList.remove('hidden');
+    end_y.classList.remove('hidden');
+    end_x.classList.remove('hidden');
+    apply_plateau.classList.add('hidden');
+    upper_plateau.classList.add('hidden');
+    lower_plateau.classList.add('hidden');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  toggleInputs();
+  document.getElementById('shape').addEventListener('change', toggleInputs);
+});
+
+  
+</script>
+
+<script>
   let chart;
 
   function calculateRelationship(x, shape, start_y, end_y, start_x, end_x, plateau, plateau_upper, plateau_lower) {

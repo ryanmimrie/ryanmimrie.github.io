@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const end_x = parseFloat(document.getElementById("end-x-value").value);
     const plateau = document.getElementById("apply-plateau-value").checked;
     const plateau_upper = parseFloat(document.getElementById("plateau-upper-value").value);
-    const plateau_lower = parseFloat(document.getElementById("plateau-lower-value").value);
+    const plateau_lower = parseFloat(document.getElementById("plateau-lower").value);
     
     const xmax = parseFloat(document.getElementById("xmax").value);
     const ymax = parseFloat(document.getElementById("ymax").value);

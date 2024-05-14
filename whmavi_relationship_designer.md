@@ -95,9 +95,9 @@ permalink: /whmavi/relationship_designer/
       <label for="end-x">End X:</label>
       <input type="number" id="end-x-value" value="1" step="0.1">
     </div>
-    <div class="control-group">
-      <label for="clip-negative">Flip Negative Values:</label>
-      <input type="checkbox" id="clip-negative-value" checked style="transform: scale(1.35); margin-left: 5px;">
+    <div>
+      <label for="clamp-negative">Clamp Negative Values:</label>
+      <input type="checkbox" id="clamp-negative-value" checked style="transform: scale(1.35); margin-left: 5px;">
     </div>
 </div>
 
@@ -165,7 +165,6 @@ permalink: /whmavi/relationship_designer/
           labels: x,
           datasets: [
             {
-              label: "",
               data: y,
               borderColor: "#3498db",
               fill: false,
@@ -194,6 +193,11 @@ permalink: /whmavi/relationship_designer/
               }
             },
           },
+          plugins: {
+            legend: {
+              display: false
+            }
+          }
         }
       });
     } else {

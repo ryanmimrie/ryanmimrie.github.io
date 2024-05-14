@@ -117,7 +117,7 @@ permalink: /whmavi/relationship_designer/
   function calculateRelationship(x, shape, start, end, inflection, steepness) {
     let yValues = [];
 
-    if (shape === "sigmoidal") {
+    if (shape === "sigmoid") {
         x.forEach(xi => {
             let y = start + (end - start) / (1 + Math.exp(-steepness * (xi - inflection)));
             yValues.push(y);

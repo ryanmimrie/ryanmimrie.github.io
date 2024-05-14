@@ -105,18 +105,6 @@ permalink: /whmavi/relationship_designer/
     </div>
   </div>
 
-  <div id="cutoff-controls">
-    <h3>Cut-offs</h3>
-    <div class="control-group" id="plateau-upper">
-      <label for="plateau-upper-value">Upper:</label>
-      <input type="number" id="plateau-upper-value" value="1" step="0.01">
-    </div>
-    <div class="control-group" id="plateau-lower">
-      <label for="plateau-lower-value">Lower:</label>
-      <input type="number" id="plateau-lower-value" value="0" step="0.01">
-    </div>
-  </div>
-
   <div id="plot-controls">
     <h3>Plot Controls</h3>
     <div class="control-group">
@@ -127,6 +115,18 @@ permalink: /whmavi/relationship_designer/
       <label for="ymax">Y Max:</label>
       <input type="number" id="ymax" value="1" step="0.1">
     </div>
+  </div>
+</div>
+
+<div id="cutoff-controls">
+  <h3>Cut-offs</h3>
+  <div class="control-group" id="plateau-upper">
+    <label for="plateau-upper-value">Upper:</label>
+    <input type="number" id="plateau-upper-value" value="1" step="0.01">
+  </div>
+  <div class="control-group" id="plateau-lower">
+    <label for="plateau-lower-value">Lower:</label>
+    <input type="number" id="plateau-lower-value" value="0" step="0.01">
   </div>
 </div>
 
@@ -168,21 +168,21 @@ function toggleInputs() {
     start_x.classList.remove('hidden');
     end_y.classList.remove('hidden');
     end_x.classList.remove('hidden');
-    base_y.classList.add('hidden');
-    midpoint_y.classList.add('hidden');
-    curve.classList.add('hidden');
-    upper_plateau.classList.remove('hidden');
-    lower_plateau.classList.remove('hidden');
+    base_y.classList add('hidden');
+    midpoint_y.classList add('hidden');
+    curve.classList add('hidden');
+    upper_plateau.classList remove('hidden');
+    lower_plateau.classList remove('hidden');
   } else if (shape === 'exponential') {
-    start_y.classList.remove('hidden');
-    start_x.classList.remove('hidden');
-    end_y.classList.remove('hidden');
-    end_x.classList.remove('hidden');
-    base_y.classList.add('hidden');
-    midpoint_y.classList.add('hidden');
-    curve.classList.remove('hidden');
-    upper_plateau.classList.remove('hidden');
-    lower_plateau.classList.remove('hidden');
+    start_y.classList remove('hidden');
+    start_x.classList remove('hidden');
+    end_y.classList remove('hidden');
+    end_x.classList remove('hidden');
+    base_y.classList add('hidden');
+    midpoint_y.classList add('hidden');
+    curve.classList remove('hidden');
+    upper_plateau.classList remove('hidden');
+    lower_plateau.classList remove('hidden');
   }
 }
 

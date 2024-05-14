@@ -4,9 +4,8 @@ title: WH-MAVI Distribution Designer
 permalink: /whmavi/distribution_designer/
 ---
 
-<div style="font-size: 0.9em;">## Description
-This designer is a visual representation of the distribution function used in WH-MAVI to create phenotypic heterogeneity.
-</div>
+## Description
+<div style="font-size: 0.95em;">This designer is a visual representation of the distribution function used in WH-MAVI to create phenotypic heterogeneity.</div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -171,8 +170,8 @@ This designer is a visual representation of the distribution function used in WH
   </div>
 </div>
 
-<div style="font-size: 0.9em;">### Details
-The WH-MAVI sample distribution function takes in seven arguments to produce a distribution:
+### Details
+<div style="font-size: 0.95em;">The WH-MAVI sample distribution function takes in seven arguments to produce a distribution:<br><br>
 <ul>
   <li><b>Distribution</b>: Either "Normal" or "Johnson-SU". The latter is a four-parameter extension of the normal distribution which allows for increased control of the distribution's shape.</li>
   <li><b>Mean</b>: The centre of the distribution. For the normal distribution, this value represents the mean. For the Johnson-SU distribution, this value represents the Lambda (λ) parameter.</li>

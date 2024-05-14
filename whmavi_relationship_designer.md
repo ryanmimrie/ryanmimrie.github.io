@@ -103,6 +103,10 @@ permalink: /whmavi/relationship_designer/
       <label for="curve">Curve:</label>
       <input type="number" id="curve-value" value="0" step="0.1">
     </div>
+  </div>
+
+  <div id="cutoff-controls">
+    <h3>Cut-offs</h3>
     <div class="control-group" id="plateau-upper">
       <label for="plateau-upper-value">Upper:</label>
       <input type="number" id="plateau-upper-value" value="1" step="0.01">
@@ -111,7 +115,7 @@ permalink: /whmavi/relationship_designer/
       <label for="plateau-lower-value">Lower:</label>
       <input type="number" id="plateau-lower-value" value="0" step="0.01">
     </div>
-</div>
+  </div>
 
   <div id="plot-controls">
     <h3>Plot Controls</h3>
@@ -127,7 +131,6 @@ permalink: /whmavi/relationship_designer/
 </div>
 
 <script>
-  
 function toggleInputs() {
   const shape = document.getElementById('shape').value;
   const start_y = document.getElementById('start-y');
@@ -187,7 +190,6 @@ document.addEventListener('DOMContentLoaded', function() {
   toggleInputs();
   document.getElementById('shape').addEventListener('change', toggleInputs);
 });
-  
 </script>
 
 <script>

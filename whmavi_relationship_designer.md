@@ -228,14 +228,22 @@ function calculateRelationship(x, shape, start_y, end_y, start_x, end_x, base_y,
   }
 
   if (shape === "exponential") {
-    let A = (end_y - start_y) / (Math.exp(curve * end_x) - Math.exp(curve * start_x));
-    let B = start_y - A * Math.exp(curve * start_x);
+    if (curve === 0) {
+        let slope = (end_y - start_y) / (end_x - start_x);
+        x.forEach(xi => {
+            let y = start_y + slope * (xi - start_x);
+            yValues.push(y);
+        });
+    } else {
+        let A = (end_y - start_y) / (Math.exp(curve * end_x) - Math.exp(curve * start_x));
+        let B = start_y - A * Math.exp(curve * start_x);
 
-    x.forEach(xi => {
-      let y = A * Math.exp(curve * xi) + B;
-      yValues.push(y);
-    });
-  }
+        x.forEach(xi => {
+            let y = A * Math.exp(curve * xi) + B;
+            yValues.push(y);
+        });
+    }
+}
 
   yValues = yValues.map(y => {
     if (y < plateau_lower) {

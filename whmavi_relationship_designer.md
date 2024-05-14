@@ -95,8 +95,16 @@ permalink: /whmavi/relationship_designer/
       <input type="number" id="end-x-value" value="1" step="0.1">
     </div>
     <div>
-      <label for="clamp-negative">Clamp Negative Values:</label>
-      <input type="checkbox" id="clamp-negative-value" checked style="transform: scale(1.35); margin-left: 5px;">
+      <label for="apply-plateau">Apply Plateau:</label>
+      <input type="checkbox" id="apply-plateau-value" checked style="transform: scale(1.35); margin-left: 5px;">
+    </div>
+    <div class="control-group">
+      <label for="plateau-upper">End X:</label>
+      <input type="number" id="plateau-upper-value" value="1" step="0.1">
+    </div>
+    <div class="control-group">
+      <label for="plateau-lower">End X:</label>
+      <input type="number" id="plateau-lower-value" value="0" step="0.1">
     </div>
 </div>
 
@@ -117,7 +125,7 @@ permalink: /whmavi/relationship_designer/
 <script>
   let chart;
 
-  function calculateRelationship(x, shape, start_y, end_y, start_x, end_x, clamp) {
+  function calculateRelationship(x, shape, start_y, end_y, start_x, end_x, plateau, plateau_upper, plateau_lower) {
     let yValues = [];
 
     if (shape === "sigmoid") {
@@ -140,8 +148,16 @@ permalink: /whmavi/relationship_designer/
         });
     }
 
-    if (clamp) {
-        yValues = yValues.map(y => y < 0 ? 0 : y);
+    if (plateau) {
+        yValues = yValues.map(y => {
+            if (y < plateau_lower) {
+                return plateau_lower;
+            } else if (y > plateau_upper) {
+                return plateau_upper;
+            } else {
+                return y;
+            }
+        });
     }
 
     return yValues;
@@ -153,7 +169,9 @@ permalink: /whmavi/relationship_designer/
     const end_y = parseFloat(document.getElementById("end-y-value").value);
     const start_x = parseFloat(document.getElementById("start-x-value").value);
     const end_x = parseFloat(document.getElementById("end-x-value").value);
-    const clamp = document.getElementById("clamp-negative-value").checked;
+    const plateau = document.getElementById("clamp-apply-plateau-value-value").checked;
+    const plateau_upper = parseFloat(document.getElementById("plateau-upper-value").value);
+    const plateau_lower = parseFloat(document.getElementById("plateau-lower-value").value);
     
     const xmax = parseFloat(document.getElementById("xmax").value);
     const ymax = parseFloat(document.getElementById("ymax").value);
@@ -163,7 +181,7 @@ permalink: /whmavi/relationship_designer/
         x.push(parseFloat(i.toFixed(2)));
     }
     
-    const y = calculateRelationship(x, shape, start_y, end_y, start_x, end_x, clamp);
+    const y = calculateRelationship(x, shape, start_y, end_y, start_x, end_x, plateau, plateau_upper, plateau_lower);
 
     console.log("First 10 values of x:", x.slice(0, 10));
     console.log("First 10 values of y_values:", y.slice(0, 10));

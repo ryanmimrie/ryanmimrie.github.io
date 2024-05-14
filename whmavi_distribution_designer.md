@@ -5,7 +5,7 @@ permalink: /whmavi/distribution_designer/
 ---
 
 ## Description
-<div style="font-size: 0.95em;">This designer is a visual representation of the distribution function used in WH-MAVI to create phenotypic heterogeneity.</div>
+<div style="font-size: 0.95em;">This designer is a visual representation of the distribution function used in WH-MAVI to create phenotypic heterogeneity.<br><br></div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 

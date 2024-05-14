@@ -78,25 +78,29 @@ permalink: /whmavi/relationship_designer/
         <option value="deceleratingdown">Decelerating (negative)</option>
       </select>
     </div>
+    <div class="control-group" id="start-x">
+      <label for="start-x">Start X:</label>
+      <input type="number" id="start-x-value" value="0" step="0.01">
+    </div>
     <div class="control-group" id="start-y">
       <label for="start-y">Start Y:</label>
       <input type="number" id="start-y-value" value="0" step="0.01">
     </div>
-    <div class="control-group" id="start-x">
-      <label for="start-x">Start X:</label>
-      <input type="number" id="start-x-value" value="0" step="0.01">
+    <div class="control-group"  id="end-x">
+      <label for="end-x">End X:</label>
+      <input type="number" id="end-x-value" value="1" step="0.01">
     </div>
     <div class="control-group" id="end-y">
       <label for="end-y">End Y:</label>
       <input type="number" id="end-y-value" value="1" step="0.01">
     </div>
-    <div class="control-group"  id="end-x">
-      <label for="end-x">End X:</label>
-      <input type="number" id="end-x-value" value="1" step="0.1">
+    <div class="control-group"  id="base-y">
+      <label for="base-y">Base Y:</label>
+      <input type="number" id="base-y-value" value="0" step="0.01">
     </div>
-    <div style="margin-bottom: 5px;" id="apply-plateau">
-      <label for="apply-plateau-value">Apply Plateau:</label>
-      <input type="checkbox" id="apply-plateau-value" checked style="transform: scale(1.35); margin-left: 5px;">
+    <div class="control-group" id="mid-y">
+      <label for="mid-y">Midpoint Y:</label>
+      <input type="number" id="mid-y-value" value="1" step="0.01">
     </div>
     <div class="control-group" id="plateau-upper">
       <label for="plateau-upper-value">Upper:</label>
@@ -129,7 +133,8 @@ function toggleInputs() {
   const start_x = document.getElementById('start-x');
   const end_y = document.getElementById('end-y');
   const end_x = document.getElementById('end-y');
-  const apply_plateau = document.getElementById('apply-plateau');
+  const base_y = document.getElementById('base-y');
+  const midpoint_y = document.getElementById('mid-y');
   const upper_plateau = document.getElementById('plateau-upper');
   const lower_plateau = document.getElementById('plateau-lower');
 
@@ -138,7 +143,17 @@ function toggleInputs() {
     start_x.classList.remove('hidden');
     end_y.classList.remove('hidden');
     end_x.classList.remove('hidden');
-    apply_plateau.classList.remove('hidden');
+    base_y.classList.add('hidden');
+    midpoint_y.classList.add('hidden');
+    upper_plateau.classList.remove('hidden');
+    lower_plateau.classList.remove('hidden');
+  } else if (shape === 'tradeoff') {
+    start_y.classList.add('hidden');
+    start_x.classList.remove('hidden');
+    end_y.classList.add('hidden');
+    end_x.classList.remove('hidden');
+    base_y.classList.remove('hidden');
+    midpoint_y.classList.remove('hidden');
     upper_plateau.classList.remove('hidden');
     lower_plateau.classList.remove('hidden');
   } else if (shape === 'linear') {
@@ -146,9 +161,10 @@ function toggleInputs() {
     start_x.classList.remove('hidden');
     end_y.classList.remove('hidden');
     end_x.classList.remove('hidden');
-    apply_plateau.classList.add('hidden');
-    upper_plateau.classList.add('hidden');
-    lower_plateau.classList.add('hidden');
+    base_y.classList.add('hidden');
+    midpoint_y.classList.add('hidden');
+    upper_plateau.classList.remove('hidden');
+    lower_plateau.classList.remove('hidden');
   }
 }
 
@@ -163,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
   let chart;
 
-  function calculateRelationship(x, shape, start_y, end_y, start_x, end_x, plateau, plateau_upper, plateau_lower) {
+  function calculateRelationship(x, shape, start_y, end_y, start_x, end_x, plateau_upper, plateau_lower) {
     let yValues = [];
 
     if (shape === "sigmoid") {
@@ -186,17 +202,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    if (plateau) {
-        yValues = yValues.map(y => {
-            if (y < plateau_lower) {
-                return plateau_lower;
-            } else if (y > plateau_upper) {
-                return plateau_upper;
-            } else {
-                return y;
-            }
-        });
-    }
+    yValues = yValues.map(y => {
+        if (y < plateau_lower) {
+            return plateau_lower;
+        } else if (y > plateau_upper) {
+            return plateau_upper;
+        } else {
+            return y;
+        }
+    });
 
     return yValues;
 }
@@ -207,9 +221,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const end_y = parseFloat(document.getElementById("end-y-value").value);
     const start_x = parseFloat(document.getElementById("start-x-value").value);
     const end_x = parseFloat(document.getElementById("end-x-value").value);
-    const plateau = document.getElementById("apply-plateau-value").checked;
     const plateau_upper = parseFloat(document.getElementById("plateau-upper-value").value);
-    const plateau_lower = parseFloat(document.getElementById("plateau-lower").value);
+    const plateau_lower = parseFloat(document.getElementById("plateau-lower-value").value);
     
     const xmax = parseFloat(document.getElementById("xmax").value);
     const ymax = parseFloat(document.getElementById("ymax").value);
@@ -219,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
         x.push(parseFloat(i.toFixed(2)));
     }
     
-    const y = calculateRelationship(x, shape, start_y, end_y, start_x, end_x, plateau, plateau_upper, plateau_lower);
+    const y = calculateRelationship(x, shape, start_y, end_y, start_x, end_x, plateau_upper, plateau_lower);
 
     console.log("First 10 values of x:", x.slice(0, 10));
     console.log("First 10 values of y_values:", y.slice(0, 10));

@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const ymax = parseFloat(document.getElementById("ymax").value);
 
     let x = [];
-    for (let i = 0; i <= 100; i += 0.05) {
+    for (let i = 0; i <= xmax; i += xmax / 1000) {
         x.push(parseFloat(i.toFixed(2)));
     }
     

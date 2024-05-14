@@ -4,8 +4,9 @@ title: WH-MAVI Distribution Designer
 permalink: /whmavi/distribution_designer/
 ---
 
-## Description
+<div style="font-size: 0.9em;">## Description
 This designer is a visual representation of the distribution function used in WH-MAVI to create phenotypic heterogeneity.
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -170,7 +171,7 @@ This designer is a visual representation of the distribution function used in WH
   </div>
 </div>
 
-### Details
+<div style="font-size: 0.9em;">### Details
 The WH-MAVI sample distribution function takes in seven arguments to produce a distribution:
 <ul>
   <li><b>Distribution</b>: Either "Normal" or "Johnson-SU". The latter is a four-parameter extension of the normal distribution which allows for increased control of the distribution's shape.</li>
@@ -186,6 +187,7 @@ The WH-MAVI sample distribution function takes in seven arguments to produce a d
   </ul>
   <li><b>Fix Ignored Densities</b>: Applies only when clamp = "ignore", corrects the size of the remaining posterior density so it still integrates to a value of 1. This is important when combining multiple distributions (as in the above) as it maintains the phenotypic ratio set by the user.</li>
 </ul>
+</div>
 
 <script>
 function toggleInputs(groupNumber) {

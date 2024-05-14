@@ -10,7 +10,7 @@ Hello, my name is Ryan M. Imrie. I am a virologist with extensive experience of 
 
 ## Outside of Work
 
-When I'm not working, I enjoy hiking around the nearby Loch Lomond and Trossacks National Park, curling up on the corner sofa with a book, or tackling self-inflicted coding challenges. My current "for-fun" challenge is creating a 6-dimensional version of Snake — traditionally a 2-dimensional game — and a computer algorithm that can efficiently and safely find paths through this 6D space.
+When I'm not working, I enjoy hiking around the nearby Loch Lomond and Trossachs National Park, curling up on the corner sofa with a book, or tackling self-inflicted coding challenges. My current "for-fun" challenge is creating a 6-dimensional version of Snake — traditionally a 2-dimensional game — and a computer algorithm that can efficiently and safely find paths through this 6D space.
 
 ## Let's Connect
 

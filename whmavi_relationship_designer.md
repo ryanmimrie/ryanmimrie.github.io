@@ -142,8 +142,11 @@ permalink: /whmavi/relationship_designer/
         x.push(parseFloat(i.toFixed(2)));
     }
 
-    const y_values = calculateRelationship(x, shape, start, end, inflection, steepness);
+    const y = calculateRelationship(x, shape, start, end, inflection, steepness);
 
+    console.log("First 10 values of x:", x.slice(0, 10));
+    console.log("First 10 values of y_values:", y.slice(0, 10));
+    
     if (!chart) {
       const ctx = document.getElementById("relationshipChart").getContext("2d");
       chart = new Chart(ctx, {
@@ -152,7 +155,7 @@ permalink: /whmavi/relationship_designer/
           labels: x,
           datasets: [
             {
-              data: y_values,
+              data: y,
               borderColor: "#3498db",
               fill: false,
               pointRadius: 0,
@@ -181,7 +184,7 @@ permalink: /whmavi/relationship_designer/
       });
     } else {
       chart.data.labels = x;
-      chart.data.datasets[0].data = y_values;
+      chart.data.datasets[0].data = y;
       chart.options.scales.y.max = ymax;
       chart.update();
     }

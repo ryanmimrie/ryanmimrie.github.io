@@ -78,36 +78,35 @@ permalink: /whmavi/relationship_designer/
         <option value="deceleratingdown">Decelerating (negative)</option>
       </select>
     </div>
-    <div class="control-group">
+    <div class="control-group" id="start-y">
       <label for="start-y">Start Y:</label>
       <input type="number" id="start-y-value" value="0" step="0.01">
     </div>
-    <div class="control-group">
+    <div class="control-group" id="start-x">
       <label for="start-x">Start X:</label>
       <input type="number" id="start-x-value" value="0" step="0.01">
     </div>
-    <div class="control-group">
+    <div class="control-group" id="end-y">
       <label for="end-y">End Y:</label>
       <input type="number" id="end-y-value" value="1" step="0.01">
     </div>
-    <div class="control-group">
+    <div class="control-group"  id="end-x">
       <label for="end-x">End X:</label>
       <input type="number" id="end-x-value" value="1" step="0.1">
     </div>
-    <div style="margin-bottom: 5px;">
-      <label for="apply-plateau">Apply Plateau:</label>
+    <div style="margin-bottom: 5px;" id="apply-plateau">
+      <label for="apply-plateau-value">Apply Plateau:</label>
       <input type="checkbox" id="apply-plateau-value" checked style="transform: scale(1.35); margin-left: 5px;">
     </div>
-    <div class="control-group">
-      <label for="plateau-upper">Upper Plateau:</label>
+    <div class="control-group" id="plateau-upper">
+      <label for="plateau-upper-value">Upper Plateau:</label>
       <input type="number" id="plateau-upper-value" value="1" step="0.1">
     </div>
-    <div class="control-group">
-      <label for="plateau-lower">Lower Plateau:</label>
-      <input type="number" id="plateau-lower" value="0" step="0.1">
+    <div class="control-group" id="plateau-lower">
+      <label for="plateau-lower-value">Lower Plateau:</label>
+      <input type="number" id="plateau-lower-value" value="0" step="0.1">
     </div>
 </div>
-
 
   <div id="plot-controls">
     <h3>Plot Controls</h3>
@@ -126,12 +125,12 @@ permalink: /whmavi/relationship_designer/
   
 function toggleInputs() {
   const shape = document.getElementById('shape').value;
-  const start_y = document.getElementById('start-y-value');
-  const start_x = document.getElementById('start-x-value');
-  const end_y = document.getElementById('end-y-value');
-  const end_x = document.getElementById('end-y-value');
-  const apply_plateau = document.getElementById('apply-plateau-value');
-  const upper_plateau = document.getElementById('plateau-upper-value');
+  const start_y = document.getElementById('start-y');
+  const start_x = document.getElementById('start-x');
+  const end_y = document.getElementById('end-y');
+  const end_x = document.getElementById('end-y');
+  const apply_plateau = document.getElementById('apply-plateau');
+  const upper_plateau = document.getElementById('plateau-upper');
   const lower_plateau = document.getElementById('plateau-lower');
 
   if (shape === 'sigmoid') {

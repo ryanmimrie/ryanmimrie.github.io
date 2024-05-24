@@ -7,6 +7,11 @@ permalink: /publications/
 # Publications (by year)
 <div>
   <div style="margin-bottom: 20px;">
+    <div style="font-weight: bold;font-size: 0.9em;">(2024) PREPRINT: Varying phylogenetic signal to four bacterial pathogens across species of Drosophilidae</div>
+    <div style="font-size: 0.8em; color: grey;">H Sun, MA Hanson, SK Walsh, RM Imrie, B Raymond, B Longdon</div>
+    <div style="font-size: 0.8em; color: grey;">bioRxiv, 2024.04. 19.590331. doi: <a href="https://doi.org/10.1101/2024.04.19.590331" style="color: #159957;">10.1101/2024.04.19.590331</a></div>
+  </div>
+  <div style="margin-bottom: 20px;">
     <div style="font-weight: bold;font-size: 0.9em;">(2023) The host phylogeny determines viral infectivity and replication across Staphylococcus host species</div>
     <div style="font-size: 0.8em; color: grey;">Walsh SK, Imrie RM, Matuszewska M, Paterson GK, Weinert LA, Hadfield JD, Buckling A, Longdon B</div>
     <div style="font-size: 0.8em; color: grey;">PLoS Pathogens. 2023 Jun 8;19(6):e1011433. doi: <a href="https://doi.org/10.1371/journal.ppat.1011433" style="color: #159957;">10.1371/journal.ppat.1011433</a></div>

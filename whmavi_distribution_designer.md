@@ -98,6 +98,14 @@ permalink: /whmavi/distribution_designer/
         <option value="squish">Squish</option>
       </select>
     </div>
+    <div class="control-group" id="upper1-group">
+      <label for="upper1">Upper:</label>
+      <input type="number" id="upper1" value="1" step="0.01">
+    </div>
+    <div class="control-group" id="lower1-group">
+      <label for="lower1">Lower:</label>
+      <input type="number" id="lower1" value="0" step="0.01">
+    </div>
   </div>
 
   <!-- Distribution 2 Inputs -->
@@ -133,6 +141,14 @@ permalink: /whmavi/distribution_designer/
         <option value="ignore">Ignore</option>
         <option value="squish">Squish</option>
       </select>
+    </div>
+    <div class="control-group" id="upper2-group">
+      <label for="upper2">Upper:</label>
+      <input type="number" id="upper2" value="1" step="0.01">
+    </div>
+    <div class="control-group" id="lower2-group">
+      <label for="lower2">Lower:</label>
+      <input type="number" id="lower2" value="0" step="0.01">
     </div>
   </div>
 </div>
@@ -170,12 +186,14 @@ permalink: /whmavi/distribution_designer/
   <li><b>Spread</b>: The extent of variation around the mean. For the normal distribution, this value represents the standard deviation. For the Johnson-SU distribution, this value represents the Xi (ξ) parameter.</li>
   <li><b>Skew</b>: The extent to which the Johnson-SU distribution is positively or negatively skewed. This value represents the Gamma (γ) parameter.</li>
   <li><b>Outlier Rarity</b>: The rarity of outlier values in the Johnson-SU distribution. This value represents the Delta (δ) parameter. </li>
-  <li><b>Clamp</b>: This parameter controls the behaviour of values that fall outside the expected phenotypic range of 0-1.</li>
+  <li><b>Clamp</b>: This parameter controls the behaviour of values that fall outside the range defined by <b>Upper</b> and <b>Lower</b>.</li>
   <ul>
     <li>"None": The values are unchanged.</li>
     <li>"Ignore": The values are dropped from the distribution and their density re-distributed to maintain the correct phenotype ratios.</li>
     <li>"Squish": The values are added to the boundaries of the distribution.</li>
   </ul>
+  <li><b>Upper</b>: The upper X-axis limit of the distribution.</li>
+  <li><b>Lower</b>: The lower X-axis limit of the distribution.</li>
 </ul>
 </div>
 
@@ -188,6 +206,8 @@ function toggleInputs(groupNumber) {
   const skewGroup = document.getElementById('skew' + groupNumber + '-group');
   const rarityGroup = document.getElementById('rarity' + groupNumber + '-group');
   const clampGroup = document.getElementById('clamp' + groupNumber + '-group');
+  const upperGroup = document.getElementById('upper' + groupNumber + '-group');
+  const lowerGroup = document.getElementById('lower' + groupNumber + '-group');
 
   if (distributionType === 'normal') {
     meanGroup.classList.remove('hidden');
@@ -195,12 +215,16 @@ function toggleInputs(groupNumber) {
     skewGroup.classList.add('hidden');
     rarityGroup.classList.add('hidden');
     clampGroup.classList.remove('hidden');
+    upperGroup.classList.remove('hidden');
+    lowerGroup.classList.remove('hidden');
   } else if (distributionType === 'johnson-su') {
     meanGroup.classList.remove('hidden');
     spreadGroup.classList.remove('hidden');
     skewGroup.classList.remove('hidden');
     rarityGroup.classList.remove('hidden');
     clampGroup.classList.remove('hidden');
+    upperGroup.classList.remove('hidden');
+    lowerGroup.classList.remove('hidden');
   }
 }
 
@@ -213,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 let chart;
   
-function calculateDistribution(distribution, xmin, xmax, mean, spread, skew, rarity, clamp) {
+function calculateDistribution(distribution, xmin, xmax, mean, spread, skew, rarity, clamp, upper, lower) {
   
   const x_values = [];
   const step = (xmax - xmin) / 200;
@@ -226,20 +250,20 @@ function calculateDistribution(distribution, xmin, xmax, mean, spread, skew, rar
 
   if (distribution === "normal") {
     y_values = x_values.map((x) => {
-        if (spread === 0) {
-            const closestX = x_values.reduce((a, b) => Math.abs(b - mean) < Math.abs(a - mean) ? b : a);
-            return x === closestX ? 40 : 0;
-        }
+      if (spread === 0) {
+        const closestX = x_values.reduce((a, b) => Math.abs(b - mean) < Math.abs(a - mean) ? b : a);
+        return x === closestX ? 40 : 0;
+      }
       const factor = 1 / (spread * Math.sqrt(2 * Math.PI));
       const exponent = -0.5 * Math.pow((x - mean) / spread, 2);
       return factor * Math.exp(exponent);
     });
   } else if (distribution === "johnson-su") {
     y_values = x_values.map((x) => {
-        if (spread === 0) {
-            const closestX = x_values.reduce((a, b) => Math.abs(b - mean) < Math.abs(a - mean) ? b : a);
-            return x === closestX ? 40 : 0;
-        }
+      if (spread === 0) {
+        const closestX = x_values.reduce((a, b) => Math.abs(b - mean) < Math.abs(a - mean) ? b : a);
+        return x === closestX ? 40 : 0;
+      }
       const sqrtTwoPi = Math.sqrt(2 * Math.PI);
       const factor = rarity / (spread * sqrtTwoPi);
       const z = Math.asinh((x - mean) / spread);
@@ -248,16 +272,17 @@ function calculateDistribution(distribution, xmin, xmax, mean, spread, skew, rar
       return factor * Math.exp(exponent) / denominator;
     });
   } 
+
   if (clamp == "ignore") {
     let sumA = y_values.reduce((acc, y, i) => {
-      if (x_values[i] < 0 || x_values[i] > 1) {
+      if (x_values[i] < lower || x_values[i] > upper) {
         return acc + y;
       }
       return acc;
     }, 0);
   
     let sumB = y_values.reduce((acc, y, i) => {
-      if (x_values[i] > 0 && x_values[i] < 1) {
+      if (x_values[i] > lower && x_values[i] < upper) {
         return acc + y;
       }
       return acc;
@@ -266,46 +291,46 @@ function calculateDistribution(distribution, xmin, xmax, mean, spread, skew, rar
     let correctionFactor = (sumA / sumB) + 1;
       
     y_values = y_values.map((y, i) => {
-    if (x_values[i] < 0 || x_values[i] > 1) {
-      return 0;
-    }
-        
-    return y * correctionFactor;
+      if (x_values[i] < lower || x_values[i] > upper) {
+        return 0;
+      }
+      return y * correctionFactor;
     });
   } else if (clamp == "squish") {
-      const sumYBelowZero = x_values.reduce((acc, x, i) => x < 0 ? acc + y_values[i] : acc, 0);
-      const sumYAboveOne = x_values.reduce((acc, x, i) => x > 1 ? acc + y_values[i] : acc, 0);
-    
-      let indexClosestToZero = 0;
-      let indexClosestToOne = 0;
-      let minDistToZero = Infinity;
-      let minDistToOne = Infinity;
-    
-      x_values.forEach((x, i) => {
-        if (Math.abs(x) < minDistToZero) {
-          minDistToZero = Math.abs(x);
-          indexClosestToZero = i;
-        }
-        if (Math.abs(x - 1) < minDistToOne) {
-          minDistToOne = Math.abs(x - 1);
-          indexClosestToOne = i;
-        }
-      });
-    
-      y_values = y_values.map((y, i) => {
-        if (x_values[i] < 0 || x_values[i] > 1) {
-          return 0;
-        } else if (i === indexClosestToZero) {
-          return sumYBelowZero;
-        } else if (i === indexClosestToOne) {
-          return sumYAboveOne;
-        }
-        return y;
-      });
-    }
+    const sumYBelowLower = x_values.reduce((acc, x, i) => x < lower ? acc + y_values[i] : acc, 0);
+    const sumYAboveUpper = x_values.reduce((acc, x, i) => x > upper ? acc + y_values[i] : acc, 0);
+
+    let indexClosestToLower = 0;
+    let indexClosestToUpper = 0;
+    let minDistToLower = Infinity;
+    let minDistToUpper = Infinity;
+
+    x_values.forEach((x, i) => {
+      if (Math.abs(x - lower) < minDistToLower) {
+        minDistToLower = Math.abs(x - lower);
+        indexClosestToLower = i;
+      }
+      if (Math.abs(x - upper) < minDistToUpper) {
+        minDistToUpper = Math.abs(x - upper);
+        indexClosestToUpper = i;
+      }
+    });
+
+    y_values = y_values.map((y, i) => {
+      if (x_values[i] < lower || x_values[i] > upper) {
+        return 0;
+      } else if (i === indexClosestToLower) {
+        return sumYBelowLower;
+      } else if (i === indexClosestToUpper) {
+        return sumYAboveUpper;
+      }
+      return y;
+    });
+  }
 
   return { x_values, y_values };
 }
+
 
 function plotDistribution() {
   const distribution1 = document.getElementById("distribution1").value;
@@ -314,6 +339,8 @@ function plotDistribution() {
   const skew1 = parseFloat(document.getElementById("skew1").value);
   const rarity1 = parseFloat(document.getElementById("rarity1").value);
   const clamp1 = document.getElementById("clamp1").value;
+  const upper1 = parseFloat(document.getElementById("upper1").value);
+  const lower1 = parseFloat(document.getElementById("lower1").value);
 
   const distribution2 = document.getElementById("distribution2").value;
   const mean2 = parseFloat(document.getElementById("mean2").value);
@@ -321,6 +348,8 @@ function plotDistribution() {
   const skew2 = parseFloat(document.getElementById("skew2").value);
   const rarity2 = parseFloat(document.getElementById("rarity2").value);
   const clamp2 = document.getElementById("clamp2").value;
+  const upper2 = parseFloat(document.getElementById("upper2").value);
+  const lower2 = parseFloat(document.getElementById("lower2").value);
   
   const phenoratio = parseFloat(document.getElementById("phenoratio").value);
   
@@ -329,8 +358,8 @@ function plotDistribution() {
   const xmax = parseFloat(document.getElementById("xmax").value);
   const ymax = parseFloat(document.getElementById("ymax").value);
   
-  const { x_values: x_values1, y_values: y_values1 } = calculateDistribution(distribution1, xmin, xmax, mean1, spread1, skew1, rarity1, clamp1);
-  const { x_values: x_values2, y_values: y_values2 } = calculateDistribution(distribution2, xmin, xmax, mean2, spread2, skew2, rarity2, clamp2);
+  const { x_values: x_values1, y_values: y_values1 } = calculateDistribution(distribution1, xmin, xmax, mean1, spread1, skew1, rarity1, clamp1, upper1, lower1);
+  const { x_values: x_values2, y_values: y_values2 } = calculateDistribution(distribution2, xmin, xmax, mean2, spread2, skew2, rarity2, clamp2, upper2, lower2);
 
   const y_values1_mult = y_values1.map(value => value * phenoratio);
   const y_values2_mult = y_values2.map(value => value * (1 - phenoratio));

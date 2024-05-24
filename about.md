@@ -15,7 +15,7 @@ permalink: /about/
     In addition to my work in academia, I frequently collaborate with industry partners on a wide variety of projects, which has allowed me to experience areas of microbiology I might never have encountered on my own.
   </div>
   <div style="flex-shrink: 0; margin-left: 20px;">
-    <img src="{{ site.baseurl }}/images/headshot.jpg" alt="Headshot of Ryan M. Imrie" style="width: 150px; height: 150px; border-radius: 50%;">
+    ![Heeadshot](/ryanmimrie.github.io/assets/images/headshot.jpg)
   </div>
 </div>
 

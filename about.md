@@ -3,7 +3,7 @@ layout: about
 title: About
 permalink: /about/
 ---
-
+#Ryan M. Imrie
 ## Background
 
 <div style="display: flex; align-items: center;">
@@ -16,7 +16,7 @@ permalink: /about/
   </div>
   <div style="flex-shrink: 0; margin-left: 20px;">
     <div style="flex-shrink: 0; margin-left: 20px;">
-    <img src="https://ryanmimrie.github.io/assets/images/Headshot.jpg" alt="Headshot of Ryan M. Imrie" style="width: 150px; height: 150px; border-radius: 50%;">
+    <img src="https://ryanmimrie.github.io/assets/images/Headshot.jpg" alt="Headshot of Ryan M. Imrie" style="width: 300px; height: 300px; border-radius: 50%;">
   </div>
   </div>
 </div>

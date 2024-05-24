@@ -16,7 +16,7 @@ permalink: /about/
   </div>
   <div style="flex-shrink: 0; margin-left: 20px;">
     <div style="flex-shrink: 0; margin-left: 20px;">
-    <img src="https://github.com/ryanmimrie/ryanmimrie.github.io/assets/images/headshot.jpg" alt="Headshot of Ryan M. Imrie" style="width: 150px; height: 150px; border-radius: 50%;">
+    <img src="https://ryanmimrie.github.io/assets/images/Headshot.jpg" alt="Headshot of Ryan M. Imrie" style="width: 150px; height: 150px; border-radius: 50%;">
   </div>
   </div>
 </div>

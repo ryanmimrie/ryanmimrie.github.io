@@ -6,14 +6,16 @@ permalink: /about/
 
 ## Background
 
-<div style="font-size: 0.95em;">Hello, my name is Ryan M. Imrie. I am a virologist with extensive experience of microbiology, statistics, bioinformatics, and programming. My academic career began with a Ph.D. in Biological Sciences at the University of Exeter, where I studied sources of variation in the outcomes of infection across host species using a <em>Drosophilidae</em> model experimental system. Following this, my postdoctoral research has taken me to the MRC-University of Glasgow Centre for Virus Research, where I am currently building within-host mathematical models of acute virus infection.
+<div style="font-size: 0.95em;">Hello, my name is Ryan M. Imrie. I am a virologist currently working at the MRC-University of Glasgow Centre for Virus Research, where I am building within-host mathematical models of acute virus infection
+<br><br>
+My academic career began with a Ph.D. in Biological Sciences at the University of Exeter, where I studied sources of variation in the outcomes of infection across host species using a <em>Drosophilidae</em> model experimental system.
 <br><br>
 In addition to my work in academia, I frequently collaborate with industry partners on a wide variety of projects, which has allowed me to experience areas of microbiology I might never have encountered on my own.</div>
 
 ## Outside of Work
 
-<div style="font-size: 0.95em;">When I'm not working, I enjoy hiking around the nearby Loch Lomond and Trossachs National Park, curling up on the corner sofa with a book, or tackling self-inflicted coding challenges. My current for-fun challenge is creating a 6-dimensional version of Snake — traditionally a 2-dimensional game — and a computer algorithm that can efficiently and safely find paths through this 6D space.</div>
+<div style="font-size: 0.95em;">When I'm not working, I enjoy hiking around the nearby Loch Lomond and Trossachs National Park, curling up on the corner sofa with a book, or tackling self-inflicted coding challenges. My current challenge is creating a 6D version of Snake — traditionally a 2D game — and a computer algorithm that can efficiently and safely find paths through this multidimensional space.</div>
 
-## Let's Connect
+## Contact
 
 <div style="font-size: 0.95em;">If you're interested in collaborating or just want to say hi, feel free to reach out through <a href="mailto:ryan.imrie@glasgow.ac.uk" style="color: #159957;">ryan.imrie@glasgow.ac.uk</a>. For any industry enquiries, please get in touch through <a href="mailto:ryan.m.imrie@gmail.com" style="color: #159957;">ryan.m.imrie@gmail.com</a>.</div>

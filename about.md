@@ -6,11 +6,18 @@ permalink: /about/
 
 ## Background
 
-<div style="font-size: 0.95em;">Hello, my name is Ryan M. Imrie. I am a virologist currently working at the MRC-University of Glasgow Centre for Virus Research, where I am building within-host mathematical models of acute virus infection
-<br><br>
-My academic career began with a Ph.D. in Biological Sciences at the University of Exeter, where I studied sources of variation in the outcomes of infection across host species using a <em>Drosophilidae</em> model experimental system.
-<br><br>
-In addition to my work in academia, I frequently collaborate with industry partners on a wide variety of projects, which has allowed me to experience areas of microbiology I might never have encountered on my own.</div>
+<div style="display: flex; align-items: center;">
+  <div style="font-size: 0.95em; flex: 1;">
+    Hello, my name is Ryan M. Imrie. I am a virologist currently working at the MRC-University of Glasgow Centre for Virus Research, where I am building within-host mathematical models of acute virus infection
+    <br><br>
+    My academic career began with a Ph.D. in Biological Sciences at the University of Exeter, where I studied sources of variation in the outcomes of infection across host species using a <em>Drosophilidae</em> model experimental system.
+    <br><br>
+    In addition to my work in academia, I frequently collaborate with industry partners on a wide variety of projects, which has allowed me to experience areas of microbiology I might never have encountered on my own.
+  </div>
+  <div style="flex-shrink: 0; margin-left: 20px;">
+    <img src="/images/headshot.jpg" alt="Headshot of Ryan M. Imrie" style="width: 150px; height: 150px; border-radius: 50%;">
+  </div>
+</div>
 
 ## Outside of Work
 

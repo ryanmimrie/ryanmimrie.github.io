@@ -517,7 +517,7 @@ permalink: /microbio/
 <div style="font-size: 0.95em;"><em>Akkermansia</em> are important for maintaining the gut lining and overall gut health. Higher levels are often linked to a healthier gut barrier and improved metabolic health.</div>
 
 #### <em>Alistipes</em>
-<div style="font-size: 0.95em;"><em>Alistipes</em> plays a role in breaking down proteins and complex carbohydrates. While generally beneficial, very high levels have been observed in some gut disorders, so balance is key.</div>
+<div style="font-size: 0.95em;"><em>Alistipes</em> play a role in breaking down proteins and complex carbohydrates. While generally beneficial, very high levels have been observed in some gut disorders, so balance is key.</div>
 
 #### <em>Anaerostipes</em>
-<div style="font-size: 0.95em;"><em>Anaerostipes</em> is another butyrate producer that supports gut health and reduces inflammation. Higher levels are typically associated with a well-functioning and healthy gut microbiome.</div>
+<div style="font-size: 0.95em;"><em>Anaerostipes</em> are another butyrate producer that supports gut health and reduces inflammation. Higher levels are typically associated with a well-functioning and healthy gut microbiome.</div>

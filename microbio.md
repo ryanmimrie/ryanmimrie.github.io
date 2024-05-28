@@ -546,3 +546,213 @@ permalink: /microbio/
 
 #### <em>Anaerostipes</em>
 <div style="font-size: 0.95em;"><em>Anaerostipes</em> are another butyrate producer that supports gut health and reduces inflammation. Higher levels are typically associated with a well-functioning and healthy gut microbiome.</div>
+
+## Pathogens Present in your Gut
+<div style="font-size: 0.95em;">In this section, you can find information on the presence and levels of potentially harmful pathogens in your gut microbiome, helping you understand any risks to your gut health and overall well-being.</div>
+
+### Bacterial Pathogens
+<div class="progress-container">
+        <div class="progress-wrapper">
+            <div class="progress-bar-container">
+                <div class="progress-subtitle"><em>Adlercreutzia</em></div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 55%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-subtitle"><em>Agathobacter</em></div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 15%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-subtitle"><em>Akkermansia</em></div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 20%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="progress-container">
+        <div class="progress-wrapper">
+            <div class="progress-bar-container">
+                <div class="progress-subtitle"><em>Adlercreutzia</em></div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 55%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-subtitle"><em>Agathobacter</em></div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 15%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-subtitle"><em>Akkermansia</em></div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 20%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="progress-container">
+        <div class="progress-wrapper">
+            <div class="progress-bar-container">
+                <div class="progress-subtitle"><em>Adlercreutzia</em></div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 55%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-subtitle"><em>Agathobacter</em></div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 15%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-subtitle"><em>Akkermansia</em></div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 20%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="progress-container">
+        <div class="progress-wrapper">
+            <div class="progress-bar-container">
+                <div class="progress-subtitle"><em>Adlercreutzia</em></div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 55%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-subtitle"><em>Agathobacter</em></div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 15%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-subtitle"><em>Akkermansia</em></div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 20%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="progress-container">
+        <div class="progress-wrapper">
+            <div class="progress-bar-container">
+                <div class="progress-subtitle"><em>Adlercreutzia</em></div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 55%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-subtitle"><em>Agathobacter</em></div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 15%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-subtitle"><em>Akkermansia</em></div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 20%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+        </div>
+    </div>
+### Viral Pathogens
+<div class="progress-container">
+        <div class="progress-wrapper">
+            <div class="progress-bar-container">
+                <div class="progress-subtitle"><em>Virus 1</em></div>
+                <div class="progress-bar" style="width: 10%;">
+                    <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-subtitle"><em>Virus 2</em></div>
+                <div class="progress-bar" style="width: 20%;">
+                    <div class="progress-bar-fill" style="width: 100%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-subtitle"><em>Virus 3</em></div>
+                <div class="progress-bar" style="width: 30%;">
+                    <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+        </div>
+    </div>

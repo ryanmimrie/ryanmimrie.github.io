@@ -567,4 +567,3 @@ permalink: /microbio/
             <div class="circle" style="background-color: #e74c3c;"></div>
         </div>
     </div>
-</div>

@@ -551,6 +551,16 @@ permalink: /microbio/
             </div>
         </div>
     </div>
+#### <em>Campylobacter</em>
+<div style="font-size: 0.95em;"><em>Campylobacter</em> is a bacterial pathogen commonly associated with food poisoning and gastrointestinal illness. Presence of this bacterium may indicate a potential risk for conditions like diarrhea and stomach cramps.</div>
+#### <em>Citrobacter</em>
+<div style="font-size: 0.95em;"><em>Citrobacter</em> can cause urinary tract infections and gastrointestinal diseases. Its presence in the gut may signal a potential risk for infections, especially in individuals with weakened immune systems.</div>
+#### <em>Clostridioides</em>
+<div style="font-size: 0.95em;"><em>Clostridioides</em> including <em>Clostridioides difficile</em>, is known for causing severe diarrhea and colitis, particularly after antibiotic use. Detection of this bacterium is important for managing and preventing serious gut infections.</div>
+#### <em>Eggerthella</em>
+<div style="font-size: 0.95em;"><em>Eggerthella</em> is associated with various gastrointestinal conditions and can sometimes cause serious infections. Presence of this bacterium may indicate an imbalance in the gut microbiome that could lead to health issues.</div>
+#### <em>Enterobacter</em>
+<div style="font-size: 0.95em;"><em>Enterobacter</em> is a bacterial pathogen that can cause respiratory and urinary tract infections, as well as gastrointestinal diseases. Its presence in the gut may suggest a potential risk for such infections, especially in hospitalized or immunocompromised individuals.</div>
 ### Viral Pathogens
 <div class="progress-container">
     <div class="progress-wrapper">

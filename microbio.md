@@ -124,8 +124,12 @@ permalink: /microbio/
             <div>High</div>
         </div>
     </div>
+#### Acetate  Production
+<div style="font-size: 0.95em;">This metric measures the capacity of your gut microbiome to produce acetate, a short-chain fatty acid that serves as an energy source for your body's cells and other beneficial bacteria. Higher levels of acetate production are generally associated with a healthy gut and efficient digestion.</div>
 #### Butyrate Production
 <div style="font-size: 0.95em;">This metric measures the capacity of your gut microbiome to produce butyrate, a beneficial short-chain fatty acid. Higher values indicate a greater potential for butyrate production, which is important for colon health, reducing inflammation, and supporting the gut barrier.</div>
+#### Propionate Production
+<div style="font-size: 0.95em;">This metric assesses the ability of your gut microbiome to produce propionate, a short-chain fatty acid involved in regulating glucose and cholesterol levels. Higher levels of propionate production can contribute to metabolic health and support gut integrity.</div>
 ### Metabolism
 <div class="progress-container">
         <div class="progress-title">Bile Acid Metabolism</div>

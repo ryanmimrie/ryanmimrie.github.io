@@ -12,12 +12,12 @@ permalink: /microbio/
         text-align: left;
     }
     .progress-title {
-        font-size: 16px;
+        font-size: 20px;
         margin-bottom: 10px;
     }
     .progress-bar {
-        position: relative;
-        height: 30px;
+        position: left;
+        height: 20px;
         width: 100%;
         background-color: #e0e0e0;
         border-radius: 15px;
@@ -59,7 +59,8 @@ permalink: /microbio/
             <div>High</div>
         </div>
     </div>
-This metric reflects how evenly the bacterial species are distributed in your gut microbiome, with higher values indicating a more balanced ecosystem. Similar to a well-balanced lake where no single species dominates, an even microbiome promotes stability and health.
+<div style="font-size: 0.95em;">This metric reflects how evenly the bacterial species are distributed in your gut microbiome, with higher values indicating a more balanced ecosystem. Similar to a well-balanced lake where no single species dominates, an even microbiome promotes stability and health.</div>
+
 <div class="progress-container">
         <div class="progress-title">Bacteria Species Richness</div>
         <div class="progress-bar">
@@ -70,4 +71,5 @@ This metric reflects how evenly the bacterial species are distributed in your gu
             <div>High</div>
         </div>
     </div>
-This metric measures the total number of different bacterial species present in your gut microbiome, with higher values suggesting a greater abundance of different species. Think of it like a coral reef teeming with various marine life forms; greater richness usually contributes to a more robust and healthy ecosystem.
+<div style="font-size: 0.95em;">This metric measures the total number of different bacterial species present in your gut microbiome, with higher values suggesting a greater abundance of different species. Think of it like a coral reef teeming with various marine life forms; greater richness usually contributes to a more robust and healthy ecosystem.</div>
+

@@ -124,7 +124,8 @@ permalink: /microbio/
             <div>High</div>
         </div>
     </div>
-
+#### Butyrate Production
+<div style="font-size: 0.95em;">This metric measures the capacity of your gut microbiome to produce butyrate, a beneficial short-chain fatty acid. Higher values indicate a greater potential for butyrate production, which is important for colon health, reducing inflammation, and supporting the gut barrier.</div>
 ### Metabolism
 <div class="progress-container">
         <div class="progress-title">Bile Acid Metabolism</div>
@@ -166,7 +167,17 @@ permalink: /microbio/
             <div>High</div>
         </div>
     </div>
+#### Bile Acid Metabolism
+<div style="font-size: 0.95em;">This metric assesses the ability of your gut microbiome to metabolize bile acids. Efficient bile acid metabolism is crucial for fat digestion and maintaining a balanced gut environment. Higher values suggest a more effective bile acid metabolism process in your gut.</div>
 
+#### Fibre Degradation
+<div style="font-size: 0.95em;">This metric measures the ability of your gut microbiome to break down dietary fibre into beneficial compounds like short-chain fatty acids. Higher values indicate a greater potential for fibre degradation, which supports digestive health and overall gut function.</div>
+
+#### Vitamin Production
+<div style="font-size: 0.95em;">This metric assesses the capacity of your gut microbiome to synthesize essential vitamins, such as vitamin B12 and vitamin K. Higher values suggest a more robust potential for vitamin production, which is vital for various bodily functions, including energy metabolism and blood clotting.</div>
+
+#### Methane Production
+<div style="font-size: 0.95em;">This metric evaluates the potential of your gut microbiome to produce methane, a gas that can influence gut motility and may be associated with conditions like constipation. Balanced values are ideal, as both high and low methane production can have different health implications.</div>
 ### Immunity
 <div class="progress-container">
         <div class="progress-title">Pathogen Defence</div>
@@ -188,21 +199,6 @@ permalink: /microbio/
             <div>High</div>
         </div>
     </div>
-
-#### Butyrate Production
-<div style="font-size: 0.95em;">This metric measures the capacity of your gut microbiome to produce butyrate, a beneficial short-chain fatty acid. Higher values indicate a greater potential for butyrate production, which is important for colon health, reducing inflammation, and supporting the gut barrier.</div>
-    
-#### Bile Acid Metabolism
-<div style="font-size: 0.95em;">This metric assesses the ability of your gut microbiome to metabolize bile acids. Efficient bile acid metabolism is crucial for fat digestion and maintaining a balanced gut environment. Higher values suggest a more effective bile acid metabolism process in your gut.</div>
-
-#### Fibre Degradation
-<div style="font-size: 0.95em;">This metric measures the ability of your gut microbiome to break down dietary fibre into beneficial compounds like short-chain fatty acids. Higher values indicate a greater potential for fibre degradation, which supports digestive health and overall gut function.</div>
-
-#### Vitamin Production
-<div style="font-size: 0.95em;">This metric assesses the capacity of your gut microbiome to synthesize essential vitamins, such as vitamin B12 and vitamin K. Higher values suggest a more robust potential for vitamin production, which is vital for various bodily functions, including energy metabolism and blood clotting.</div>
-
-#### Methane Production
-<div style="font-size: 0.95em;">This metric evaluates the potential of your gut microbiome to produce methane, a gas that can influence gut motility and may be associated with conditions like constipation. Balanced values are ideal, as both high and low methane production can have different health implications.</div>
 
 #### Pathogen Defence
 <div style="font-size: 0.95em;">This metric indicates the presence of beneficial bacteria in your gut microbiome that can outcompete and inhibit harmful pathogens. Higher values suggest a stronger defence mechanism against infections and gut-related illnesses.</div>

@@ -47,7 +47,8 @@ permalink: /microbio/
         }
 </style>
 
-## Microbial Ecosystem Health Summaries
+## Microbial Ecosystem Summaries
+<div style="font-size: 0.95em;">In this section, you can find information on the diversity of your gut microbiome, which functions like a unique and complex ecosystem within your body.</div>
 
 <div class="progress-container">
         <div class="progress-title">Microbial Diversity</div>
@@ -88,7 +89,9 @@ permalink: /microbio/
 #### Community Richness
 <div style="font-size: 0.95em;">This metric measures the total number of different bacterial species present in your gut microbiome, with higher values suggesting a greater abundance of different species. Think of it like a coral reef teeming with various marine life forms; greater richness usually contributes to a more robust and healthy ecosystem.</div>
 
-## Functional Analysis
+## Functional Analysis of Your Microbiome
+
+<div style="font-size: 0.95em;">In this section, you can find information on the functional capabilities of your gut microbiome, and how it is contributing to various aspects of your health.</div>
 
 <div class="progress-container">
         <div class="progress-title">Butyrate Production</div>
@@ -183,29 +186,51 @@ permalink: /microbio/
 <div style="font-size: 0.95em;">This metric measures the potential of your gut microbiome to produce anti-inflammatory compounds. Higher values indicate a greater capacity for reducing inflammation, which is important for maintaining overall health and preventing chronic diseases.</div>
 
 ## Individual Members of your Bacterial Community
-
+<div style="font-size: 0.95em;">In this section, you can find information on how abundant different bacterial genera are in your gut microbiome, offering a detailed view of the individual members that make up your unique microbial ecosystem.</div>
 <div class="progress-container">
         <div class="progress-wrapper">
             <div class="progress-bar-container">
-                <div class="progress-subtitle">Bar 1 Title</div>
+                <div class="progress-subtitle">Adlercreutzia</div>
                 <div class="progress-bar">
-                    <div class="progress-bar-fill" style="width: 60%;"></div>
+                    <div class="progress-bar-fill" style="width: 10%;"></div>
                 </div>
                 <div class="progress-labels">
-                    <span>0%</span>
-                    <span>60%</span>
-                    <span>100%</span>
+                    <span>Low</span>
+                    <span>High</span>
                 </div>
             </div>
             <div class="progress-bar-container">
-                <div class="progress-subtitle">Bar 2 Title</div>
+                <div class="progress-subtitle">Akkermansia</div>
                 <div class="progress-bar">
-                    <div class="progress-bar-fill" style="width: 80%;"></div>
+                    <div class="progress-bar-fill" style="width: 40%;"></div>
                 </div>
                 <div class="progress-labels">
-                    <span>0%</span>
-                    <span>80%</span>
-                    <span>100%</span>
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="progress-container">
+        <div class="progress-wrapper">
+            <div class="progress-bar-container">
+                <div class="progress-subtitle">Barnesiella</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 20%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-subtitle">Bifidobacterium</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
                 </div>
             </div>
         </div>

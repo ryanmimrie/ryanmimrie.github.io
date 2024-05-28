@@ -592,3 +592,17 @@ permalink: /microbio/
         </div>
     </div>
 </div>
+#### <em>Adenoviridae</em>
+<div style="font-size: 0.95em;"><em>Adenoviridae</em> includes viruses that can cause respiratory, gastrointestinal, and eye infections. Presence of these viruses may indicate a potential risk for these types of infections.</div>
+#### <em>Anelloviridae</em>
+<div style="font-size: 0.95em;"><em>Anelloviridae</em> are often found in healthy individuals and are typically not associated with disease. Their presence is usually considered benign and a normal part of the viral community in the gut.</div>
+#### <em>Caliciviridae</em>
+<div style="font-size: 0.95em;"><em>Caliciviridae</em> includes viruses like Norovirus, which are known to cause gastrointestinal illnesses. Presence of these viruses may indicate a potential risk for stomach flu or other gastrointestinal issues.</div>
+#### <em>Circoviridae</em>
+<div style="font-size: 0.95em;"><em>Circoviridae</em> are small viruses that can infect both animals and humans. While they are generally not associated with significant disease in humans, their presence is noteworthy.</div>
+#### <em>Herpesviridae</em>
+<div style="font-size: 0.95em;"><em>Herpesviridae</em> includes a variety of viruses such as herpes simplex virus and Epstein-Barr virus, which can cause infections ranging from cold sores to more serious conditions. Presence of these viruses indicates a potential for such infections.</div>
+#### <em>Picornaviridae</em>
+<div style="font-size: 0.95em;"><em>Picornaviridae</em> includes viruses like enteroviruses and rhinoviruses, which can cause respiratory and gastrointestinal illnesses. Presence of these viruses may indicate a potential risk for such infections.</div>
+#### <em>Virgaviridae</em>
+<div style="font-size: 0.95em;"><em>Virgaviridae</em> primarily includes plant viruses, and their presence in the human gut is not typically associated with disease. They are usually considered non-pathogenic to humans.</div>

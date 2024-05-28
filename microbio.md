@@ -76,3 +76,44 @@ permalink: /microbio/
 #### Community Richness
 <div style="font-size: 0.95em;">This metric measures the total number of different bacterial species present in your gut microbiome, with higher values suggesting a greater abundance of different species. Think of it like a coral reef teeming with various marine life forms; greater richness usually contributes to a more robust and healthy ecosystem.</div>
 
+## Functional Analysis
+
+<div class="progress-container">
+        <div class="progress-title">Butyrate Production</div>
+        <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 50%;"></div>
+        </div>
+        <div class="progress-labels">
+            <div>Low</div>
+            <div>High</div>
+        </div>
+    </div>
+<div class="progress-container">
+        <div class="progress-title">Bile Acid Metabolism</div>
+        <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 65%;"></div>
+        </div>
+        <div class="progress-labels">
+            <div>Low</div>
+            <div>High</div>
+        </div>
+    </div>
+<div class="progress-container">
+        <div class="progress-title">AMR Presence</div>
+        <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 5%;"></div>
+        </div>
+        <div class="progress-labels">
+            <div>Low</div>
+            <div>High</div>
+        </div>
+    </div>
+#### Butyrate Production
+<div style="font-size: 0.95em;">This metric measures the capacity of your gut microbiome to produce butyrate, a beneficial short-chain fatty acid. Higher values indicate a greater potential for butyrate production, which is important for colon health, reducing inflammation, and supporting the gut barrier.</div>
+    
+#### Bile Acid Metabolism
+<div style="font-size: 0.95em;">This metric assesses the ability of your gut microbiome to metabolize bile acids. Efficient bile acid metabolism is crucial for fat digestion and maintaining a balanced gut environment. Higher values suggest a more effective bile acid metabolism process in your gut.</div>
+
+#### AMR Presence
+<div style="font-size: 0.95em;">This metric indicates the presence of genes in your gut microbiome that can confer resistance to antibiotics. Lower values are preferable as they suggest fewer antibiotic-resistant genes, which is important for reducing the risk of infections that are hard to treat.</div>
+

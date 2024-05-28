@@ -553,18 +553,18 @@ permalink: /microbio/
     </div>
 ### Viral Pathogens
 <div class="progress-title">Colored Circles Side by Side</div>
-        <div class="progress-wrapper">
-            <div class="circle-container">
-                <div class="progress-subtitle">Virus 1 Title</div>
-                <div class="circle" style="background-color: #76c7c0;"></div>
-            </div>
-            <div class="circle-container">
-                <div class="progress-subtitle">Virus 2 Title</div>
-                <div class="circle" style="background-color: #f39c12;"></div>
-            </div>
-            <div class="circle-container">
-                <div class="progress-subtitle">Virus 3 Title</div>
-                <div class="circle" style="background-color: #e74c3c;"></div>
-            </div>
+    <div class="progress-wrapper">
+        <div class="circle-container">
+            <div class="progress-subtitle">Virus 1 Title</div>
+            <div class="circle" style="background-color: #76c7c0;"></div>
+        </div>
+        <div class="circle-container">
+            <div class="progress-subtitle">Virus 2 Title</div>
+            <div class="circle" style="background-color: #f39c12;"></div>
+        </div>
+        <div class="circle-container">
+            <div class="progress-subtitle">Virus 3 Title</div>
+            <div class="circle" style="background-color: #e74c3c;"></div>
         </div>
     </div>
+</div>

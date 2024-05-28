@@ -38,11 +38,19 @@ permalink: /microbio/
             display: flex;
             justify-content: space-between;
         }
-        .progress-bar-container {
+        .progress-bar-container, .circle-container {
             width: 32%;
         }
     .progress-subtitle {
             font-size: 18px;
+            margin-bottom: 10px;
+        }
+    .circle {
+            width: 100px;
+            height: 100px;
+            background-color: #76c7c0;
+            border-radius: 50%;
+            display: inline-block;
             margin-bottom: 10px;
         }
 </style>
@@ -544,25 +552,19 @@ permalink: /microbio/
         </div>
     </div>
 ### Viral Pathogens
-<div class="progress-container">
+<div class="progress-title">Colored Circles Side by Side</div>
         <div class="progress-wrapper">
-            <div class="progress-bar-container">
-                <div class="progress-subtitle" style="position: left;"><em>Virus 1</em></div>
-                <div class="progress-bar" style="width: 10%;">
-                    <div class="progress-bar-fill" style="width: 0%;"></div>
-                </div>
+            <div class="circle-container">
+                <div class="progress-subtitle">Virus 1 Title</div>
+                <div class="circle" style="background-color: #76c7c0;"></div>
             </div>
-            <div class="progress-bar-container">
-                <div class="progress-subtitle" style="position: left;"><em>Virus 2</em></div>
-                <div class="progress-bar" style="width: 10%;">
-                    <div class="progress-bar-fill" style="width: 10%;"></div>
-                </div>
+            <div class="circle-container">
+                <div class="progress-subtitle">Virus 2 Title</div>
+                <div class="circle" style="background-color: #f39c12;"></div>
             </div>
-            <div class="progress-bar-container">
-                <div class="progress-subtitle" style="position: left;"><em>Virus 3</em></div>
-                <div class="progress-bar" style="width: 10%;">
-                    <div class="progress-bar-fill" style="width: 0%;"></div>
-                </div>
+            <div class="circle-container">
+                <div class="progress-subtitle">Virus 3 Title</div>
+                <div class="circle" style="background-color: #e74c3c;"></div>
             </div>
         </div>
     </div>

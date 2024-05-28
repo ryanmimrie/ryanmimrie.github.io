@@ -235,3 +235,99 @@ permalink: /microbio/
             </div>
         </div>
     </div>
+<div class="progress-container">
+        <div class="progress-wrapper">
+            <div class="progress-bar-container">
+                <div class="progress-subtitle">Christensenella</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 20%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-subtitle">Coprococcus</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="progress-container">
+        <div class="progress-wrapper">
+            <div class="progress-bar-container">
+                <div class="progress-subtitle">Faecalibacterium</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 20%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-subtitle">Lactobacillus</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="progress-container">
+        <div class="progress-wrapper">
+            <div class="progress-bar-container">
+                <div class="progress-subtitle">Lactococcus</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 20%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-subtitle">Oxalobacter</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="progress-container">
+        <div class="progress-wrapper">
+            <div class="progress-bar-container">
+                <div class="progress-subtitle">Roseburia</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 20%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-subtitle">Oxalobacter</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -93,8 +93,29 @@ permalink: /microbio/
 
 <div style="font-size: 0.95em;">In this section, you can find information on the functional capabilities of your gut microbiome, and how it is contributing to various aspects of your health.</div>
 
+### Postbiotics
+<div class="progress-container">
+        <div class="progress-title">Acetate Production</div>
+        <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 65%;"></div>
+        </div>
+        <div class="progress-labels">
+            <div>Low</div>
+            <div>High</div>
+        </div>
+    </div>
 <div class="progress-container">
         <div class="progress-title">Butyrate Production</div>
+        <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 30%;"></div>
+        </div>
+        <div class="progress-labels">
+            <div>Low</div>
+            <div>High</div>
+        </div>
+    </div>
+<div class="progress-container">
+        <div class="progress-title">Propionate Production</div>
         <div class="progress-bar">
             <div class="progress-bar-fill" style="width: 50%;"></div>
         </div>
@@ -103,6 +124,8 @@ permalink: /microbio/
             <div>High</div>
         </div>
     </div>
+
+### Metabolism
 <div class="progress-container">
         <div class="progress-title">Bile Acid Metabolism</div>
         <div class="progress-bar">
@@ -143,6 +166,8 @@ permalink: /microbio/
             <div>High</div>
         </div>
     </div>
+
+### Immunity
 <div class="progress-container">
         <div class="progress-title">Pathogen Defence</div>
         <div class="progress-bar">

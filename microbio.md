@@ -99,6 +99,56 @@ permalink: /microbio/
         </div>
     </div>
 <div class="progress-container">
+        <div class="progress-title">Fibre Degradation</div>
+        <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 85%;"></div>
+        </div>
+        <div class="progress-labels">
+            <div>Low</div>
+            <div>High</div>
+        </div>
+    </div>
+<div class="progress-container">
+        <div class="progress-title">Vitamin Production</div>
+        <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 45%;"></div>
+        </div>
+        <div class="progress-labels">
+            <div>Low</div>
+            <div>High</div>
+        </div>
+    </div>
+<div class="progress-container">
+        <div class="progress-title">Methane Production</div>
+        <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 45%;"></div>
+        </div>
+        <div class="progress-labels">
+            <div>Low</div>
+            <div>High</div>
+        </div>
+    </div>
+<div class="progress-container">
+        <div class="progress-title">Pathogen Defence</div>
+        <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 35%;"></div>
+        </div>
+        <div class="progress-labels">
+            <div>Low</div>
+            <div>High</div>
+        </div>
+    </div>
+<div class="progress-container">
+        <div class="progress-title">Anti-inflammatory Potential</div>
+        <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 55%;"></div>
+        </div>
+        <div class="progress-labels">
+            <div>Low</div>
+            <div>High</div>
+        </div>
+    </div>
+<div class="progress-container">
         <div class="progress-title">AMR Presence</div>
         <div class="progress-bar">
             <div class="progress-bar-fill" style="width: 5%;"></div>
@@ -113,6 +163,21 @@ permalink: /microbio/
     
 #### Bile Acid Metabolism
 <div style="font-size: 0.95em;">This metric assesses the ability of your gut microbiome to metabolize bile acids. Efficient bile acid metabolism is crucial for fat digestion and maintaining a balanced gut environment. Higher values suggest a more effective bile acid metabolism process in your gut.</div>
+
+#### Fibre Degradation
+<div style="font-size: 0.95em;">This metric measures the ability of your gut microbiome to break down dietary fibre into beneficial compounds like short-chain fatty acids. Higher values indicate a greater potential for fibre degradation, which supports digestive health and overall gut function.</div>
+
+#### Vitamin Production
+<div style="font-size: 0.95em;">This metric assesses the capacity of your gut microbiome to synthesize essential vitamins, such as vitamin B12 and vitamin K. Higher values suggest a more robust potential for vitamin production, which is vital for various bodily functions, including energy metabolism and blood clotting.</div>
+
+#### Methane Production
+<div style="font-size: 0.95em;">This metric evaluates the potential of your gut microbiome to produce methane, a gas that can influence gut motility and may be associated with conditions like constipation. Balanced values are ideal, as both high and low methane production can have different health implications.</div>
+
+#### Pathogen Defence
+<div style="font-size: 0.95em;">This metric indicates the presence of beneficial bacteria in your gut microbiome that can outcompete and inhibit harmful pathogens. Higher values suggest a stronger defence mechanism against infections and gut-related illnesses.</div>
+
+#### Anti-inflammatory Potential
+<div style="font-size: 0.95em;">This metric measures the potential of your gut microbiome to produce anti-inflammatory compounds. Higher values indicate a greater capacity for reducing inflammation, which is important for maintaining overall health and preventing chronic diseases.</div>
 
 #### AMR Presence
 <div style="font-size: 0.95em;">This metric indicates the presence of genes in your gut microbiome that can confer resistance to antibiotics. Lower values are preferable as they suggest fewer antibiotic-resistant genes, which is important for reducing the risk of infections that are hard to treat.</div>

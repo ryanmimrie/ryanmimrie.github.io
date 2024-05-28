@@ -219,29 +219,17 @@ permalink: /microbio/
                 <div class="progress-bar">
                     <div class="progress-bar-fill" style="width: 55%;"></div>
                 </div>
-                <div class="progress-labels">
-                    <span>Low</span>
-                    <span>High</span>
-                </div>
             </div>
             <div class="progress-bar-container">
                 <div class="progress-subtitle"><em>Agathobacter</em></div>
                 <div class="progress-bar">
                     <div class="progress-bar-fill" style="width: 15%;"></div>
                 </div>
-                <div class="progress-labels">
-                    <span>Low</span>
-                    <span>High</span>
-                </div>
             </div>
             <div class="progress-bar-container">
                 <div class="progress-subtitle"><em>Akkermansia</em></div>
                 <div class="progress-bar">
                     <div class="progress-bar-fill" style="width: 20%;"></div>
-                </div>
-                <div class="progress-labels">
-                    <span>Low</span>
-                    <span>High</span>
                 </div>
             </div>
         </div>

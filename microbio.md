@@ -39,7 +39,7 @@ permalink: /microbio/
             justify-content: space-between;
         }
         .progress-bar-container {
-            width: 48%;
+            width: 32%;
         }
     .progress-subtitle {
             font-size: 18px;
@@ -201,6 +201,16 @@ permalink: /microbio/
             </div>
             <div class="progress-bar-container">
                 <div class="progress-subtitle">Agathobacter</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 40%;"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-subtitle">Akkermansia</div>
                 <div class="progress-bar">
                     <div class="progress-bar-fill" style="width: 40%;"></div>
                 </div>

@@ -46,9 +46,9 @@ permalink: /microbio/
             margin-bottom: 10px;
         }
     .circle {
-            width: 100px;
-            height: 100px;
-            background-color: #76c7c0;
+            width: 20px;
+            height: 20px;
+            background-color: #e0e0e0;
             border-radius: 50%;
             display: inline-block;
             margin-bottom: 10px;
@@ -553,20 +553,42 @@ permalink: /microbio/
     </div>
 ### Viral Pathogens
 <div class="progress-container">
-    <div class="progress-title">Colored Circles Side by Side</div>
     <div class="progress-wrapper">
         <div class="circle-container">
-            <div class="progress-subtitle">Virus 1 Title</div>
+            <div class="progress-subtitle">Adenoviridae</div>
+            <div class="circle"></div>
+        </div>
+        <div class="circle-container">
+            <div class="progress-subtitle">Anelloviridae</div>
             <div class="circle" style="background-color: #76c7c0;"></div>
         </div>
         <div class="circle-container">
-            <div class="progress-subtitle">Virus 2 Title</div>
-            <div class="circle" style="background-color: #f39c12;"></div>
-        </div>
-        <div class="circle-container">
-            <div class="progress-subtitle">Virus 3 Title</div>
-            <div class="circle" style="background-color: #e74c3c;"></div>
+            <div class="progress-subtitle">Caliciviridae</div>
+            <div class="circle"></div>
         </div>
     </div>
 </div>
-    
+<div class="progress-container">
+    <div class="progress-wrapper">
+        <div class="circle-container">
+            <div class="progress-subtitle">Circoviridae</div>
+            <div class="circle" style="background-color: #76c7c0;"></div>
+        </div>
+        <div class="circle-container">
+            <div class="progress-subtitle">Herpesviridae</div>
+            <div class="circle" style="background-color: #76c7c0;"></div>
+        </div>
+        <div class="circle-container">
+            <div class="progress-subtitle">Picornaviridae</div>
+            <div class="circle"></div>
+        </div>
+    </div>
+</div>
+<div class="progress-container">
+    <div class="progress-wrapper">
+        <div class="circle-container">
+            <div class="progress-subtitle">Virgaviridae</div>
+            <div class="circle"></div>
+        </div>
+    </div>
+</div>

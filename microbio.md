@@ -47,7 +47,7 @@ permalink: /microbio/
             <div>High</div>
         </div>
     </div>
-<div style="font-size: 0.95em;>This metric indicates the variety of bacterial species in your gut microbiome, with higher values representing a more diverse microbial community. It captures differences in both richness (the number of species) and evenness (how evenly the species are distributed). Just like a diverse forest with many different plant and animal species, a diverse microbiome is generally healthier and more resilient.</div>
+<div style="font-size: 0.95em;">This metric indicates the variety of bacterial species in your gut microbiome, with higher values representing a more diverse microbial community. It captures differences in both richness (the number of species) and evenness (how evenly the species are distributed). Just like a diverse forest with many different plant and animal species, a diverse microbiome is generally healthier and more resilient.</div>
     
 <div class="progress-container">
         <div class="progress-title">Bacteria Species Evenness</div>

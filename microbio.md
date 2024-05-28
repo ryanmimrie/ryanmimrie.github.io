@@ -41,7 +41,10 @@ permalink: /microbio/
         .progress-bar-container {
             width: 48%;
         }
-    
+    .progress-subtitle {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
 </style>
 
 ## Microbial Ecosystem Health Summaries
@@ -157,16 +160,7 @@ permalink: /microbio/
             <div>High</div>
         </div>
     </div>
-<div class="progress-container">
-        <div class="progress-title">AMR Presence</div>
-        <div class="progress-bar">
-            <div class="progress-bar-fill" style="width: 5%;"></div>
-        </div>
-        <div class="progress-labels">
-            <div>Low</div>
-            <div>High</div>
-        </div>
-    </div>
+
 #### Butyrate Production
 <div style="font-size: 0.95em;">This metric measures the capacity of your gut microbiome to produce butyrate, a beneficial short-chain fatty acid. Higher values indicate a greater potential for butyrate production, which is important for colon health, reducing inflammation, and supporting the gut barrier.</div>
     
@@ -188,15 +182,12 @@ permalink: /microbio/
 #### Anti-inflammatory Potential
 <div style="font-size: 0.95em;">This metric measures the potential of your gut microbiome to produce anti-inflammatory compounds. Higher values indicate a greater capacity for reducing inflammation, which is important for maintaining overall health and preventing chronic diseases.</div>
 
-#### AMR (Antimicrobial Resistance) Presence
-<div style="font-size: 0.95em;">This metric indicates the presence of genes in your gut microbiome that can confer resistance to antibiotics. Lower values are preferable as they suggest fewer antibiotic-resistant genes, which is important for reducing the risk of infections that are hard to treat.</div>
-
 ## Individual Members of your Bacterial Community
 
 <div class="progress-container">
-        <div class="progress-title">Progress Bars Side by Side</div>
         <div class="progress-wrapper">
             <div class="progress-bar-container">
+                <div class="progress-subtitle">Bar 1 Title</div>
                 <div class="progress-bar">
                     <div class="progress-bar-fill" style="width: 60%;"></div>
                 </div>
@@ -207,6 +198,7 @@ permalink: /microbio/
                 </div>
             </div>
             <div class="progress-bar-container">
+                <div class="progress-subtitle">Bar 2 Title</div>
                 <div class="progress-bar">
                     <div class="progress-bar-fill" style="width: 80%;"></div>
                 </div>

@@ -8,24 +8,37 @@ permalink: /oink/hw/
 <div style="font-size: 0.95em;">This webtool provides model-based estimates of transmission dynamics for respiratory virus outbreaks in hospital wards.<br><br></div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-### Ward Information
-<form id="room-form" onsubmit="return false;">
+<h2>Specify Number of Rooms and Beds</h2>
+<form id="setup-form" onsubmit="return false;">
     <label>
         Number of Rooms:
         <input type="number" id="num-rooms" min="1" value="1" required>
     </label>
 </form>
-<div class="rooms-section" id="rooms-section"></div>
+<div id="rooms-section"></div>
+
+<h2 style="margin-top:32px;">Specify Number of Cases Per Day Per Room</h2>
+<form id="calendar-form" onsubmit="return false;">
+    <label>
+        Start Date:
+        <input type="date" id="start-date" required>
+    </label>
+    <label>
+        Number of Days:
+        <input type="number" id="num-days" min="1" value="1" required>
+    </label>
+</form>
+<div id="calendar-section"></div>
 
 <style>
-    .rooms-section table { border-collapse: collapse; margin-top: 20px; }
-    .rooms-section th, .rooms-section td { border: 1px solid #ccc; padding: 8px 12px; }
-    .rooms-section th { background: #f0f0f0; }
-    .rooms-section input[type="number"] { width: 60px; }
+    table { border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: center; }
+    th { background: #f0f0f0; }
+    input[type="number"] { width: 60px; }
 </style>
 
 <script>
+    // --- ROOMS UI ---
     function generateRoomsUI() {
         const numRooms = parseInt(document.getElementById('num-rooms').value, 10);
         const roomsSection = document.getElementById('rooms-section');
@@ -48,39 +61,11 @@ permalink: /oink/hw/
         }
         html += `</table>`;
         roomsSection.innerHTML = html;
+        // Also regenerate cases table if it's already loaded
+        generateCalendar();
     }
 
-    // Set up event listeners and initial rendering
-    document.addEventListener('DOMContentLoaded', function() {
-        generateRoomsUI();
-        document.getElementById('num-rooms').addEventListener('input', generateRoomsUI);
-    });
-</script>
-
-### Outbreak Information
-<form id="setup-form" onsubmit="return false;">
-    <label>
-        Date of First Detection:
-        <input type="date" id="start-date" required>
-    </label>
-    <br><br>
-    <label>
-        Number of Days:
-        <input type="number" id="num-days" min="1" value="1" required>
-    </label>
-</form>
-<div class="calendar-section" id="calendar-section"></div>
-
-<style>
-    table { border-collapse: collapse; margin-top: 20px; }
-    th, td { border: 1px solid #ccc; padding: 8px 12px; }
-    th { background: #f0f0f0; }
-    input[type="number"] { width: 60px; }
-    .calendar-section { margin-top: 20px; }
-</style>
-
-<script>
-    // Helper to format dates
+    // --- DATE FORMATTER ---
     function formatDate(date) {
         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const dayOfWeek = days[date.getDay()];
@@ -99,48 +84,72 @@ permalink: /oink/hw/
         return `${dayOfWeek} ${day}${daySuffix(day)} ${month} ${year}`;
     }
 
+    // --- CASES CALENDAR ---
     function generateCalendar() {
         const startDateStr = document.getElementById('start-date').value;
         const numDays = parseInt(document.getElementById('num-days').value, 10);
+        const numRooms = parseInt(document.getElementById('num-rooms').value, 10);
         const calendarSection = document.getElementById('calendar-section');
 
-        if (!startDateStr || isNaN(numDays) || numDays < 1) {
-            calendarSection.innerHTML = "<p>Please enter a valid start date and number of days.</p>";
+        if (!startDateStr || isNaN(numDays) || numDays < 1 || isNaN(numRooms) || numRooms < 1) {
+            calendarSection.innerHTML = "<p>Please enter a valid start date, number of days, and number of rooms.</p>";
             return;
+        }
+
+        // Read number of beds per room
+        let bedsPerRoom = [];
+        for (let i = 0; i < numRooms; i++) {
+            const el = document.getElementById(`beds-room-${i}`);
+            bedsPerRoom.push(el ? el.value : 0);
         }
 
         const startDate = new Date(startDateStr);
 
-        // Create table
+        // Table header
         let html = `<table>
             <tr>
-                <th>Date</th>
-                <th>Number of Cases</th>
-            </tr>`;
-
-        for (let i = 0; i < numDays; i++) {
-            const currDate = new Date(startDate);
-            currDate.setDate(startDate.getDate() + i);
-            html += `<tr>
-                <td>${formatDate(currDate)}</td>
-                <td>
-                    <input type="number" min="0" step="1" value="0" name="cases-day-${i}" id="cases-day-${i}" required>
-                </td>
-            </tr>`;
+                <th>Date</th>`;
+        for (let r = 0; r < numRooms; r++) {
+            html += `<th>Room ${r + 1}<br><span style="font-weight:normal;font-size:90%;">(${bedsPerRoom[r]} beds)</span></th>`;
         }
-        html += '</table>';
+        html += `</tr>`;
+
+        // Table body
+        for (let d = 0; d < numDays; d++) {
+            const currDate = new Date(startDate);
+            currDate.setDate(startDate.getDate() + d);
+            html += `<tr>
+                <td>${formatDate(currDate)}</td>`;
+            for (let r = 0; r < numRooms; r++) {
+                html += `<td>
+                    <input type="number" min="0" step="1" value="0" name="cases-day${d}-room${r}" id="cases-day${d}-room${r}" required>
+                </td>`;
+            }
+            html += `</tr>`;
+        }
+        html += `</table>`;
         calendarSection.innerHTML = html;
     }
 
-    // Set today's date as default in yyyy-mm-dd format
+    // --- ON LOAD ---
     document.addEventListener('DOMContentLoaded', function() {
+        // Default today for start date
         const today = new Date();
         const yyyy = today.getFullYear();
         const mm = String(today.getMonth() + 1).padStart(2, '0');
         const dd = String(today.getDate()).padStart(2, '0');
         document.getElementById('start-date').value = `${yyyy}-${mm}-${dd}`;
+
+        // Initial UI
+        generateRoomsUI();
         generateCalendar();
 
+        // Room/beds UI triggers
+        document.getElementById('num-rooms').addEventListener('input', generateRoomsUI);
+        // Also update beds -> calendar if beds change
+        document.getElementById('rooms-section').addEventListener('input', generateCalendar);
+
+        // Calendar controls
         document.getElementById('start-date').addEventListener('input', generateCalendar);
         document.getElementById('num-days').addEventListener('input', generateCalendar);
     });

@@ -23,13 +23,16 @@ permalink: /oink/hw/
 ## Data Entry
 
 <div style="display: flex; gap: 16px; margin-bottom: 16px;">
-  <button style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer;">
-    &#8682; Upload Data
+  <button style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+    <svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align: middle;"><path fill="currentColor" d="M10 14l4-4h-3V2h-2v8H6l4 4zm-8 4v-2h16v2H2z"/></svg>
+    Upload Data
   </button>
-  <button style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer;">
-    &#8681; Download Template
+  <button style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+    <svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align: middle;"><path fill="currentColor" d="M10 6l-4 4h3v8h2v-8h3l-4-4zm-8-4v2h16V2H2z"/></svg>
+    Download Template
   </button>
 </div>
+
 
 ### Ward Information
 <form id="setup-form" onsubmit="return false;">

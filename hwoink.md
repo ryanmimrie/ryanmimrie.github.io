@@ -62,7 +62,7 @@ document.getElementById('upload-btn').onclick = function() {
 ### Outbreak Information
 <label>
     Virus:
-    <select style="background: white">
+    <select style="background-color: white">
         <option value="Influenza A virus">Influenza A virus</option>
         <option value="SARS-CoV-2">SARS-CoV-2</option>
     </select>

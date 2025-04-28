@@ -168,10 +168,9 @@ function generateCalendar() {
         <tr>
             <th>Date</th>`;
     for (let r = 0; r < numRooms; r++) {
-        html += `<th>Room ${r + 1}</th>`;
+        html += `<th>Room ${r + 1} <span style="font-weight:normal;font-size:90%;">(${bedsPerRoom[r]} beds)</span></th>`;
     }
     html += `</tr>`;
-
 
     // Table body
     for (let d = 0; d < numDays; d++) {
@@ -190,28 +189,6 @@ function generateCalendar() {
     calendarSection.innerHTML = html;
 }
 
-// --- ON LOAD ---
-document.addEventListener('DOMContentLoaded', function() {
-    // Default today for start date
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2, '0');
-    const dd = String(today.getDate()).padStart(2, '0');
-    document.getElementById('start-date').value = `${yyyy}-${mm}-${dd}`;
-
-    // Initial UI
-    generateRoomsUI();
-    generateCalendar();
-
-    // Room/beds UI triggers
-    document.getElementById('num-rooms').addEventListener('input', generateRoomsUI);
-    // Also update beds -> calendar if beds change
-    document.getElementById('rooms-section').addEventListener('input', generateCalendar);
-
-    // Calendar controls
-    document.getElementById('start-date').addEventListener('input', generateCalendar);
-    document.getElementById('num-days').addEventListener('input', generateCalendar);
-});
 </script>
 
 <script>

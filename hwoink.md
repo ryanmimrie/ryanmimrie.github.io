@@ -345,7 +345,8 @@ document.getElementById('upload-xlsx').addEventListener('change', function(e) {
   };
   reader.readAsArrayBuffer(file);
 });
-
+</script>
+  
 <script>
 // --- GATHER DATA ---
 function getFormDataForXLSX() {

@@ -7,7 +7,6 @@ permalink: /oink/hw/
 <style>
 #virus-select {
     border: 1px solid black;
-    border-radius: 6px;
     padding: 4px 8px;
     background: white;
 }

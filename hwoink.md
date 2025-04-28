@@ -11,6 +11,7 @@ permalink: /oink/hw/
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 
 ## Data Entry
 ### Upload Existing Data
@@ -22,13 +23,20 @@ permalink: /oink/hw/
     </svg>
     Download Template
   </a>
-  <button style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
-    <svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align: middle;">
-      <path fill="currentColor" d="M10 6l-4 4h3v8h2v-8h3l-4-4zm-8-4v2h16V2H2z"/>
-    </svg>
-    Upload Data
-  </button>
+<input type="file" id="upload-xlsx" accept=".xlsx" style="display:none;">
+<button id="upload-btn" type="button" style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+  <svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align: middle;">
+    <path fill="currentColor" d="M10 6l-4 4h3v8h2v-8h3l-4-4zm-8-4v2h16V2H2z"/>
+  </svg>
+  Upload Data
+</button>
 </div>
+
+<script>
+document.getElementById('upload-btn').onclick = function() {
+  document.getElementById('upload-xlsx').click();
+};
+</script>
 
 
 ### Ward Information
@@ -190,4 +198,77 @@ permalink: /oink/hw/
         document.getElementById('start-date').addEventListener('input', generateCalendar);
         document.getElementById('num-days').addEventListener('input', generateCalendar);
     });
+</script>
+
+<script>
+document.getElementById('upload-xlsx').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(evt) {
+    const data = new Uint8Array(evt.target.result);
+    const workbook = XLSX.read(data, {type: 'array'});
+
+    // Assume first sheet
+    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+    const json = XLSX.utils.sheet_to_json(sheet, {header:1});
+
+    // 1. Parse number of rooms from ROOM table (A2:A9, blank for unused)
+    let roomRows = [];
+    for (let i = 1; i < 9; ++i) {
+      const room = json[i] ? json[i][0] : "";
+      const beds = json[i] ? json[i][1] : "";
+      if (room && beds) roomRows.push({room, beds});
+    }
+    document.getElementById('num-rooms').value = roomRows.length;
+    generateRoomsUI();
+    roomRows.forEach((row, idx) => {
+      const bedInput = document.getElementById('beds-room-' + idx);
+      if (bedInput) bedInput.value = row.beds;
+    });
+
+    // 2. Patient stays from C2:C9 (match number of rooms)
+    let stays = [];
+    for (let i = 1; i <= roomRows.length; ++i) {
+      if (json[i] && json[i][2]) stays.push(json[i][2]);
+    }
+    document.getElementById('stay-durations').value = stays.join(', ');
+
+    // 3. Outbreak info: F2:Fx (dates), G2:...N2:... (cases)
+    // Find where DATE row starts (header 'DATE')
+    let dateRow = -1;
+    for (let i = 0; i < json.length; ++i) {
+      if (json[i] && json[i][5] && json[i][5].toString().toUpperCase().includes("DATE")) {
+        dateRow = i;
+        break;
+      }
+    }
+    if (dateRow > 0) {
+      let dates = [];
+      for (let i = dateRow + 1; i < json.length; ++i) {
+        const row = json[i];
+        if (!row || !row[5]) break;
+        dates.push(row[5]);
+      }
+      if (dates.length) {
+        // set start-date to first date, num-days to count
+        document.getElementById('start-date').value = new Date(dates[0]).toISOString().slice(0,10);
+        document.getElementById('num-days').value = dates.length;
+        generateCalendar();
+
+        // Populate cases
+        for (let d = 0; d < dates.length; ++d) {
+          for (let r = 0; r < roomRows.length; ++r) {
+            // G = index 6
+            const val = (json[dateRow + 1 + d][6 + r]) || 0;
+            const input = document.getElementById(`cases-day${d}-room${r}`);
+            if (input) input.value = val;
+          }
+        }
+      }
+    }
+  };
+  reader.readAsArrayBuffer(file);
+});
 </script>

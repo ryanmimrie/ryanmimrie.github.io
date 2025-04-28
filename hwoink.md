@@ -15,13 +15,13 @@ permalink: /oink/hw/
     
 </style>
 
-## Hospital Ward (HW)-OINK (v0.1)
+# Hospital Ward (HW)-OINK (v0.1)
 <div style="font-size: 0.95em;">This webtool provides model-based estimates of transmission dynamics for respiratory virus outbreaks in hospital wards.<br><br></div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 ## Data Entry
-### Upload Existing Form
+### Upload Existing Data
 <div style="display: flex; gap: 16px; margin-bottom: 16px;">
   <button style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
     <svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align: middle;"><path fill="currentColor" d="M10 6l-4 4h3v8h2v-8h3l-4-4zm-8-4v2h16V2H2z"/></svg>
@@ -43,7 +43,7 @@ permalink: /oink/hw/
 <div id="rooms-section"></div>
 
 ### Patient Information
-<div id="stay-durations-section" style="margin-top: 24px">
+<div id="stay-durations-section">
     <label for="stay-durations">
         Patient stay durations (comma separated):<br>
         <textarea id="stay-durations" name="stay-durations" rows="3" style="margin-top: 12px; width:340px; resize:vertical;"

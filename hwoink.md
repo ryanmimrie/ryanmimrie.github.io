@@ -9,12 +9,13 @@ permalink: /oink/hw/
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<h2>Specify Number of Cases Per Day</h2>
+### Outbreak Information
 <form id="setup-form" onsubmit="return false;">
     <label>
-        Start Date:
+        Date of First Detection:
         <input type="date" id="start-date" required>
     </label>
+    <br><br>
     <label>
         Number of Days:
         <input type="number" id="num-days" min="1" value="1" required>

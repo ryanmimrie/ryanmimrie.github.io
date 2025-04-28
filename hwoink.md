@@ -440,6 +440,21 @@ document.getElementById('download-xlsx-btn').addEventListener('click', function(
   const formData = getFormDataForXLSX();
   const ws_data = makeHWOINKSheetData(formData);
   const ws = XLSX.utils.aoa_to_sheet(ws_data);
+
+  // Set column widths:
+  ws['!cols'] = [
+    { wch: 8.43 },
+    { wch: 18.86 },
+    { wch: 8.43 },
+    { wch: 23.14 },
+    { wch: 8.43 },
+    { wch: 14.86 },
+    { wch: 8.43 },
+    { wch: 9.71 },
+    { wch: 18.57 }, { wch: 18.57 }, { wch: 18.57 }, { wch: 18.57 },
+    { wch: 18.57 }, { wch: 18.57 }, { wch: 18.57 }, { wch: 18.57 }
+  ];
+
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
   XLSX.writeFile(wb, 'HWOINK_Data.xlsx');

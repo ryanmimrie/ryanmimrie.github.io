@@ -4,6 +4,19 @@ title: HW-OINK
 permalink: /oink/hw/
 ---
 
+<style>
+#virus-select {
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: 4px 8px;
+    background: white;
+    appearance: none;      /* Remove most default styling (for modern browsers) */
+    -webkit-appearance: none; /* For Safari/Chrome */
+    -moz-appearance: none;    /* For Firefox */
+}
+</style>
+
+
 # Hospital Ward (HW)-OINK (v0.1)
 <div style="font-size: 0.95em;">
   This webtool provides model-based estimates of transmission dynamics for respiratory virus outbreaks in hospital wards. The method has been adapted from the original OINK (Outbreak Inference with Negligible Knowledge) model described in <a href="https://doi.org/10.1098/rsif.2024.0168" target="_blank" rel="noopener noreferrer" style="color: #159957;">Fozard et al., (2024)</a>.
@@ -62,7 +75,7 @@ document.getElementById('upload-btn').onclick = function() {
 ### Outbreak Information
 <label>
     Virus:
-    <select id="virus-select" style="background-color: white;">
+    <select id="virus-select">
         <option value="Influenza A virus">Influenza A virus</option>
         <option value="SARS-CoV-2">SARS-CoV-2</option>
     </select>

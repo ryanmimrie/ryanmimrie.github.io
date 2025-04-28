@@ -4,6 +4,12 @@ title: HW-OINK
 permalink: /oink/hw/
 ---
 
+<style>
+#rooms-section {
+    margin-top: 16px;
+}
+</style>
+
 ## Hospital Ward (HW)-OINK (v0.1)
 <div style="font-size: 0.95em;">This webtool provides model-based estimates of transmission dynamics for respiratory virus outbreaks in hospital wards.<br><br></div>
 

@@ -42,18 +42,18 @@ permalink: /oink/hw/
 </form>
 <div id="rooms-section"></div>
 
-### Patient Information
 <div id="stay-durations-section" style="margin-top: 24px">
     <label for="stay-durations">
         Patient stay durations (comma separated):<br>
-        <textarea id="stay-durations" name="stay-durations" style="margin-top: 12px">
-                  rows="3" style="width:340px;resize:vertical;" 
-                  placeholder="e.g. 4, 7, 10, 12, 6, ..."></textarea>
+        <textarea id="stay-durations" name="stay-durations" rows="3" style="margin-top: 12px; width:340px; resize:vertical;"
+            placeholder="e.g. 4, 7, 10, 12, 6, ..."
+        ></textarea>
     </label>
     <div style="font-size:90%; color:#888;">
         Recommended: up to 30 values (in days, e.g. <span style="font-style:italic;">4, 7, 10, 12</span>)
     </div>
 </div>
+
 
 ### Outbreak Information
 <form id="calendar-form" onsubmit="return false;">

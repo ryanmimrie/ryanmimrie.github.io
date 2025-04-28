@@ -31,7 +31,7 @@ permalink: /oink/hw/
 
 <div id="stay-durations-section" style="margin-top: 24px;">
     <label for="stay-durations">
-        Patient stay durations (comma separated):
+        Patient stay durations (comma separated):<br>
         <textarea id="stay-durations" name="stay-durations"
                   rows="3" style="width:340px;resize:vertical;" 
                   placeholder="e.g. 4, 7, 10, 12, 6, ..."></textarea>
@@ -81,7 +81,7 @@ permalink: /oink/hw/
             html += `<tr>
                 <td>Room ${i + 1}</td>
                 <td>
-                    <input type="number" min="0" step="1" value="0" name="beds-room-${i}" id="beds-room-${i}" required>
+                    <input type="number" min="1" max="24 step="1" value="1" name="beds-room-${i}" id="beds-room-${i}" required>
                 </td>
             </tr>`;
         }

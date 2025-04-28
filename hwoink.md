@@ -46,7 +46,6 @@ document.getElementById('upload-btn').onclick = function() {
         <input type="number" id="num-rooms" min="1" max="8" value="1" required>
     </label>
 </form>
-Number of Beds:<br>
 <div id="rooms-section" style="margin-top: 24px;"></div>
 
 ### Patient Information
@@ -74,7 +73,6 @@ Number of Beds:<br>
         <input type="number" id="num-days" min="1" value="1" required>
     </label>
 </form>
-Number of Cases:
 <div id="calendar-section" style="margin-top: 24px;"></div>
 
 <style>
@@ -93,16 +91,18 @@ function generateRoomsUI() {
         roomsSection.innerHTML = "<p>Please enter a valid number of rooms.</p>";
         return;
     }
-    // First row: Room headers
+    // Start building the table with Room labels as columns
     let html = `<table>
-        <tr>`;
+        <tr>
+            <th></th>`;
     for (let i = 0; i < numRooms; i++) {
         html += `<th>Room ${i + 1}</th>`;
     }
     html += `</tr>`;
 
-    // Second row: Bed input fields only (no first column)
-    html += `<tr>`;
+    // Add a row for "Number of Beds"
+    html += `<tr>
+        <td>Number of Beds</td>`;
     for (let i = 0; i < numRooms; i++) {
         html += `<td>
             <input type="number" min="1" max="24" step="1" value="1" name="beds-room-${i}" id="beds-room-${i}" required>
@@ -115,7 +115,6 @@ function generateRoomsUI() {
     // Also regenerate cases table if it's already loaded
     generateCalendar();
 }
-
 
     // --- DATE FORMATTER ---
     function formatDate(date) {
@@ -162,8 +161,13 @@ function generateRoomsUI() {
             <tr>
                 <th>Date</th>`;
         for (let r = 0; r < numRooms; r++) {
-            html += `<th>Room ${r + 1}<br><span style="font-weight:normal;font-size:90%;">(${bedsPerRoom[r]} beds)</span></th>`;
+          html += `<th>
+              Cases<br>
+              Room ${r + 1}<br>
+              <span style="font-weight:normal;font-size:90%;">(${bedsPerRoom[r]} beds)</span>
+          </th>`;
         }
+
         html += `</tr>`;
 
         // Table body

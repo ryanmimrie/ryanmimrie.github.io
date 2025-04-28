@@ -389,9 +389,8 @@ function makeHWOINKSheetData(formData) {
   const maxRooms = 8;
   const maxCaseCols = 8;
 
-  // 1. Build header row
-  // A1: ROOM, B1: NUMBER OF BEDS, D1: PATIENT STAYS (DAYS), F1: VIRUS, H1: DATE, I1–P1: CASES ROOM 1–8
-  const header = [];
+  // 1. Build header row: Fill all up to P1 (column 16, index 15)
+  const header = Array(8 + maxCaseCols).fill(""); // total 16 columns: A–P
   header[0] = "ROOM";                   // A1
   header[1] = "NUMBER OF BEDS";         // B1
   header[3] = "PATIENT STAYS (DAYS)";   // D1
@@ -407,7 +406,7 @@ function makeHWOINKSheetData(formData) {
 
   // Room/beds rows (A2–A9 = 1–8, B2–B9 = beds)
   for (let i = 0; i < maxRooms; ++i) {
-    const row = [];
+    const row = Array(8 + maxCaseCols).fill("");
     row[0] = i + 1;                                     // ROOM number
     row[1] = formData.bedsPerRoom[i] || "";             // Number of beds for each room (blank if not filled)
     ws[i + 1] = row;
@@ -415,19 +414,18 @@ function makeHWOINKSheetData(formData) {
 
   // Stay durations (D2 downwards)
   for (let i = 0; i < formData.stayDurations.length; ++i) {
-    if (!ws[i + 1]) ws[i + 1] = [];
+    if (!ws[i + 1]) ws[i + 1] = Array(8 + maxCaseCols).fill("");
     ws[i + 1][3] = formData.stayDurations[i];
   }
 
   // Virus (F2)
-  if (!ws[1]) ws[1] = [];
+  if (!ws[1]) ws[1] = Array(8 + maxCaseCols).fill("");
   ws[1][5] = formData.virus;
 
   // Dates and case data (starting from row 2, H and I–P)
   let currDate = new Date(formData.startDate);
   for (let d = 0; d < formData.numDays; ++d) {
-    // Row for each date/cases
-    if (!ws[d + 1]) ws[d + 1] = [];
+    if (!ws[d + 1]) ws[d + 1] = Array(8 + maxCaseCols).fill("");
     ws[d + 1][7] = currDate.toISOString().slice(0, 10); // H = date
     for (let r = 0; r < formData.numRooms; ++r) {
       ws[d + 1][8 + r] = formData.cases[d][r];

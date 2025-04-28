@@ -86,25 +86,23 @@ Number of Cases:
 
 <script>
     // --- ROOMS UI ---
-    function generateRoomsUI() {
+function generateRoomsUI() {
     const numRooms = parseInt(document.getElementById('num-rooms').value, 10);
     const roomsSection = document.getElementById('rooms-section');
     if (isNaN(numRooms) || numRooms < 1) {
         roomsSection.innerHTML = "<p>Please enter a valid number of rooms.</p>";
         return;
     }
-    // Start building the table with Room labels as columns
+    // First row: Room headers
     let html = `<table>
-        <tr>
-            <th></th>`;
+        <tr>`;
     for (let i = 0; i < numRooms; i++) {
         html += `<th>Room ${i + 1}</th>`;
     }
     html += `</tr>`;
 
-    // Add a row for "Number of Beds"
-    html += `<tr>
-        <td>Number of Beds</td>`;
+    // Second row: Bed input fields only (no first column)
+    html += `<tr>`;
     for (let i = 0; i < numRooms; i++) {
         html += `<td>
             <input type="number" min="1" max="24" step="1" value="1" name="beds-room-${i}" id="beds-room-${i}" required>
@@ -117,6 +115,7 @@ Number of Cases:
     // Also regenerate cases table if it's already loaded
     generateCalendar();
 }
+
 
     // --- DATE FORMATTER ---
     function formatDate(date) {

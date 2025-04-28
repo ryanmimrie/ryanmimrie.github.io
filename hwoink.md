@@ -24,10 +24,22 @@ permalink: /oink/hw/
 <form id="setup-form" onsubmit="return false;">
     <label>
         Number of Rooms:
-        <input type="number" id="num-rooms" min="1" value="1" required>
+        <input type="number" id="num-rooms" min="1" max = "8", value="1" required>
     </label>
 </form>
 <div id="rooms-section"></div>
+
+<div id="stay-durations-section" style="margin-top: 20px;">
+    <label for="stay-durations">
+        Patient stay durations (comma separated):
+        <input type="text" id="stay-durations" name="stay-durations" 
+               placeholder="e.g. 4, 7, 10, 12, 6, ..." style="width: 340px;">
+    </label>
+    <div style="font-size:90%; color:#888;">
+        Recommended: up to 30 values (in days, e.g. <span style="font-style:italic;">4, 7, 10, 12</span>)
+    </div>
+</div>
+
 
 ### Outbreak Information
 <form id="calendar-form" onsubmit="return false;">

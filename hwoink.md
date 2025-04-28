@@ -77,7 +77,6 @@ document.getElementById('upload-btn').onclick = function() {
     table { border-collapse: collapse; margin-top: 20px; }
     th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: center; }
     th { background: #f0f0f0; font-weight: normal; } /* Remove bold */
-    th * { font-weight: normal; } /* Apply normal weight to all children inside th */
     input[type="number"] { width: 60px; }
 </style>
 
@@ -168,10 +167,9 @@ function generateCalendar() {
             <th>Date</th>`;
     for (let r = 0; r < numRooms; r++) {
         const beds = bedsPerRoom[r] || 0;
-        html += `<th>Room ${r + 1} (${beds} bed${beds != 1 ? 's' : ''})</th>`;
+        html += `<th>Room ${r + 1}<br><em>(${beds} bed${beds != 1 ? 's' : ''})</em></th>`;
     }
     html += `</tr>`;
-
 
     // Table body
     for (let d = 0; d < numDays; d++) {

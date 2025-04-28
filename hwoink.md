@@ -38,7 +38,7 @@ permalink: /oink/hw/
 <div id="stay-durations-section">
     <label for="stay-durations">
         Patient stay durations (comma separated):<br>
-        <textarea id="stay-durations" name="stay-durations" rows="3" style="margin-top: 12px; width:340px; resize:vertical;"
+        <textarea id="stay-durations" name="stay-durations" rows="3" style="margin-top: 6px; width:340px; resize:vertical;"
             placeholder="e.g. 4, 7, 10, 12, 6, ..."
         ></textarea>
     </label>

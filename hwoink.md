@@ -107,7 +107,7 @@ function generateRoomsUI() {
     }
     html += `</tr>
         <tr>
-            <td style="font-weight:bold;">Number of Beds</td>`;
+            <td>Number of Beds</td>`;
     for (let i = 0; i < numRooms; i++) {
         html += `<td>
             <input type="number" min="1" max="24" step="1" value="${bedsPerRoom[i]}" name="beds-room-${i}" id="beds-room-${i}" required>
@@ -159,12 +159,16 @@ function generateCalendar() {
 
     const startDate = new Date(startDateStr);
 
-    // Table header
+    // Table header: two rows, with "Cases" spanning all room columns
     let html = `<table>
-      <tr>
-          <th>Date</th>`;
+        <tr>
+            <th></th>
+            <th colspan="${numRooms}">Cases</th>
+        </tr>
+        <tr>
+            <th>Date</th>`;
     for (let r = 0; r < numRooms; r++) {
-        html += `<th>Room ${r + 1}<br><span style="font-weight:normal;font-size:90%;">(${bedsPerRoom[r]} beds)</span></th>`;
+        html += `<th>Room ${r + 1}</th>`;
     }
     html += `</tr>`;
 

@@ -296,17 +296,29 @@ document.getElementById('upload-xlsx').addEventListener('change', function(e) {
     }
     document.getElementById('stay-durations').value = stayDurations.join(', ');
 
-    // 3. Start date: F2 (json[1][5])
-    const startDate = json[1]?.[5];
-    if (startDate) {
-        const isoDate = excelDateToISO(startDate);
-        if (isoDate) document.getElementById('start-date').value = isoDate;
+    // 3. Virus-select: F2 (json[1][5])
+    const virusVal = json[1]?.[5];
+    if (virusVal) {
+      const select = document.getElementById('virus-select');
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].value === virusVal) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
     }
 
-    // 4. Number of days: count rows from F2 down until blank
+    // 4. Start date: H2 (json[1][7])
+    const startDate = json[1]?.[7];
+    if (startDate) {
+      const isoDate = excelDateToISO(startDate);
+      if (isoDate) document.getElementById('start-date').value = isoDate;
+    }
+
+    // 5. Number of days: count rows from H2 down until blank
     let numDays = 0;
     for (let i = 1; i < json.length; ++i) {
-      const dayVal = json[i]?.[5];
+      const dayVal = json[i]?.[7]; // H
       if (dayVal !== undefined && dayVal !== "" && dayVal != null) {
         numDays++;
       } else {
@@ -316,11 +328,11 @@ document.getElementById('upload-xlsx').addEventListener('change', function(e) {
     document.getElementById('num-days').value = numDays;
     generateCalendar();
 
-    // 5. Cases by date for each room (G to N = columns 6 to 13, zero-based)
+    // 6. Cases by date for each room (I to P = columns 8 to 15, zero-based)
     for (let day = 0; day < numDays; ++day) {
       const row = json[1 + day];
       for (let r = 0; r < numRooms; ++r) {
-        const casesVal = row?.[6 + r] ?? 0; // G is 6, H is 7, etc.
+        const casesVal = row?.[8 + r] ?? 0; // I is 8, J is 9, ..., P is 15
         const input = document.getElementById(`cases-day${day}-room${r}`);
         if (input) input.value = casesVal;
       }
@@ -328,4 +340,4 @@ document.getElementById('upload-xlsx').addEventListener('change', function(e) {
   };
   reader.readAsArrayBuffer(file);
 });
-</script>
+

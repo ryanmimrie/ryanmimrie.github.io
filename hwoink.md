@@ -455,57 +455,6 @@ document.getElementById('download-xlsx-btn').addEventListener('click', function(
     { wch: 18.57 }, { wch: 18.57 }, { wch: 18.57 }, { wch: 18.57 }
   ];
 
-  // ======== Styling block begins here ========
-  // 1. Bold header and set row height
-  for (let c = 0; c < ws_data[0].length; ++c) {
-    const cell_ref = XLSX.utils.encode_cell({r:0, c:c});
-    if (!ws[cell_ref]) continue;
-    ws[cell_ref].s = {
-      font: { bold: true }
-    };
-  }
-  ws['!rows'] = ws['!rows'] || [];
-  ws['!rows'][0] = { hpt: 34.5 }; // Row 1 height
-
-  // 2. Alternate green/white for columns A, B (rows 2–9)
-  for (let r = 1; r <= 8; ++r) {
-    const fill = (r % 2 === 1) ? { fgColor: { rgb: "C6EFCE" } } : {};
-    for (let c = 0; c <= 1; ++c) {
-      const cell_ref = XLSX.utils.encode_cell({r:r, c:c});
-      if (!ws[cell_ref]) continue;
-      ws[cell_ref].s = ws[cell_ref].s || {};
-      ws[cell_ref].s.fill = fill;
-    }
-  }
-
-  // 3. Alternate green/white for column D (rows 2–9)
-  for (let r = 1; r <= 8; ++r) {
-    const fill = (r % 2 === 1) ? { fgColor: { rgb: "C6EFCE" } } : {};
-    const cell_ref = XLSX.utils.encode_cell({r:r, c:3});
-    if (!ws[cell_ref]) continue;
-    ws[cell_ref].s = ws[cell_ref].s || {};
-    ws[cell_ref].s.fill = fill;
-  }
-
-  // 4. F2 background green
-  const F2 = XLSX.utils.encode_cell({r:1, c:5});
-  if (ws[F2]) {
-    ws[F2].s = ws[F2].s || {};
-    ws[F2].s.fill = { fgColor: { rgb: "C6EFCE" } };
-  }
-
-  // 5. Alternate green/white for columns H–P (cols 7–15, rows 2–9)
-  for (let r = 1; r <= 8; ++r) {
-    const fill = (r % 2 === 1) ? { fgColor: { rgb: "C6EFCE" } } : {};
-    for (let c = 7; c <= 15; ++c) {
-      const cell_ref = XLSX.utils.encode_cell({r:r, c:c});
-      if (!ws[cell_ref]) continue;
-      ws[cell_ref].s = ws[cell_ref].s || {};
-      ws[cell_ref].s.fill = fill;
-    }
-  }
-  // ======== Styling block ends here ========
-
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
   XLSX.writeFile(wb, 'HWOINK_Data.xlsx');

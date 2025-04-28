@@ -17,7 +17,7 @@ permalink: /oink/hw/
 ### Upload Existing Data
 <div style="display: flex; gap: 16px; margin-bottom: 16px;">
   <a href="/assets/files/HWOINK_Template.xlsx" download
-     style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px; background: #007bff; color: white; text-decoration: none;">
+     style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px; background: #2ecc71; color: white; text-decoration: none;">
     <svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align: middle;">
       <path fill="currentColor" d="M10 14l4-4h-3V2h-2v8H6l4 4zm-8 4v-2h16v2H2z"/>
     </svg>
@@ -46,6 +46,7 @@ document.getElementById('upload-btn').onclick = function() {
         <input type="number" id="num-rooms" min="1" max="8" value="1" required>
     </label>
 </form>
+Number of Beds:<br>
 <div id="rooms-section" style="margin-top: 24px;"></div>
 
 ### Patient Information
@@ -73,6 +74,7 @@ document.getElementById('upload-btn').onclick = function() {
         <input type="number" id="num-days" min="1" value="1" required>
     </label>
 </form>
+Number of Cases:
 <div id="calendar-section" style="margin-top: 24px;"></div>
 
 <style>

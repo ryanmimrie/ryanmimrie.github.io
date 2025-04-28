@@ -94,26 +94,26 @@ function generateRoomsUI() {
     // Gather beds per room values (default to 1 if not present)
     let bedsPerRoom = [];
     for (let i = 0; i < numRooms; i++) {
-        const el = document.getElementById(`beds-room-${i}`);
+        const el = document.getElementById(beds-room-${i});
         bedsPerRoom.push(el ? el.value : 1);
     }
 
     // Table: First column for row labels, no beds-per-room in header
-    let html = `<table>
+    let html = <table>
         <tr>
-            <th></th>`;
+            <th></th>;
     for (let i = 0; i < numRooms; i++) {
-        html += `<th>Room ${i + 1}</th>`;
+        html += <th>Room ${i + 1}</th>;
     }
-    html += `</tr>
+    html += </tr>
         <tr>
-            <td>Number of Beds</td>`;
+            <td>Number of Beds</td>;
     for (let i = 0; i < numRooms; i++) {
-        html += `<td>
+        html += <td>
             <input type="number" min="1" max="24" step="1" value="${bedsPerRoom[i]}" name="beds-room-${i}" id="beds-room-${i}" required>
-        </td>`;
+        </td>;
     }
-    html += `</tr></table>`;
+    html += </tr></table>;
     roomsSection.innerHTML = html;
     generateCalendar();
 }
@@ -135,7 +135,7 @@ function formatDate(date) {
     };
     const month = date.toLocaleString('default', { month: 'long' });
     const year = date.getFullYear();
-    return `${dayOfWeek} ${day}${daySuffix(day)} ${month} ${year}`;
+    return ${dayOfWeek} ${day}${daySuffix(day)} ${month} ${year};
 }
 
 // --- CASES CALENDAR ---
@@ -153,42 +153,65 @@ function generateCalendar() {
     // Read number of beds per room
     let bedsPerRoom = [];
     for (let i = 0; i < numRooms; i++) {
-        const el = document.getElementById(`beds-room-${i}`);
+        const el = document.getElementById(beds-room-${i});
         bedsPerRoom.push(el ? el.value : 0);
     }
 
     const startDate = new Date(startDateStr);
 
     // Table header: two rows, with "Cases" spanning all room columns
-    let html = `<table>
+    let html = <table>
         <tr>
             <th style="background: transparent; border: none; padding: 8px 12px;">&nbsp;</th>
             <th colspan="${numRooms}">Cases</th>
         </tr>
         <tr>
-            <th>Date</th>`;
+            <th>Date</th>;
     for (let r = 0; r < numRooms; r++) {
-        html += `<th>Room ${r + 1} <span style="font-weight:normal;font-size:90%;">(${bedsPerRoom[r]} beds)</span></th>`;
+        html += <th>Room ${r + 1}</th>;
     }
-    html += `</tr>`;
+    html += </tr>;
+
 
     // Table body
     for (let d = 0; d < numDays; d++) {
         const currDate = new Date(startDate);
         currDate.setDate(startDate.getDate() + d);
-        html += `<tr>
-            <td>${formatDate(currDate)}</td>`;
+        html += <tr>
+            <td>${formatDate(currDate)}</td>;
         for (let r = 0; r < numRooms; r++) {
-            html += `<td>
+            html += <td>
                 <input type="number" min="0" max="${bedsPerRoom[r]}" step="1" value="0" name="cases-day${d}-room${r}" id="cases-day${d}-room${r}" required>
-            </td>`;
+            </td>;
         }
-        html += `</tr>`;
+        html += </tr>;
     }
-    html += `</table>`;
+    html += </table>;
     calendarSection.innerHTML = html;
 }
 
+// --- ON LOAD ---
+document.addEventListener('DOMContentLoaded', function() {
+    // Default today for start date
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    document.getElementById('start-date').value = ${yyyy}-${mm}-${dd};
+
+    // Initial UI
+    generateRoomsUI();
+    generateCalendar();
+
+    // Room/beds UI triggers
+    document.getElementById('num-rooms').addEventListener('input', generateRoomsUI);
+    // Also update beds -> calendar if beds change
+    document.getElementById('rooms-section').addEventListener('input', generateCalendar);
+
+    // Calendar controls
+    document.getElementById('start-date').addEventListener('input', generateCalendar);
+    document.getElementById('num-days').addEventListener('input', generateCalendar);
+});
 </script>
 
 <script>

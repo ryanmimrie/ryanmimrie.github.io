@@ -438,3 +438,17 @@ function makeHWOINKSheetData(formData) {
   return ws;
 }
 
+// --- DOWNLOAD HANDLER ---
+document.getElementById('download-xlsx-btn').addEventListener('click', function() {
+  const formData = getFormDataForXLSX();
+  const ws_data = makeHWOINKSheetData(formData);
+  const ws = XLSX.utils.aoa_to_sheet(ws_data);
+
+  // Optional: set column headers for clarity, or match your upload template
+  ws['A1'] = { v: "" }; // keep first row blank or fill headers as desired
+
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+  XLSX.writeFile(wb, 'HWOINK_Data.xlsx');
+});
+</script>

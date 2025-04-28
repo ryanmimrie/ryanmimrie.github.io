@@ -6,7 +6,7 @@ permalink: /oink/hw/
 
 # Hospital Ward (HW)-OINK (v0.1)
 <div style="font-size: 0.95em;">
-  This webtool provides model-based estimates of transmission dynamics for respiratory virus outbreaks in hospital wards. The method has been adapted from the original OINK (Outbreak Inference with Negligible Knowledge) model described in <a href="https://doi.org/10.1098/rsif.2024.0168" target="_blank" rel="noopener noreferrer">Fozard et al., (2024)</a>.
+  This webtool provides model-based estimates of transmission dynamics for respiratory virus outbreaks in hospital wards. The method has been adapted from the original OINK (Outbreak Inference with Negligible Knowledge) model described in <a href="https://doi.org/10.1098/rsif.2024.0168" target="_blank" rel="noopener noreferrer" style="color: #159957;">Fozard et al., (2024)</a>.
   <br><br>
 </div>
 

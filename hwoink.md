@@ -201,6 +201,23 @@ document.getElementById('upload-btn').onclick = function() {
 </script>
 
 <script>
+function excelDateToISO(val) {
+    if (typeof val === "number") {
+        // Excel serial number date
+        // Excel's epoch is Jan 1, 1900
+        const jsDate = new Date(Date.UTC(1899, 11, 30) + val * 86400000);
+        return jsDate.toISOString().slice(0, 10);
+    } else if (typeof val === "string") {
+        // String date (try to parse)
+        // Accepts: "1/1/2025", "2025-01-01", etc.
+        const jsDate = new Date(val);
+        if (!isNaN(jsDate)) {
+            return jsDate.toISOString().slice(0, 10);
+        }
+    }
+    return "";
+}
+  
 document.getElementById('upload-xlsx').addEventListener('change', function(e) {
   const file = e.target.files[0];
   if (!file) return;
@@ -247,12 +264,8 @@ document.getElementById('upload-xlsx').addEventListener('change', function(e) {
     // 3. Start date: F2 (json[1][5])
     const startDate = json[1]?.[5];
     if (startDate) {
-      // Format date to yyyy-mm-dd for <input type="date">
-      const excelDate = new Date(startDate);
-      let yyyy = excelDate.getFullYear();
-      let mm = String(excelDate.getMonth() + 1).padStart(2, '0');
-      let dd = String(excelDate.getDate()).padStart(2, '0');
-      document.getElementById('start-date').value = `${yyyy}-${mm}-${dd}`;
+        const isoDate = excelDateToISO(startDate);
+        if (isoDate) document.getElementById('start-date').value = isoDate;
     }
 
     // 4. Number of days: count rows from F2 down until blank

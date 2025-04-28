@@ -24,10 +24,10 @@ permalink: /oink/hw/
 
 <div style="display: flex; gap: 16px; margin-bottom: 16px;">
   <button style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer;">
-    Upload Data
+    &#8682; Upload Data
   </button>
   <button style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer;">
-    Download Template
+    &#8681; Download Template
   </button>
 </div>
 

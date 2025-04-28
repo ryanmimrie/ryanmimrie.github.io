@@ -6,8 +6,13 @@ permalink: /oink/hw/
 
 <style>
 #rooms-section {
-    margin-top: 16px;
+    margin-top: 24px;
 }
+    
+#calendar-section {
+    margin-top: 24px;
+}
+    
 </style>
 
 ## Hospital Ward (HW)-OINK (v0.1)

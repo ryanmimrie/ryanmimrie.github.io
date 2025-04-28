@@ -161,16 +161,17 @@ function generateCalendar() {
 
     // Table header: two rows, with "Cases" spanning all room columns
     let html = `<table>
-      <tr>
-          <th style="background: transparent; border: none; padding: 0; width: 1px;"></th>
-          <th colspan="${numRooms}">Cases</th>
-      </tr>
-      <tr>
-          <th>Date</th>`;
+        <tr>
+            <th style="background: transparent; border: none; padding: 8px 12px;">&nbsp;</th>
+            <th colspan="${numRooms}">Cases</th>
+        </tr>
+        <tr>
+            <th>Date</th>`;
     for (let r = 0; r < numRooms; r++) {
         html += `<th>Room ${r + 1}</th>`;
     }
     html += `</tr>`;
+
 
     // Table body
     for (let d = 0; d < numDays; d++) {

@@ -21,10 +21,6 @@ permalink: /about/
   </div>
 </div>
 
-## Outside of Work
-
-<div style="font-size: 0.95em;">When I'm not working, I enjoy hiking around the nearby Loch Lomond and Trossachs National Park, curling up on the corner sofa with a book, or tackling self-inflicted coding challenges. My current challenge is creating a 6D version of Snake (traditionally a 2D game) and a computer algorithm that can efficiently and safely find paths through this multidimensional space.</div>
-
 ## Contact
 
 <div style="font-size: 0.95em;">If you're interested in collaborating or just want to get in touch, feel free to reach out through <a href="mailto:ryan.imrie@glasgow.ac.uk" style="color: #159957;">ryan.imrie@glasgow.ac.uk</a>. For any industry enquiries, please get in touch through <a href="mailto:ryan.m.imrie@gmail.com" style="color: #159957;">ryan.m.imrie@gmail.com</a>.</div>

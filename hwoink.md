@@ -4,10 +4,58 @@ title: HW-OINK
 permalink: /oink/hw/
 ---
 
-## HW-OINK (v0.1)
+## Hospital Ward (HW)-OINK (v0.1)
 <div style="font-size: 0.95em;">This webtool provides model-based estimates of transmission dynamics for respiratory virus outbreaks in hospital wards.<br><br></div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+### Ward Information
+<form id="room-form" onsubmit="return false;">
+    <label>
+        Number of Rooms:
+        <input type="number" id="num-rooms" min="1" value="1" required>
+    </label>
+</form>
+<div class="rooms-section" id="rooms-section"></div>
+
+<style>
+    .rooms-section table { border-collapse: collapse; margin-top: 20px; }
+    .rooms-section th, .rooms-section td { border: 1px solid #ccc; padding: 8px 12px; }
+    .rooms-section th { background: #f0f0f0; }
+    .rooms-section input[type="number"] { width: 60px; }
+</style>
+
+<script>
+    function generateRoomsUI() {
+        const numRooms = parseInt(document.getElementById('num-rooms').value, 10);
+        const roomsSection = document.getElementById('rooms-section');
+        if (isNaN(numRooms) || numRooms < 1) {
+            roomsSection.innerHTML = "<p>Please enter a valid number of rooms.</p>";
+            return;
+        }
+        let html = `<table>
+            <tr>
+                <th>Room</th>
+                <th>Number of Beds</th>
+            </tr>`;
+        for (let i = 0; i < numRooms; i++) {
+            html += `<tr>
+                <td>Room ${i + 1}</td>
+                <td>
+                    <input type="number" min="0" step="1" value="0" name="beds-room-${i}" id="beds-room-${i}" required>
+                </td>
+            </tr>`;
+        }
+        html += `</table>`;
+        roomsSection.innerHTML = html;
+    }
+
+    // Set up event listeners and initial rendering
+    document.addEventListener('DOMContentLoaded', function() {
+        generateRoomsUI();
+        document.getElementById('num-rooms').addEventListener('input', generateRoomsUI);
+    });
+</script>
 
 ### Outbreak Information
 <form id="setup-form" onsubmit="return false;">

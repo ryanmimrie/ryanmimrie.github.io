@@ -97,8 +97,11 @@ document.getElementById('upload-btn').onclick = function() {
     </div>
 
 <button id="download-xlsx-btn" type="button"
-  style="margin-top:20px; padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; background: #159957; color: white;">
-  Download as XLSX
+  style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px; background: #2ecc71; color: white; text-decoration: none;">
+  <svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align: middle;">
+      <path fill="currentColor" d="M10 14l4-4h-3V2h-2v8H6l4 4zm-8 4v-2h16v2H2z"/>
+    </svg>
+  Download Setup
 </button>
 
 <style>

@@ -71,11 +71,6 @@ document.getElementById('upload-btn').onclick = function() {
     </div>
 </div>
 
-<div style="margin-top: 16px;">
-  <strong>Estimated Length of Stay Distribution (Weibull):</strong>
-  <canvas id="weibull-plot" width="520" height="280"></canvas>
-</div>
-
 ### Outbreak Information
 <label>
     Virus:
@@ -100,119 +95,6 @@ document.getElementById('upload-btn').onclick = function() {
 <div style="font-size:90%; color:#888;">
         Note: Record only the day of detection of each new case.
     </div>
-
-<script>
-// Minimal JS Weibull MLE fit and Chart.js plotting
-
-// Helper: Parse textarea values to number array
-function parseDurations(input) {
-    return input.split(',')
-        .map(s => parseFloat(s.trim()))
-        .filter(x => !isNaN(x) && x > 0);
-}
-
-// Weibull log-likelihood for given data and params
-function weibullLogLikelihood(k, lam, data) {
-    if (k <= 0 || lam <= 0) return -Infinity;
-    let n = data.length;
-    let sum1 = 0, sum2 = 0;
-    for (let i = 0; i < n; ++i) {
-        sum1 += Math.pow(data[i] / lam, k);
-        sum2 += Math.log(data[i]);
-    }
-    return n * Math.log(k) - n * k * Math.log(lam) + (k - 1) * sum2 - sum1;
-}
-
-// Simple grid search for Weibull MLE (fast enough for web, robust to odd data)
-function fitWeibull(data) {
-    if (data.length < 2) return null;
-    let min = Math.min(...data), max = Math.max(...data);
-    let bestK = 1, bestLam = 1, bestLL = -Infinity;
-    // Reasonable k and lambda ranges
-    for (let k = 0.5; k <= 5.0; k += 0.05) {
-        // Use sample mean as a guess for lambda
-        let mean = data.reduce((a,b)=>a+b,0)/data.length;
-        for (let lam = mean/2; lam <= mean*2; lam += mean/40) {
-            let ll = weibullLogLikelihood(k, lam, data);
-            if (ll > bestLL) {
-                bestK = k; bestLam = lam; bestLL = ll;
-            }
-        }
-    }
-    return {k: bestK, lam: bestLam};
-}
-
-// Compute Weibull PDF
-function weibullPDF(x, k, lam) {
-    if (x < 0) return 0;
-    return (k/lam) * Math.pow(x/lam, k-1) * Math.exp(-Math.pow(x/lam, k));
-}
-
-// Chart.js init
-let ctx = document.getElementById('weibull-plot').getContext('2d');
-let weibullChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: [], // x axis
-        datasets: [{
-            label: 'Fitted Weibull PDF',
-            data: [],
-            borderWidth: 2,
-            fill: true,
-            pointRadius: 0,
-            borderColor: '#3498db',
-            backgroundColor: 'rgba(52, 152, 219, 0.1)',
-        }]
-    },
-    options: {
-        responsive: false,
-        animation: false,
-        scales: {
-            x: {
-                title: { display: true, text: 'Stay duration (days)' },
-                min: 0,
-                max: 20,
-            },
-            y: {
-                title: { display: true, text: 'Density' },
-                min: 0,
-                beginAtZero: true,
-            }
-        },
-        plugins: {
-            legend: { display: false },
-            tooltip: { enabled: true }
-        }
-    }
-});
-
-// Update plot function
-function updateWeibullPlot() {
-    let raw = document.getElementById('stay-durations').value;
-    let data = parseDurations(raw);
-    let dist = fitWeibull(data);
-    let xVals = Array.from({length: 61}, (_, i) => i*0.5); // 0, 0.5, ..., 30
-    let yVals = [];
-
-    if (dist && data.length >= 2) {
-        for (let x of xVals) yVals.push(weibullPDF(x, dist.k, dist.lam));
-        weibullChart.options.scales.x.max = Math.max(20, Math.ceil(Math.max(...data)*1.2));
-    } else {
-        // Empty plot: just axes, no data
-        yVals = Array(xVals.length).fill(NaN);
-        weibullChart.options.scales.x.max = 20;
-    }
-    weibullChart.data.labels = xVals;
-    weibullChart.data.datasets[0].data = yVals;
-    weibullChart.update();
-}
-
-// Hook up event: live update on input
-document.getElementById('stay-durations').addEventListener('input', updateWeibullPlot);
-
-// Initial empty plot
-updateWeibullPlot();
-</script>
 
 <style>
     table { border-collapse: collapse; margin-top: 20px; }

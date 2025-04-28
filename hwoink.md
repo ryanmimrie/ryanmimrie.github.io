@@ -42,6 +42,7 @@ permalink: /oink/hw/
 </form>
 <div id="rooms-section"></div>
 
+### Patient Information
 <div id="stay-durations-section" style="margin-top: 24px">
     <label for="stay-durations">
         Patient stay durations (comma separated):<br>
@@ -53,7 +54,6 @@ permalink: /oink/hw/
         Recommended: up to 30 values (in days, e.g. <span style="font-style:italic;">4, 7, 10, 12</span>)
     </div>
 </div>
-
 
 ### Outbreak Information
 <form id="calendar-form" onsubmit="return false;">

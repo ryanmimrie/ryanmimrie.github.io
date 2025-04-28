@@ -84,40 +84,37 @@ document.getElementById('upload-btn').onclick = function() {
 
 <script>
     // --- ROOMS UI ---
-    function generateRoomsUI() {
-        const numRooms = parseInt(document.getElementById('num-rooms').value, 10);
-        const roomsSection = document.getElementById('rooms-section');
-        if (isNaN(numRooms) || numRooms < 1) {
-            roomsSection.innerHTML = "<p>Please enter a valid number of rooms.</p>";
-            return;
-        }
-        // Gather beds per room values (default to 1 if not present)
-        let bedsPerRoom = [];
-        for (let i = 0; i < numRooms; i++) {
-            const el = document.getElementById(`beds-room-${i}`);
-            bedsPerRoom.push(el ? el.value : 1);
-        }
-
-        // Build table with super header
-        let html = `<table>
-            <tr>
-                <th colspan="${numRooms}">Number of Beds</th>
-            </tr>
-            <tr>`;
-        for (let i = 0; i < numRooms; i++) {
-            html += `<th>Room ${i + 1} (${bedsPerRoom[i]} beds)</th>`;
-        }
-        html += `</tr><tr>`;
-        for (let i = 0; i < numRooms; i++) {
-            html += `<td>
-                <input type="number" min="1" max="24" step="1" value="${bedsPerRoom[i]}" name="beds-room-${i}" id="beds-room-${i}" required>
-            </td>`;
-        }
-        html += `</tr></table>`;
-        roomsSection.innerHTML = html;
-        // Also regenerate cases table if it's already loaded
-        generateCalendar();
+function generateRoomsUI() {
+    const numRooms = parseInt(document.getElementById('num-rooms').value, 10);
+    const roomsSection = document.getElementById('rooms-section');
+    if (isNaN(numRooms) || numRooms < 1) {
+        roomsSection.innerHTML = "<p>Please enter a valid number of rooms.</p>";
+        return;
     }
+    // Start building the table with Room labels as columns
+    let html = <table>
+        <tr>
+            <th></th>;
+    for (let i = 0; i < numRooms; i++) {
+        html += <th>Room ${i + 1}</th>;
+    }
+    html += </tr>;
+
+    // Add a row for "Number of Beds"
+    html += <tr>
+        <td>Number of Beds</td>;
+    for (let i = 0; i < numRooms; i++) {
+        html += <td>
+            <input type="number" min="1" max="24" step="1" value="1" name="beds-room-${i}" id="beds-room-${i}" required>
+        </td>;
+    }
+    html += </tr>;
+
+    html += </table>;
+    roomsSection.innerHTML = html;
+    // Also regenerate cases table if it's already loaded
+    generateCalendar();
+}
 
     // --- DATE FORMATTER ---
     function formatDate(date) {
@@ -135,7 +132,7 @@ document.getElementById('upload-btn').onclick = function() {
         };
         const month = date.toLocaleString('default', { month: 'long' });
         const year = date.getFullYear();
-        return `${dayOfWeek} ${day}${daySuffix(day)} ${month} ${year}`;
+        return ${dayOfWeek} ${day}${daySuffix(day)} ${month} ${year};
     }
 
     // --- CASES CALENDAR ---
@@ -153,38 +150,40 @@ document.getElementById('upload-btn').onclick = function() {
         // Read number of beds per room
         let bedsPerRoom = [];
         for (let i = 0; i < numRooms; i++) {
-            const el = document.getElementById(`beds-room-${i}`);
+            const el = document.getElementById(beds-room-${i});
             bedsPerRoom.push(el ? el.value : 0);
         }
 
         const startDate = new Date(startDateStr);
 
-        // Table header (super-header "Cases")
-        let html = `<table>
+        // Table header
+        let html = <table>
             <tr>
-                <th colspan="${numRooms + 1}">Cases</th>
-            </tr>
-            <tr>
-                <th>Date</th>`;
+                <th>Date</th>;
         for (let r = 0; r < numRooms; r++) {
-            html += `<th>Room ${r + 1}<br><span style="font-weight:normal;font-size:90%;">(${bedsPerRoom[r]} beds)</span></th>`;
+          html += <th>
+              Cases<br>
+              Room ${r + 1}<br>
+              <span style="font-weight:normal;font-size:90%;">(${bedsPerRoom[r]} beds)</span>
+          </th>;
         }
-        html += `</tr>`;
+
+        html += </tr>;
 
         // Table body
         for (let d = 0; d < numDays; d++) {
             const currDate = new Date(startDate);
             currDate.setDate(startDate.getDate() + d);
-            html += `<tr>
-                <td>${formatDate(currDate)}</td>`;
+            html += <tr>
+                <td>${formatDate(currDate)}</td>;
             for (let r = 0; r < numRooms; r++) {
-                html += `<td>
+                html += <td>
                     <input type="number" min="0" max="${bedsPerRoom[r]}" step="1" value="0" name="cases-day${d}-room${r}" id="cases-day${d}-room${r}" required>
-                </td>`;
+                </td>;
             }
-            html += `</tr>`;
+            html += </tr>;
         }
-        html += `</table>`;
+        html += </table>;
         calendarSection.innerHTML = html;
     }
 
@@ -195,7 +194,7 @@ document.getElementById('upload-btn').onclick = function() {
         const yyyy = today.getFullYear();
         const mm = String(today.getMonth() + 1).padStart(2, '0');
         const dd = String(today.getDate()).padStart(2, '0');
-        document.getElementById('start-date').value = `${yyyy}-${mm}-${dd}`;
+        document.getElementById('start-date').value = ${yyyy}-${mm}-${dd};
 
         // Initial UI
         generateRoomsUI();

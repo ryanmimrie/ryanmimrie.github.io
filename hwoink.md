@@ -60,6 +60,15 @@ document.getElementById('upload-btn').onclick = function() {
 </div>
 
 ### Outbreak Information
+<label>
+    Virus:
+    <select id="virus-select">
+        <option value="Influenza A virus">Influenza A virus</option>
+        <option value="SARS-CoV-2">SARS-CoV-2</option>
+    </select>
+</label>
+<br><br>
+
 <form id="calendar-form" onsubmit="return false;">
     <label>
         Start Date:
@@ -72,6 +81,9 @@ document.getElementById('upload-btn').onclick = function() {
     </label>
 </form>
 <div id="calendar-section" style="margin-top: 24px;"></div>
+<div style="font-size:90%; color:#888;">
+        Note: Record only the day of detection of each new case.
+    </div>
 
 <style>
     table { border-collapse: collapse; margin-top: 20px; }

@@ -76,7 +76,7 @@ document.getElementById('upload-btn').onclick = function() {
 <style>
     table { border-collapse: collapse; margin-top: 20px; }
     th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: center; }
-    th { background: #f0f0f0; }
+    th { background: #f0f0f0; font-weight: normal; } /* Remove bold */
     input[type="number"] { width: 60px; }
 </style>
 

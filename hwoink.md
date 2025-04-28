@@ -96,6 +96,11 @@ document.getElementById('upload-btn').onclick = function() {
         Note: Record only the day of detection of each new case.
     </div>
 
+<button id="download-xlsx-btn" type="button"
+  style="margin-top:20px; padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; background: #159957; color: white;">
+  Download as XLSX
+</button>
+
 <style>
     table { border-collapse: collapse; margin-top: 20px; }
     th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: center; }
@@ -341,3 +346,103 @@ document.getElementById('upload-xlsx').addEventListener('change', function(e) {
   reader.readAsArrayBuffer(file);
 });
 
+<script>
+// --- GATHER DATA ---
+function getFormDataForXLSX() {
+  // 1. Number of rooms & beds
+  const numRooms = parseInt(document.getElementById('num-rooms').value, 10);
+  const bedsPerRoom = [];
+  for (let i = 0; i < numRooms; ++i) {
+    bedsPerRoom.push(Number(document.getElementById(`beds-room-${i}`)?.value || 1));
+  }
+
+  // 2. Stay durations
+  const stayDurations = document.getElementById('stay-durations').value
+    .split(',')
+    .map(x => x.trim())
+    .filter(x => x !== '');
+
+  // 3. Virus, Start Date, Num Days
+  const virus = document.getElementById('virus-select').value;
+  const startDate = document.getElementById('start-date').value;
+  const numDays = parseInt(document.getElementById('num-days').value, 10);
+
+  // 4. Cases table
+  let cases = [];
+  for (let day = 0; day < numDays; ++day) {
+    let dayCases = [];
+    for (let r = 0; r < numRooms; ++r) {
+      dayCases.push(Number(document.getElementById(`cases-day${day}-room${r}`)?.value || 0));
+    }
+    cases.push(dayCases);
+  }
+
+  return {
+    numRooms, bedsPerRoom, stayDurations, virus, startDate, numDays, cases
+  };
+}
+
+// --- BUILD XLSX SHEET DATA ---
+function makeHWOINKSheetData(formData) {
+  // XLSX columns: [A,B,C,D,E,F,G,H,I...P] etc.
+  // Row 1: Headers (optional)
+  // Row 2..: Data, following your described format
+  // Columns:
+  // B: Beds per room (rows 2-9)
+  // D: Stay durations (rows 2..)
+  // F: Virus (row 2)
+  // H: Date (rows 2..)
+  // I-P: Cases per room per day
+
+  // Build initial empty sheet
+  const maxRooms = 8;
+  const ws = [];
+  ws[0] = []; // header, could fill in if needed
+
+  // 1. Beds per room (B2:B9)
+  for (let i = 0; i < maxRooms; ++i) {
+    ws[i + 1] = [];
+    ws[i + 1][1] = (i < formData.bedsPerRoom.length) ? formData.bedsPerRoom[i] : '';
+  }
+
+  // 2. Stay durations (D2 downwards)
+  for (let i = 0; i < formData.stayDurations.length; ++i) {
+    if (!ws[i + 1]) ws[i + 1] = [];
+    ws[i + 1][3] = formData.stayDurations[i];
+  }
+
+  // 3. Virus (F2)
+  if (!ws[1]) ws[1] = [];
+  ws[1][5] = formData.virus;
+
+  // 4. Dates (H2 downwards), Cases (I..P)
+  let currDate = new Date(formData.startDate);
+  for (let d = 0; d < formData.numDays; ++d) {
+    if (!ws[d + 1]) ws[d + 1] = [];
+    // H: date (Excel expects as string)
+    ws[d + 1][7] = currDate.toISOString().slice(0, 10); // YYYY-MM-DD
+    // I onward: cases per room
+    for (let r = 0; r < formData.numRooms; ++r) {
+      ws[d + 1][8 + r] = formData.cases[d][r];
+    }
+    // advance date
+    currDate.setDate(currDate.getDate() + 1);
+  }
+
+  return ws;
+}
+
+// --- DOWNLOAD HANDLER ---
+document.getElementById('download-xlsx-btn').addEventListener('click', function() {
+  const formData = getFormDataForXLSX();
+  const ws_data = makeHWOINKSheetData(formData);
+  const ws = XLSX.utils.aoa_to_sheet(ws_data);
+
+  // Optional: set column headers for clarity, or match your upload template
+  ws['A1'] = { v: "" }; // keep first row blank or fill headers as desired
+
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+  XLSX.writeFile(wb, 'HWOINK_Data.xlsx');
+});
+</script>

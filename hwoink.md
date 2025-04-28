@@ -98,13 +98,16 @@ function generateRoomsUI() {
         bedsPerRoom.push(el ? el.value : 1);
     }
 
-    // Single header row, then one row of input fields
+    // Table: First column for row labels, no beds-per-room in header
     let html = `<table>
-        <tr>`;
+        <tr>
+            <th></th>`;
     for (let i = 0; i < numRooms; i++) {
-        html += `<th>Room ${i + 1} <span style="font-weight:normal;font-size:90%;">(${bedsPerRoom[i]} beds)</span></th>`;
+        html += `<th>Room ${i + 1}</th>`;
     }
-    html += `</tr><tr>`;
+    html += `</tr>
+        <tr>
+            <td style="font-weight:bold;">Number of Beds</td>`;
     for (let i = 0; i < numRooms; i++) {
         html += `<td>
             <input type="number" min="1" max="24" step="1" value="${bedsPerRoom[i]}" name="beds-room-${i}" id="beds-room-${i}" required>
@@ -112,9 +115,9 @@ function generateRoomsUI() {
     }
     html += `</tr></table>`;
     roomsSection.innerHTML = html;
-    // Also regenerate cases table if it's already loaded
     generateCalendar();
 }
+
 
 // --- DATE FORMATTER ---
 function formatDate(date) {

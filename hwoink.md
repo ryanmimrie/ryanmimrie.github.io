@@ -21,18 +21,17 @@ permalink: /oink/hw/
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 ## Data Entry
-
+### Upload Existing Form
 <div style="display: flex; gap: 16px; margin-bottom: 16px;">
   <button style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
-    <svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align: middle;"><path fill="currentColor" d="M10 14l4-4h-3V2h-2v8H6l4 4zm-8 4v-2h16v2H2z"/></svg>
+    <svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align: middle;"><path fill="currentColor" d="M10 6l-4 4h3v8h2v-8h3l-4-4zm-8-4v2h16V2H2z"/></svg>
     Upload Data
   </button>
   <button style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
-    <svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align: middle;"><path fill="currentColor" d="M10 6l-4 4h3v8h2v-8h3l-4-4zm-8-4v2h16V2H2z"/></svg>
+    <svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align: middle;"><path fill="currentColor" d="M10 14l4-4h-3V2h-2v8H6l4 4zm-8 4v-2h16v2H2z"/></svg>
     Download Template
   </button>
 </div>
-
 
 ### Ward Information
 <form id="setup-form" onsubmit="return false;">
@@ -43,10 +42,11 @@ permalink: /oink/hw/
 </form>
 <div id="rooms-section"></div>
 
-<div id="stay-durations-section" style="margin-top: 24px;margin-bottom: 6px">
+### Patient Information
+<div id="stay-durations-section" style="margin-top: 24px">
     <label for="stay-durations">
         Patient stay durations (comma separated):<br>
-        <textarea id="stay-durations" name="stay-durations"
+        <textarea id="stay-durations" name="stay-durations" style="margin-top: 12px">
                   rows="3" style="width:340px;resize:vertical;" 
                   placeholder="e.g. 4, 7, 10, 12, 6, ..."></textarea>
     </label>
@@ -54,7 +54,6 @@ permalink: /oink/hw/
         Recommended: up to 30 values (in days, e.g. <span style="font-style:italic;">4, 7, 10, 12</span>)
     </div>
 </div>
-
 
 ### Outbreak Information
 <form id="calendar-form" onsubmit="return false;">

@@ -20,7 +20,8 @@ permalink: /oink/hw/
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-## Upload Existing Data Template
+## Data Entry
+### Upload Existing Data
 
 <div style="display: flex; gap: 16px; margin-top: 16px; margin-bottom: 16px;">
   <button>
@@ -31,7 +32,6 @@ permalink: /oink/hw/
   </button>
 </div>
 
-## Manual Data Entry
 ### Ward Information
 <form id="setup-form" onsubmit="return false;">
     <label>

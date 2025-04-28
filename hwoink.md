@@ -8,26 +8,32 @@ permalink: /oink/hw/
 <div style="font-size: 0.95em;">This webtool provides model-based estimates of transmission dynamics for respiratory virus outbreaks in hospital wards.<br><br></div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<h2>Specify Number of Rooms and Beds</h2>
+
+### Ward Information
 <form id="setup-form" onsubmit="return false;">
     <label>
         Number of Rooms:
         <input type="number" id="num-rooms" min="1" value="1" required>
     </label>
 </form>
+<br><br>
+
 <div id="rooms-section"></div>
 
-<h2 style="margin-top:32px;">Specify Number of Cases Per Day Per Room</h2>
+### Outbreak Information
 <form id="calendar-form" onsubmit="return false;">
     <label>
         Start Date:
         <input type="date" id="start-date" required>
     </label>
+    <br><br>
     <label>
         Number of Days:
         <input type="number" id="num-days" min="1" value="1" required>
     </label>
 </form>
+<br><br>
+
 <div id="calendar-section"></div>
 
 <style>

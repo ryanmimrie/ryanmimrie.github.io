@@ -85,30 +85,36 @@ document.getElementById('upload-btn').onclick = function() {
 <script>
     // --- ROOMS UI ---
     function generateRoomsUI() {
-        const numRooms = parseInt(document.getElementById('num-rooms').value, 10);
-        const roomsSection = document.getElementById('rooms-section');
-        if (isNaN(numRooms) || numRooms < 1) {
-            roomsSection.innerHTML = "<p>Please enter a valid number of rooms.</p>";
-            return;
-        }
-        let html = `<table>
-            <tr>
-                <th>Room</th>
-                <th>Number of Beds</th>
-            </tr>`;
-        for (let i = 0; i < numRooms; i++) {
-            html += `<tr>
-                <td>Room ${i + 1}</td>
-                <td>
-                    <input type="number" min="1" max="24 step="1" value="1" name="beds-room-${i}" id="beds-room-${i}" required>
-                </td>
-            </tr>`;
-        }
-        html += `</table>`;
-        roomsSection.innerHTML = html;
-        // Also regenerate cases table if it's already loaded
-        generateCalendar();
+    const numRooms = parseInt(document.getElementById('num-rooms').value, 10);
+    const roomsSection = document.getElementById('rooms-section');
+    if (isNaN(numRooms) || numRooms < 1) {
+        roomsSection.innerHTML = "<p>Please enter a valid number of rooms.</p>";
+        return;
     }
+    // Start building the table with Room labels as columns
+    let html = `<table>
+        <tr>
+            <th></th>`;
+    for (let i = 0; i < numRooms; i++) {
+        html += `<th>Room ${i + 1}</th>`;
+    }
+    html += `</tr>`;
+
+    // Add a row for "Number of Beds"
+    html += `<tr>
+        <td>Number of Beds</td>`;
+    for (let i = 0; i < numRooms; i++) {
+        html += `<td>
+            <input type="number" min="1" max="24" step="1" value="1" name="beds-room-${i}" id="beds-room-${i}" required>
+        </td>`;
+    }
+    html += `</tr>`;
+
+    html += `</table>`;
+    roomsSection.innerHTML = html;
+    // Also regenerate cases table if it's already loaded
+    generateCalendar();
+}
 
     // --- DATE FORMATTER ---
     function formatDate(date) {

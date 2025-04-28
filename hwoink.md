@@ -76,7 +76,7 @@ permalink: /oink/hw/
             html += `<tr>
                 <td>${formatDate(currDate)}</td>
                 <td>
-                    <input type="number" min="0" step="1" name="cases-day-${i}" id="cases-day-${i}" required>
+                    <input type="number" min="0" step="1" value="0" name="cases-day-${i}" id="cases-day-${i}" required>
                 </td>
             </tr>`;
         }

@@ -23,11 +23,11 @@ permalink: /oink/hw/
 ## Upload Existing Data Template
 
 <div style="display: flex; gap: 16px; margin-top: 16px; margin-bottom: 16px;">
-  <button style="padding: 12px 24px; font-size: 16px; border: none; background-color: #007bff; color: white; border-radius: 4px; cursor: pointer;">
-    Download Blank Data Template
-  </button>
-  <button style="padding: 12px 24px; font-size: 16px; border: none; background-color: #28a745; color: white; border-radius: 4px; cursor: pointer;">
+  <button>
     Upload Data
+  </button>
+  <button>
+    Download Template
   </button>
 </div>
 

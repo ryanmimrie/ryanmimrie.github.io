@@ -122,7 +122,7 @@ permalink: /oink/hw/
                 <td>${formatDate(currDate)}</td>`;
             for (let r = 0; r < numRooms; r++) {
                 html += `<td>
-                    <input type="number" min="0" step="1" value="0" name="cases-day${d}-room${r}" id="cases-day${d}-room${r}" required>
+                    <input type="number" min="0" max="${bedsPerRoom[r]}" step="1" value="0" name="cases-day${d}-room${r}" id="cases-day${d}-room${r}" required>
                 </td>`;
             }
             html += `</tr>`;

@@ -4,17 +4,6 @@ title: HW-OINK
 permalink: /oink/hw/
 ---
 
-<style>
-#rooms-section {
-    margin-top: 24px;
-}
-    
-#calendar-section {
-    margin-top: 24px;
-}
-    
-</style>
-
 # Hospital Ward (HW)-OINK (v0.1)
 <div style="font-size: 0.95em;">This webtool provides model-based estimates of transmission dynamics for respiratory virus outbreaks in hospital wards.<br><br></div>
 
@@ -24,12 +13,12 @@ permalink: /oink/hw/
 ### Upload Existing Data
 <div style="display: flex; gap: 16px; margin-bottom: 16px;">
   <button style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
-    <svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align: middle;"><path fill="currentColor" d="M10 6l-4 4h3v8h2v-8h3l-4-4zm-8-4v2h16V2H2z"/></svg>
-    Upload Data
-  </button>
-  <button style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
     <svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align: middle;"><path fill="currentColor" d="M10 14l4-4h-3V2h-2v8H6l4 4zm-8 4v-2h16v2H2z"/></svg>
     Download Template
+  </button>
+  <button style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+    <svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align: middle;"><path fill="currentColor" d="M10 6l-4 4h3v8h2v-8h3l-4-4zm-8-4v2h16V2H2z"/></svg>
+    Upload Data
   </button>
 </div>
 
@@ -40,7 +29,7 @@ permalink: /oink/hw/
         <input type="number" id="num-rooms" min="1" max="8" value="1" required>
     </label>
 </form>
-<div id="rooms-section"></div>
+<div id="rooms-section" style="margin-top: 24px;"></div>
 
 ### Patient Information
 <div id="stay-durations-section">
@@ -67,7 +56,7 @@ permalink: /oink/hw/
         <input type="number" id="num-days" min="1" value="1" required>
     </label>
 </form>
-<div id="calendar-section"></div>
+<div id="calendar-section" style="margin-top: 24px;"></div>
 
 <style>
     table { border-collapse: collapse; margin-top: 20px; }

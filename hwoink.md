@@ -167,7 +167,7 @@ function generateCalendar() {
             <th>Date</th>`;
     for (let r = 0; r < numRooms; r++) {
         const beds = bedsPerRoom[r] || 0;
-        html += `<th>Room ${r + 1}<br><em>(${beds} bed${beds != 1 ? 's' : ''})</em></th>`;
+        html += `<th>Room ${r + 1}<br><span style="font-weight: normal;">(${beds} bed${beds != 1 ? 's' : ''})</span></th>`;
     }
     html += `</tr>`;
 

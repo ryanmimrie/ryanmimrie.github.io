@@ -10,9 +10,6 @@ permalink: /oink/hw/
     border-radius: 6px;
     padding: 4px 8px;
     background: white;
-    appearance: none;      /* Remove most default styling (for modern browsers) */
-    -webkit-appearance: none; /* For Safari/Chrome */
-    -moz-appearance: none;    /* For Firefox */
 }
 </style>
 

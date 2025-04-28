@@ -16,7 +16,6 @@ permalink: /oink/hw/
         <input type="number" id="num-rooms" min="1" value="1" required>
     </label>
 </form>
-<br>
 <div id="rooms-section"></div>
 
 ### Outbreak Information
@@ -31,7 +30,6 @@ permalink: /oink/hw/
         <input type="number" id="num-days" min="1" value="1" required>
     </label>
 </form>
-<br>
 <div id="calendar-section"></div>
 
 <style>

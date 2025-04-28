@@ -8,7 +8,7 @@ permalink: /about/
 
 <div style="display: flex; align-items: center;">
   <div style="font-size: 0.95em; flex: 1;">
-    I am a virologist currently working at the MRC-University of Glasgow Centre for Virus Research in Pablo Murcia's research group, where I am building within-host mathematical models of acute virus infection.
+    I am a virologist currently working at the MRC-University of Glasgow Centre for Virus Research in Chris Illingworth's research group, where I am building within and across host mathematical models of acute virus infection.
     <br><br>
     My academic career began with a Ph.D. in Biological Sciences at the University of Exeter, supervised by Ben Longdon, where I studied sources of variation in the outcomes of infection across host species using a <em>Drosophilidae</em> model experimental system.
     <br><br>

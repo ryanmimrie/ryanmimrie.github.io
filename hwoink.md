@@ -209,63 +209,72 @@ document.getElementById('upload-xlsx').addEventListener('change', function(e) {
   reader.onload = function(evt) {
     const data = new Uint8Array(evt.target.result);
     const workbook = XLSX.read(data, {type: 'array'});
-
-    // Assume first sheet
     const sheet = workbook.Sheets[workbook.SheetNames[0]];
     const json = XLSX.utils.sheet_to_json(sheet, {header:1});
 
-    // 1. Parse number of rooms from ROOM table (A2:A9, blank for unused)
-    let roomRows = [];
-    for (let i = 1; i < 9; ++i) {
-      const room = json[i] ? json[i][0] : "";
-      const beds = json[i] ? json[i][1] : "";
-      if (room && beds) roomRows.push({room, beds});
-    }
-    document.getElementById('num-rooms').value = roomRows.length;
-    generateRoomsUI();
-    roomRows.forEach((row, idx) => {
-      const bedInput = document.getElementById('beds-room-' + idx);
-      if (bedInput) bedInput.value = row.beds;
-    });
-
-    // 2. Patient stays from C2:C9 (match number of rooms)
-    let stays = [];
-    for (let i = 1; i <= roomRows.length; ++i) {
-      if (json[i] && json[i][2]) stays.push(json[i][2]);
-    }
-    document.getElementById('stay-durations').value = stays.join(', ');
-
-    // 3. Outbreak info: F2:Fx (dates), G2:...N2:... (cases)
-    // Find where DATE row starts (header 'DATE')
-    let dateRow = -1;
-    for (let i = 0; i < json.length; ++i) {
-      if (json[i] && json[i][5] && json[i][5].toString().toUpperCase().includes("DATE")) {
-        dateRow = i;
+    // 1. Number of rooms = non-empty values in B2:B9
+    let numRooms = 0;
+    let bedsPerRoom = [];
+    for (let i = 1; i <= 8; i++) { // B2:B9 => json[1][1] to json[8][1]
+      const beds = json[i]?.[1];
+      if (beds !== undefined && beds !== "" && beds != null) {
+        numRooms++;
+        bedsPerRoom.push(beds);
+      } else {
         break;
       }
     }
-    if (dateRow > 0) {
-      let dates = [];
-      for (let i = dateRow + 1; i < json.length; ++i) {
-        const row = json[i];
-        if (!row || !row[5]) break;
-        dates.push(row[5]);
-      }
-      if (dates.length) {
-        // set start-date to first date, num-days to count
-        document.getElementById('start-date').value = new Date(dates[0]).toISOString().slice(0,10);
-        document.getElementById('num-days').value = dates.length;
-        generateCalendar();
+    document.getElementById('num-rooms').value = numRooms;
+    generateRoomsUI();
+    // Set beds per room
+    for (let i = 0; i < numRooms; ++i) {
+      const bedInput = document.getElementById('beds-room-' + i);
+      if (bedInput) bedInput.value = bedsPerRoom[i];
+    }
 
-        // Populate cases
-        for (let d = 0; d < dates.length; ++d) {
-          for (let r = 0; r < roomRows.length; ++r) {
-            // G = index 6
-            const val = (json[dateRow + 1 + d][6 + r]) || 0;
-            const input = document.getElementById(`cases-day${d}-room${r}`);
-            if (input) input.value = val;
-          }
-        }
+    // 2. Stay durations: D2 downwards, until a blank
+    let stayDurations = [];
+    for (let i = 1; i < json.length; ++i) { // D2 => json[1][3]
+      const stay = json[i]?.[3];
+      if (stay !== undefined && stay !== "" && stay != null) {
+        stayDurations.push(stay);
+      } else {
+        break;
+      }
+    }
+    document.getElementById('stay-durations').value = stayDurations.join(', ');
+
+    // 3. Start date: F2 (json[1][5])
+    const startDate = json[1]?.[5];
+    if (startDate) {
+      // Format date to yyyy-mm-dd for <input type="date">
+      const excelDate = new Date(startDate);
+      let yyyy = excelDate.getFullYear();
+      let mm = String(excelDate.getMonth() + 1).padStart(2, '0');
+      let dd = String(excelDate.getDate()).padStart(2, '0');
+      document.getElementById('start-date').value = `${yyyy}-${mm}-${dd}`;
+    }
+
+    // 4. Number of days: count rows from F2 down until blank
+    let numDays = 0;
+    for (let i = 1; i < json.length; ++i) {
+      const dayVal = json[i]?.[5];
+      if (dayVal !== undefined && dayVal !== "" && dayVal != null) {
+        numDays++;
+      } else {
+        break;
+      }
+    }
+    document.getElementById('num-days').value = numDays;
+    generateCalendar();
+
+    // 5. Cases by date for each room (G to N = columns 6 to 13, zero-based)
+    for (let day = 0; day < numDays; ++day) {
+      const row = json[1 + day];
+      for (let r = 0; r < numRooms; ++r) {
+        const casesVal = row?.[6 + r] ?? 0; // G is 6, H is 7, etc.
+        const input = document.getElementById(`cases-day${day}-room${r}`);
+        if (input) input.value = casesVal;
       }
     }
   };

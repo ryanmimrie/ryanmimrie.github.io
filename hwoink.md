@@ -385,65 +385,56 @@ function getFormDataForXLSX() {
 
 // --- BUILD XLSX SHEET DATA ---
 function makeHWOINKSheetData(formData) {
-  // XLSX columns: [A,B,C,D,E,F,G,H,I...P] etc.
-  // Row 1: Headers (optional)
-  // Row 2..: Data, following your described format
-  // Columns:
-  // B: Beds per room (rows 2-9)
-  // D: Stay durations (rows 2..)
-  // F: Virus (row 2)
-  // H: Date (rows 2..)
-  // I-P: Cases per room per day
-
-  // Build initial empty sheet
+  // Constants
   const maxRooms = 8;
-  const ws = [];
-  ws[0] = []; // header, could fill in if needed
+  const maxCaseCols = 8;
 
-  // 1. Beds per room (B2:B9)
-  for (let i = 0; i < maxRooms; ++i) {
-    ws[i + 1] = [];
-    ws[i + 1][1] = (i < formData.bedsPerRoom.length) ? formData.bedsPerRoom[i] : '';
+  // 1. Build header row
+  // A1: ROOM, B1: NUMBER OF BEDS, D1: PATIENT STAYS (DAYS), F1: VIRUS, H1: DATE, I1–P1: CASES ROOM 1–8
+  const header = [];
+  header[0] = "ROOM";                   // A1
+  header[1] = "NUMBER OF BEDS";         // B1
+  header[3] = "PATIENT STAYS (DAYS)";   // D1
+  header[5] = "VIRUS";                  // F1
+  header[7] = "DATE";                   // H1
+  for (let i = 0; i < maxCaseCols; ++i) {
+    header[8 + i] = `CASES ROOM ${i + 1}`; // I1–P1
   }
 
-  // 2. Stay durations (D2 downwards)
+  // 2. Build data rows (rows 2–(max needed))
+  const ws = [];
+  ws[0] = header;
+
+  // Room/beds rows (A2–A9 = 1–8, B2–B9 = beds)
+  for (let i = 0; i < maxRooms; ++i) {
+    const row = [];
+    row[0] = i + 1;                                     // ROOM number
+    row[1] = formData.bedsPerRoom[i] || "";             // Number of beds for each room (blank if not filled)
+    ws[i + 1] = row;
+  }
+
+  // Stay durations (D2 downwards)
   for (let i = 0; i < formData.stayDurations.length; ++i) {
     if (!ws[i + 1]) ws[i + 1] = [];
     ws[i + 1][3] = formData.stayDurations[i];
   }
 
-  // 3. Virus (F2)
+  // Virus (F2)
   if (!ws[1]) ws[1] = [];
   ws[1][5] = formData.virus;
 
-  // 4. Dates (H2 downwards), Cases (I..P)
+  // Dates and case data (starting from row 2, H and I–P)
   let currDate = new Date(formData.startDate);
   for (let d = 0; d < formData.numDays; ++d) {
+    // Row for each date/cases
     if (!ws[d + 1]) ws[d + 1] = [];
-    // H: date (Excel expects as string)
-    ws[d + 1][7] = currDate.toISOString().slice(0, 10); // YYYY-MM-DD
-    // I onward: cases per room
+    ws[d + 1][7] = currDate.toISOString().slice(0, 10); // H = date
     for (let r = 0; r < formData.numRooms; ++r) {
       ws[d + 1][8 + r] = formData.cases[d][r];
     }
-    // advance date
     currDate.setDate(currDate.getDate() + 1);
   }
 
   return ws;
 }
 
-// --- DOWNLOAD HANDLER ---
-document.getElementById('download-xlsx-btn').addEventListener('click', function() {
-  const formData = getFormDataForXLSX();
-  const ws_data = makeHWOINKSheetData(formData);
-  const ws = XLSX.utils.aoa_to_sheet(ws_data);
-
-  // Optional: set column headers for clarity, or match your upload template
-  ws['A1'] = { v: "" }; // keep first row blank or fill headers as desired
-
-  const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
-  XLSX.writeFile(wb, 'HWOINK_Data.xlsx');
-});
-</script>

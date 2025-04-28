@@ -21,13 +21,12 @@ permalink: /oink/hw/
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 ## Data Entry
-### Upload Existing Data
 
-<div style="display: flex; gap: 16px; margin-top: 16px; margin-bottom: 16px;">
-  <button>
+<div style="display: flex; gap: 16px; margin-bottom: 16px;">
+  <button style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer;">
     Upload Data
   </button>
-  <button>
+  <button style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer;">
     Download Template
   </button>
 </div>

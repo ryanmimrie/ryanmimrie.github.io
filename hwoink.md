@@ -105,7 +105,7 @@ document.getElementById('upload-btn').onclick = function() {
 </button>
 
 ## Run Model
-<button>
+<button style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px;">
 Run Model
 </button>
 

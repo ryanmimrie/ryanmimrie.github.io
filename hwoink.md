@@ -26,7 +26,7 @@ permalink: /oink/hw/
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 
 ## Data Entry
-### Upload Existing Data
+### Upload Data from File
 <div style="display: flex; gap: 16px; margin-bottom: 16px;">
   <a href="/assets/files/HWOINK_Template.xlsx" download
      style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px; background: #2ecc71; color: white; text-decoration: none;">
@@ -49,7 +49,9 @@ document.getElementById('upload-btn').onclick = function() {
   document.getElementById('upload-xlsx').click();
 };
 </script>
-### Ward Information
+
+### Manual Data Input
+#### Ward Information
 <form id="setup-form" onsubmit="return false;">
     <label>
         Number of Rooms:
@@ -58,7 +60,7 @@ document.getElementById('upload-btn').onclick = function() {
 </form>
 <div id="rooms-section" style="margin-top: 24px;"></div>
 
-### Patient Information
+#### Patient Information
 <div id="stay-durations-section">
     <label for="stay-durations">
         Patient stay durations (days, comma separated):<br>
@@ -71,7 +73,7 @@ document.getElementById('upload-btn').onclick = function() {
     </div>
 </div>
 
-### Outbreak Information
+#### Outbreak Information
 <label>
     Virus:
     <select id="virus-select">
@@ -96,11 +98,20 @@ document.getElementById('upload-btn').onclick = function() {
         Note: Record only the day of detection of each new case.
     </div>
 
-### Save Data
+#### Save Data to Template
 <button id="download-xlsx-btn" type="button"
   style="box-sizing: border-box; padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px; background: #2ecc71; color: white; text-decoration: none;">
   Download as XLSX
 </button>
+
+## Run Model
+<button>
+Run Model
+</button>
+
+## Results
+
+## Download Results
 
 <style>
     table { border-collapse: collapse; margin-top: 20px; }

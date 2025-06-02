@@ -4,9 +4,8 @@ title: Ryan M. Imrie
 ---
 
 # Projects
-## Compartmentalise
-<div class="project-card" style="display: flex; align-items: center; margin-bottom: 2em; padding: 1em; box-shadow: 2px 2px 8px rgba(0,0,0,0.05);">
-
+<div class="project-card" style="display: flex; align-items: center; margin-bottom: 2em; padding: 1em;">
+  <h2 style="margin-top: 0;">Compartmentalise</h2>
   <img src="{{ site.baseurl }}/assets/images/Icon_compartmentalise.jpg" alt="Compartmentalise icon" style="width: 150px; height: auto; border-radius: 4px; margin-right: 20px;">
 
   <div>

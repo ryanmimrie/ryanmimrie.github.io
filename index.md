@@ -13,7 +13,7 @@ title: Ryan M. Imrie
     <p>A tool for developing and simulating discrete-time stochastic compartment models of infectious disease, with support for complex parameter structures.</p>
     <a href="/compartmentalise" class="project-button">GitHub</a>
     <a href="/tutorials/compartmentalise"
-   style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; background-color: #ecf0f1; color: black; text-decoration: none;">
+   style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; background-color: #ecf0f1; color: #95a5a6; text-decoration: none;">
   Tutorial
 </a>
 

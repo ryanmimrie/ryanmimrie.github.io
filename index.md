@@ -11,8 +11,8 @@ title: Ryan M. Imrie
   <div>
     <h2 style="margin-top: 0;">Compartmentalise</h2>
     <p>A tool to efficiently develop and compute discrete-time stochastic compartment models, designed to support complex stratified structures.</p>
-    <a href="/compartmentalise" class="project-buttons">GitHub</a>
-    <a href="/tutorials/compartmentalise"
+    <a href="/compartmentalise" class="project-button">GitHub</a>
+    <a href="/tutorials/compartmentalise class="project-button-secondary"
    style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; background-color: #ecf0f1; color: #546b74; text-decoration: none;">
   Tutorial
 </a>
@@ -29,8 +29,7 @@ title: Ryan M. Imrie
     <h2 style="margin-top: 0;">HW-OINK (Hospital Ward Outbreak Inference)</h2>
     <p>A browser-based model of hospital ward transmission designed to support decision-making on ward closures and reopening.</p>
     <a href="/oink/hw" class="project-button">Webpage</a>
-    <a href="/tutorials/hwoink"
-   style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; background-color: #ecf0f1; color: #546b74; text-decoration: none;">
+    <a href="/tutorials/hwoink" class="project-button-secondary">
   Tutorial
 </a>
 

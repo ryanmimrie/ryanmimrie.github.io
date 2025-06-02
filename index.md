@@ -30,7 +30,7 @@ title: Ryan M. Imrie
   <div>
     <h2 style="margin-top: 0;">HW-OINK (Hospital Ward Outbreak Inference)</h2>
     <p>A browser-based hospital ward transmission model to aid in decision making around hospital ward closures and reopening.</p>
-    <a href="/oink/hw" class="project-button">GitHub</a>
+    <a href="/oink/hw" class="project-button">Webpage</a>
     <a href="/tutorials/hwoink"
    style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; background-color: #ecf0f1; color: black; text-decoration: none;">
   Tutorial
@@ -41,12 +41,4 @@ title: Ryan M. Imrie
   </div>
 
 </div>
-
-## HW-OINK (Hospital Ward Outbreak Inference)
-
-<a href="/oink/hw" class="project-button">HW-OINK</a>
-
-## MAVIs (Models of Acute Virus Infection)
-
-<a href="/whmavi/" class="project-button">Within-Host MAVI</a>
 

@@ -17,8 +17,6 @@ title: Ryan M. Imrie
   Tutorial
 </a>
 
-<button href="/tutorials/compartmentalise" id="upload-btn" type="button" style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px;">Upload Data</button>
-
   </div>
 
 </div>
@@ -32,11 +30,9 @@ title: Ryan M. Imrie
     <p>A browser-based model of hospital ward transmission designed to support decision-making on ward closures and reopening.</p>
     <a href="/oink/hw" class="project-button">Webpage</a>
     <a href="/tutorials/hwoink"
-   style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; background-color: #ecf0f1; color: black; text-decoration: none;">
+   style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; background-color: #ecf0f1; color: #546b74; text-decoration: none;">
   Tutorial
 </a>
-
-<button href="/tutorials/compartmentalise" id="upload-btn" type="button" style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px;">Upload Data</button>
 
   </div>
 

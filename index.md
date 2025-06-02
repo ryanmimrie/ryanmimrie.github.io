@@ -12,8 +12,8 @@ title: Ryan M. Imrie
   <div>
     <h2 style="margin-top: 0;">Compartmentalise</h2>
     <p>A dynamic tool for exploring compartmental models of infectious disease, designed for both research and teaching.</p>
-    <a href="/oink/hw" style="display: inline-block; padding: 8px 16px; background-color: #007ACC; color: white; border-radius: 4px; text-decoration: none;">Launch App</a>
-    <a href="https://github.com/ryanmimrie/ryanmimrie.github.io" style="margin-left: 10px; text-decoration: none; color: #555;">View on GitHub</a>
+    <a href="/oink/hw" style="display: inline-block; padding: 8px 16px; background-color: #007ACC; color: white; border-radius: 4px; text-decoration: none;">GitHub</a>
+    <a href="https://github.com/ryanmimrie/ryanmimrie.github.io" style="margin-left: 10px; text-decoration: none; color: #555;">Tutorial</a>
   </div>
 
 </div>

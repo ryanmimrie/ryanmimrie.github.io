@@ -17,6 +17,7 @@ title: Ryan M. Imrie
   Tutorial
 </a>
 
+<button id="upload-btn" type="button" style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px;">Upload Data</button>
 
   </div>
 

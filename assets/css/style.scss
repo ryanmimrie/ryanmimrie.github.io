@@ -3,6 +3,11 @@
 
 @import "{{ site.theme }}";
 
+* {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
 .project-button {
   background-color: #27ae60;
   color: #fff;

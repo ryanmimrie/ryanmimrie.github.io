@@ -10,7 +10,7 @@ title: Ryan M. Imrie
 
   <div>
     <h2 style="margin-top: 0;">Compartmentalise</h2>
-    <p>A tool for developing and simulating discrete-time stochastic compartment models, with support for complex stratified structures.</p>
+    <p>A tool to efficiently develop and compute discrete-time stochastic compartment models, designed to support complex stratified structures.</p>
     <a href="/compartmentalise" class="project-button">GitHub</a>
     <a href="/tutorials/compartmentalise"
    style="padding: 12px 24px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; background-color: #ecf0f1; color: #7f8c8d; text-decoration: none;">

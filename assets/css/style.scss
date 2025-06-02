@@ -32,9 +32,28 @@
     border-color: rgba(255, 255, 255, 0.3);
 }
 
-@media (max-width: 768px) {
-  .project-button {
-    width: 100%;
-    margin-top: 10px;
-  }
+.project-button-secondary {
+  background-color: #ecf0f1;
+  color: #546b74;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.project-button-secondary:hover {
+  background-color: #bdc3c7;
+  text-decoration: none;
+}
+
+.project-button-secondary:active {
+  background-color: #bdc3c7;
+  text-decoration: none;
 }

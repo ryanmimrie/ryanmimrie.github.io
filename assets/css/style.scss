@@ -3,10 +3,11 @@
 
 @import "{{ site.theme }}";
 
-* {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+.page-header {
+  background-image: linear-gradient(135deg, #3498db, #1abc9c);
+  background-color: #3498db; /* fallback for old browsers */
 }
+
 
 .project-button {
   background-color: #27ae60;

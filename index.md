@@ -6,6 +6,17 @@ title: Ryan M. Imrie
 # Projects
 
 <div class="project-card" style="display: flex; align-items: center; margin-bottom: 2em; padding: 1em;">
+  <img src="{{ site.baseurl }}/assets/images/Icon_compartmentaliseGUI.jpg" alt="Compartmentalise icon" style="width: 150px; height: auto; border-radius: 4px; margin-right: 20px;">
+  <div>
+    <h2 style="margin-top: 0; overflow-wrap: break-word;">Compartmentalise GUI</h2>
+    <p>A GUI version of the Compartmentalise modeling tool, allowing complex discrete-time stochastic models to be built, parameterised, and run without code.</p>
+    <a href="/compartmentalise" class="project-button">GitHub</a>
+    <a href="/tutorials/compartmentalise" class="project-button-secondary">Tutorial</a>
+  </div>
+</div>
+
+
+<div class="project-card" style="display: flex; align-items: center; margin-bottom: 2em; padding: 1em;">
   <img src="{{ site.baseurl }}/assets/images/Icon_compartmentalise.jpg" alt="Compartmentalise icon" style="width: 150px; height: auto; border-radius: 4px; margin-right: 20px;">
   <div>
     <h2 style="margin-top: 0; overflow-wrap: break-word;">Compartmentalise</h2>
